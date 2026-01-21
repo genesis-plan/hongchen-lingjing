@@ -1,52 +1,60 @@
-🏮 技能传承卷轴 | Skill Inheritance Scroll
-— 呈递至「红尘灵境」元宇宙・Submit to the « Hongchen Lingjing » Metaverse —
-欢迎你，创世伙伴。这份卷轴是你技能的数字铭刻，它将融入赛博国风的血脉，供全球学习者瞻仰、研习与传承。请以匠心填写。
-Welcome, co-creator. This scroll is the digital engraving of your skill, to be integrated into the cyberpunk-Chinese lineage for global learners to study and pass on. Please fill it with craftsmanship.
-📜 第一部分：技能本源 | Part 1: Skill Essence
-此部分定义技能的根基。This section defines the foundation of the skill.
-字段	Field	填写指引	Guidelines
-技能名称	Skill Name	（中英双语佳，如：榫卯基础・Basics of Mortise and Tenon）	(Bilingual preferred)
-技能类别	Category	请精准选择一项，这关乎传承脉络：
-• 传统非遗 - 根植于中华文明（如：书法、古琴、篆刻）
-• 现代技术 - 当代数字或工程技艺（如：开源硬件、数据可视化）
-• 海外特色 - 世界其他文化的独特技艺（如：日本金继、意式咖啡）	Choose precisely for lineage:
-• Traditional Heritage
-• Modern Technology
-• Global Specialty
-贡献者	Contributor	你的 GitHub ID 或常用名，这将是你在此元宇宙中的创世印记。	Your GitHub ID or common name, your Genesis Mark.
-技能价值简述	Core Value	用一两句话阐述：为何此技能值得在数字时代被传承？	In 1-2 sentences: Why is this skill worth preserving in the digital age?
-🪜 第二部分：传承阶梯 | Part 2: Inheritance Ladder
-我们将传承分为三级，如同修炼的境界。We stratify inheritance into three levels, akin to realms of cultivation.
-🟢 第一境：入门・Apprentice Realm
-目标：让零基础者能完成第一次成功实践。Goal: Enable a beginner's first successful attempt.
-核心步骤 | Core Steps: （请分点列出 3-5 个最关键的、可操作的动作）
-必备工具与材料 | Tools & Materials: （列出最基础、易获取的清单）
-安全与初心提示 | Safety & Mindset: （任何安全警告或重要的初始心态）
-🟡 第二境：进阶・Artisan Realm
-目标：帮助已有基础者提升效率与成品水准。Goal: Help practitioners improve efficiency and quality.
-优化心法 | Optimization Insights: （你的独家技巧、节省时间的窍门）
-常见问题解惑 | Common Pitfalls & Solutions: （你曾踩过的 “坑” 及解决方法）
-🔴 第三境：传承・Master Realm
-目标：阐释技能背后的文化、哲学与不可言传的 “火候”。Goal: Explain the culture, philosophy, and intuition behind the skill.
-文化源流 | Cultural Context: （此项技能在历史或特定文化中的故事与地位）
-传承之难 | The Hardest to Pass On: （最难用文字描述，必须亲身感受的微妙之处是什么？）
-赛博国风畅想 | Cyberpunk-Chinese Vision: （可选但鼓励 | Optional but encouraged） 想象此技能在未来的「红尘灵境」中，如何与数字科技、虚拟空间结合？产生何种新形态？
-🧪 第三部分：证明与链接 | Part 3: Proof & Links
-让传承可被验证，让学习拥有门径。Make inheritance verifiable and learning accessible.
-（至少需提供一项）| (At least one required)
- 作品图像 | Work Image: （链接至清晰作品图，可托管于 GitHub 或稳定图床）
- 过程影像 | Process Video: （链接至教学视频，B 站 / YouTube 等平台均可）
- 代码仓库 | Code Repository: （如为现代技术类技能，链接至相关 GitHub 项目）
- 传承谱系 | Lineage Proof: （如为非遗，可简述师承脉络或提供相关文献链接）
-✨ 示例：传统剪纸入门 | Example: Traditional Paper-Cutting
-供你参考填写方式。For your reference.
-技能名称： 吉祥纹样剪纸入门・Basic Auspicious Pattern Paper-Cutting
-类别： 传统非遗
-第一境 - 核心步骤： 1. 选择红色宣纸与设计图样；2. 固定纸张与图样；3. 按从内到外、从细到粗的顺序下剪；4. 小心展开作品，平整装裱保存。
-第三境 - 赛博国风畅想： 在未来，学习者可在 VR 中徒手 “抓取” 光晕进行虚拟雕刻，算法可将二维剪纸实时生成三维镂空建筑模型，古老的对称美学将在虚拟空间中无限生长。
-⚖️ 提交即同意 | Submission Equals Agreement
-我确保此技能内容为原创或已获合法授权，并符合中国法律法规。
-我理解并认同 「中国主导、全球传承」 的项目初心，同意技能文档在 MIT License 下开放共享。
-我知晓项目将建立 贡献者协议 (CLA)，以明确版权归属，并同意在未来签署该协议。
-将此卷轴提交至「红尘灵境」，即视为你为这个数字文明的初火，添上了一束永恒的光。
-Submitting this scroll to « Hongchen Lingjing » signifies you have added an eternal flame to the nascent fire of this digital civilization.
+### 🏮 技能传承卷轴 | Skill Inheritance Scroll
+**呈递至「红尘灵境」元宇宙 | Submit to the « Hongchen Lingjing» Metaverse**
+
+欢迎你，创世伙伴。请通过这份卷轴，将你所掌握的一项技能，转化为数字时代可传承的知识。
+Welcome, co-creator. Through this scroll, transform a skill you possess into knowledge for the digital age.
+
+---
+
+## 📜 第一部分：技能核心 | Part 1: Skill Core
+*请简要告诉我们这是什么技能。Please briefly tell us about this skill.*
+
+| 字段 | 填写指引 | Field | Guidelines |
+| :--- | :--- | :--- | :--- |
+| **技能名称** | 清晰易懂，中英双语更佳。<br>（例：家庭水培种植 | Hydroponics for Beginners） | **Skill Name** | Clear and understandable. Bilingual is better. |
+| **技能类别** | **请选择一项最接近的：**<br>• 手工艺（如木工、刺绣）<br>• 数字技能（如编程、设计）<br>• 生活技艺（如种植、烹饪）<br>• 传统文化（如书法、民乐）<br>• 其他 | **Category** | **Choose the closest one:**<br>• Handicraft<br>• Digital Skill<br>• Life Skill<br>• Traditional Culture<br>• Other |
+| **贡献者** | 你的名字或网络ID（如GitHub用户名）。 | **Contributor** | Your name or online ID (e.g., GitHub username). |
+| **一句话价值** | 这项技能能为学习者带来什么？<br>（例：“让都市人在阳台获得新鲜蔬菜。”） | **One-Sentence Value** | What does this skill bring to learners?<br>(e.g., “Enables urban dwellers to grow fresh vegetables on their balcony.”) |
+
+---
+
+## 🪜 第二部分：传承阶梯 | Part 2: Inheritance Ladder
+*请按你的理解，分享不同阶段的关键。Share key points for different stages as you see fit.*
+
+### 🟢 第一境：入门 · How to Start
+*目标：让一个完全的新手能开始尝试并完成第一次。Goal: Enable a complete beginner to try and complete their first attempt.*
+- **核心步骤 (3-5步) | Core Steps (3-5 steps):**
+- **所需工具/材料 | Tools/Materials Needed:**
+- **最重要的安全或心态提示 | Top Safety or Mindset Tip:**
+
+### 🟡 第二境：进阶 · How to Get Better
+*目标：帮助已经入门的人提升效果和效率。Goal: Help those who have started to improve results and efficiency.*
+- **你的独家技巧或窍门 | Your Personal Tips or Tricks:**
+- **一个常见问题及解决方法 | One Common Pitfall & Solution:**
+
+### 🔴 第三境：精髓 · The Essence (可选 Optional)
+*目标：分享这项技能背后的文化、哲学或最微妙的体验。Goal: Share the culture, philosophy, or most subtle experience behind this skill.*
+- **文化故事或哲学 | Cultural Story or Philosophy:**
+- **最难言传的“手感”或“火候” | The Hardest “Feel” to Describe:**
+- **未来畅想：在元宇宙中，这项技能会如何演化？| Future Vision: How might this skill evolve in the metaverse?**
+
+---
+
+## 🔗 第三部分：证明与延伸 | Part 3: Proof & Extension
+*（选填，但能让你的技能更可信、更易学。Optional, but makes your skill more credible and learnable.)*
+- **作品图片链接 | Link to a photo of your work:**
+- **教学视频链接 | Link to a tutorial video:**
+- **相关代码或文章链接 | Link to related code or article:**
+
+---
+
+## ✅ 提交确认 | Submission Confirmation
+我承诺，以上所填内容为我原创或已获授权。
+I affirm that the above content is my original work or I have obtained permission.
+
+我理解，我的贡献将根据项目 **[贡献者指南](./CONTRIBUTING.md)** 和 **[知识产权声明](./COPYRIGHT.md)** 的条款进行共享，以促进开源知识传承。
+I understand that my contribution will be shared under the terms of the project‘s **[Contributor Guide](./CONTRIBUTING.md)** and **[Intellectual Property Statement](./COPYRIGHT.md)** to foster open-source knowledge inheritance.
+
+**感谢你的贡献！你的技能将成为这个新生宇宙的一部分。**
+**Thank you for your contribution! Your skill will become part of this nascent universe.**
+
