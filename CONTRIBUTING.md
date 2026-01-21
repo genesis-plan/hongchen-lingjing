@@ -1,5 +1,3 @@
-
-
 # 🤝 Contributing to 红尘灵境 / Hongchen Lingjing: The Genesis Guide
 
 欢迎，未来的创世伙伴。Welcome, future genesis partner. 本文档是你参与这场伟大数字创世实验的地图与契约。This document is your map and covenant for participating in this great digital genesis experiment.
@@ -48,7 +46,7 @@
 
 ### 6. 🌈 The Pioneer of Possibility | 其他：无限可能的开拓者
 *   **做什么**：**你的角色，由你来定义。** 游戏化经济学家？虚拟社会哲学家？教育生态连接者？如果你带来的价值超越上述分类，这里就是你的舞台。**Your role, defined by you.** A gamification economist? A virtual society philosopher? An education ecosystem connector?
-*   **如何开始**：在 [项目讨论区](https://github.com/genesis-plan/hongchen-lingjing/discussions) 发起一个话题，大胆提出你的构想，我们将与你共同将其变为一个全新的“创世任务”。Start a Discussion and let’s co-create a new genesis mission.
+*   **如何开始**：在 [项目讨论区](https://github.com/genesis-plan/hongchen-lingjing/discussions) 发起一个话题，大胆提出你的构想，我们将与你共同将其变为一个全新的“创世任务”。Start a Discussion and let's co-create a new genesis mission.
 
 ## 📝 Contribution Workflow | 贡献流程
 
@@ -68,7 +66,3 @@
 1.  在 [讨论区](https://github.com/genesis-plan/hongchen-lingjing/discussions) 说声 Hello。
 2.  查看 [“good-first-issue”](https://github.com/genesis-plan/hongchen-lingjing/issues?q=is:open+is:issue+label:good-first-issue) 列表，认领你的第一个任务。
 3.  提出你那个独一无二的构想。Propose your unique idea.
-
----
-
-**使用方法建议**：你可以直接使用此文案，或将其精髓融入你后续的宣传视频、社交帖子及社区公告中，作为项目成熟、国际化的形象展示。期待看到你的“世界”因多元贡献而蓬勃发展。
