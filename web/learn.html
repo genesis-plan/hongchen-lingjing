@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考工实训庐 - 技能学习 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .learning-header {
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .learning-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .skill-title {
+            font-size: 32px;
+            color: #e94560;
+        }
+        
+        .progress-bar {
+            max-width: 600px;
+            margin: 30px auto;
+            background: rgba(255,255,255,0.1);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            margin-top: 10px;
+        }
+        
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .main-content {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .lesson-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .lesson-content {
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .sidebar-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-card h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        
+        .lesson-list {
+            list-style: none;
+        }
+        
+        .lesson-list li {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .lesson-list li:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .lesson-list li.active {
+            background: rgba(233, 69, 96, 0.2);
+        }
+        
+        .lesson-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .lesson-status.completed { background: #22c55e; }
+        .lesson-status.current { background: #e94560; }
+        .lesson-status.pending { background: rgba(255,255,255,0.2); }
+        
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            color: #fff;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        
+        .典籍 {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">🛠️ 考工实训庐</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/profile">个人主页</a>
+            </div>
+        </nav>
+        
+        <div class="learning-header">
+            <h1>正在学习</h1>
+            <div class="skill-title" id="skillName">请从技能库选择一个技能</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="progress-text">学习进度: <span id="progressText">0%</span></div>
+        </div>
+        
+        <div class="content-layout">
+            <div class="main-content">
+                <div class="video-placeholder" id="videoArea">
+                    ▶️
+                </div>
+                <h2 class="lesson-title" id="lessonTitle">第一课：入门介绍</h2>
+                <div class="lesson-content" id="lessonContent">
+                    <p>欢迎来到考工实训庐！这里是学习技能的地方。</p>
+                    <p>请从右侧课程列表选择一节课开始学习。完成每一节课后，你可以提交作业，师傅会为你点评。</p>
+                    <p>记住：百炼成钢，只有不断练习才能真正掌握一门技能。</p>
+                </div>
+                
+                <div class="action-btns">
+                    <button class="btn btn-secondary" onclick="prevLesson()">上一课</button>
+                    <button class="btn btn-primary" onclick="completeLesson()">完成学习</button>
+                    <button class="btn btn-secondary" onclick="nextLesson()">下一课</button>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="sidebar-card">
+                    <h3>📚 课程目录</h3>
+                    <ul class="lesson-list" id="lessonList">
+                        <li class="active">
+                            <span class="lesson-status current">▶</span>
+                            <span>第一课：入门介绍</span>
+                        </li>
+                        <li>
+                            <span class="lesson-status pending"></span>
+                            <span>第二课：基础理论</span>
+                        </li>
+                        <li>
+                            <span class="lesson-status pending"></span>
+                            <span>第三课：动手实践</span>
+                        </li>
+                        <li>
+                            <span class="lesson-status pending"></span>
+                            <span>第四课：进阶技巧</span>
+                        </li>
+                        <li>
+                            <span class="lesson-status pending"></span>
+                            <span>第五课：综合练习</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card">
+                    <h3>👤 师傅信息</h3>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #e94560, #ff6b9d); display: flex; align-items: center; justify-content: center;">👤</div>
+                        <div>
+                            <div style="font-weight: bold;">等待匹配师傅</div>
+                            <div style="font-size: 12px; color: rgba(255,255,255,0.5);">完成入门课后自动匹配</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-card">
+                    <h3>📝 作业提交</h3>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 10px;">完成练习后提交作业，师傅会为你点评。</p>
+                    <button class="btn btn-primary" style="width: 100%;">提交作业</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="典籍">
+            《考工记》："审曲面势，以饬五材，以辨民器，谓之百工。"
+        </div>
+    </div>
+    
+    <script>
+        let currentLesson = 0;
+        let progress = 0;
+        
+        const lessons = [
+            { title: '第一课：入门介绍', content: '欢迎来到考工实训庐！这里是学习技能的地方。请从右侧课程列表选择一节课开始学习。' },
+            { title: '第二课：基础理论', content: '在开始实践之前，我们需要理解这个技能的基本原理。理论是实践的基础。' },
+            { title: '第三课：动手实践', content: '现在开始动手练习！记住，百炼成钢，只有不断练习才能真正掌握。' },
+            { title: '第四课：进阶技巧', content: '掌握了基础后，我们来学习一些进阶技巧，让你的技能更上一层楼。' },
+            { title: '第五课：综合练习', content: '综合运用所学知识，完成一个完整的作品或项目。' }
+        ];
+        
+        function loadLesson(index) {
+            currentLesson = index;
+            const lesson = lessons[index];
+            document.getElementById('lessonTitle').textContent = lesson.title;
+            document.getElementById('lessonContent').innerHTML = `<p>${lesson.content}</p>`;
+            
+            // 更新课程列表状态
+            document.querySelectorAll('.lesson-list li').forEach((li, i) => {
+                li.classList.remove('active');
+                const status = li.querySelector('.lesson-status');
+                status.className = 'lesson-status';
+                
+                if (i < index) {
+                    status.classList.add('completed');
+                    status.textContent = '✓';
+                } else if (i === index) {
+                    li.classList.add('active');
+                    status.classList.add('current');
+                    status.textContent = '▶';
+                } else {
+                    status.classList.add('pending');
+                    status.textContent = '';
+                }
+            });
+        }
+        
+        function completeLesson() {
+            progress = Math.min(100, ((currentLesson + 1) / lessons.length) * 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = Math.round(progress) + '%';
+            
+            if (currentLesson < lessons.length - 1) {
+                nextLesson();
+            } else {
+                alert('恭喜！你已完成本技能的所有课程！');
+            }
+        }
+        
+        function nextLesson() {
+            if (currentLesson < lessons.length - 1) {
+                loadLesson(currentLesson + 1);
+            }
+        }
+        
+        function prevLesson() {
+            if (currentLesson > 0) {
+                loadLesson(currentLesson - 1);
+            }
+        }
+        
+        // 点击课程列表
+        document.querySelectorAll('.lesson-list li').forEach((li, index) => {
+            li.addEventListener('click', () => loadLesson(index));
+        });
+        
+        // 从URL获取技能名称
+        const urlParams = new URLSearchParams(window.location.search);
+        const skillName = urlParams.get('skill');
+        if (skillName) {
+            document.getElementById('skillName').textContent = skillName;
+        }
+    </script>
+</body>
+</html>

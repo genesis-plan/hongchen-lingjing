@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天工开物坊 - 上传技能 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .form-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .tags-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .tag {
+            padding: 8px 15px;
+            background: rgba(233, 69, 96, 0.2);
+            border-radius: 20px;
+            color: #e94560;
+            font-size: 14px;
+        }
+        
+        .upload-area {
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-area:hover {
+            border-color: #e94560;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .典籍 {
+            text-align: center;
+            margin-top: 20px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">✨ 天工开物坊</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/profile">个人主页</a>
+            </div>
+        </nav>
+        
+        <div class="header">
+            <h1>✨ 上传你的技能</h1>
+            <p>《天工开物》创造万物 - 成为师傅，传承你的技艺</p>
+        </div>
+        
+        <div class="form-card">
+            <form id="skillForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>技能名称 *</label>
+                    <input type="text" name="name" placeholder="例如：Python数据分析" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>技能描述 *</label>
+                    <textarea name="description" placeholder="详细描述这个技能的内容、用途、学习价值..." required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>分类 *</label>
+                        <select name="category" required>
+                            <option value="">选择分类</option>
+                            <option value="traditional">传统文化</option>
+                            <option value="tech">技术技能</option>
+                            <option value="health">健康养生</option>
+                            <option value="lifestyle">生活技能</option>
+                            <option value="art">艺术创作</option>
+                            <option value="finance">金融理财</option>
+                            <option value="language">语言学习</option>
+                            <option value="craft">手工艺</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>难度等级</label>
+                        <select name="difficulty">
+                            <option value="beginner">入门</option>
+                            <option value="intermediate">进阶</option>
+                            <option value="advanced">高级</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>标签（用逗号分隔）</label>
+                    <input type="text" name="tags" placeholder="例如：Python, 数据分析, 可视化">
+                </div>
+                
+                <div class="form-group">
+                    <label>封面图片</label>
+                    <div class="upload-area" onclick="document.getElementById('coverInput').click()">
+                        <div style="font-size: 40px; margin-bottom: 10px;">📷</div>
+                        <p>点击上传封面图片</p>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.5);">支持 JPG, PNG, 最大 5MB</p>
+                    </div>
+                    <input type="file" id="coverInput" accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="form-group">
+                    <label>教学视频链接（可选）</label>
+                    <input type="url" name="videoUrl" placeholder="https://...">
+                </div>
+                
+                <button type="submit" class="btn">提交技能</button>
+            </form>
+            
+            <div class="典籍">
+                《天工开物》："天覆地载，物数号万，而事亦因之。"
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = 'https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com';
+        
+        async function handleSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            
+            const skill = {
+                name: form.name.value,
+                description: form.description.value,
+                category: form.category.value,
+                difficulty: form.difficulty.value,
+                tags: form.tags.value.split(',').map(t => t.trim()).filter(t => t),
+                videoUrl: form.videoUrl.value,
+                author: localStorage.getItem('username') || '匿名用户',
+                status: 'pending',
+                likes: 0,
+                createdAt: new Date().toISOString()
+            };
+            
+            try {
+                const res = await fetch(API_BASE + '/skills', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'create', data: skill })
+                });
+                const result = await res.json();
+                
+                if (result.success) {
+                    alert('技能提交成功！等待审核通过后将会显示在技能库中。');
+                    form.reset();
+                } else {
+                    alert('提交失败：' + (result.message || '未知错误'));
+                }
+            } catch (err) {
+                alert('网络错误，请稍后重试');
+            }
+        }
+    </script>
+</body>
+</html>
