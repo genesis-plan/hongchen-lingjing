@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红尘灵境 - 技能传承元宇宙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 导航 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        
+        /* 英雄区 */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* 14建筑 */
+        .buildings {
+            padding: 60px 0;
+        }
+        
+        .buildings h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+        
+        .buildings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .building-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .building-card:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2);
+        }
+        
+        .building-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #e94560;
+        }
+        
+        .building-card .role {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 10px;
+        }
+        
+        .building-card p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        
+        .building-card .典籍 {
+            margin-top: 15px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+        
+        /* 统计 */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #e94560;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 10px;
+        }
+        
+        /* 紫薇 */
+        .ziwei {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(233, 69, 96, 0.2));
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .ziwei h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .ziwei-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #9333ea, #e94560);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        
+        .ziwei-status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        /* 底部 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+        
+        footer a {
+            color: #e94560;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航 -->
+        <nav>
+            <div class="logo">💜 红尘灵境</div>
+            <div class="nav-links">
+                <a href="#buildings">14建筑</a>
+                <a href="#skills">技能库</a>
+                <a href="#ziwei">紫薇</a>
+                <a href="https://github.com/genesis-plan/hongchen-lingjing">GitHub</a>
+            </div>
+        </nav>
+        
+        <!-- 英雄区 -->
+        <section class="hero">
+            <h1>🌍 让技能跨越虚拟与现实</h1>
+            <p>红尘灵境是一个以技能传承为核心的开源元宇宙，让技能突破地域、时间、师资、体感的限制，实现全球无壁垒传承。</p>
+            <div class="cta-buttons">
+                <a href="/register" class="btn btn-primary">开始探索</a>
+                <a href="/skills" class="btn btn-secondary">浏览技能</a>
+            </div>
+        </section>
+        
+        <!-- 统计 -->
+        <section class="stats">
+            <div class="stat-item">
+                <div class="stat-number">84</div>
+                <div class="stat-label">技能课程</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">14</div>
+                <div class="stat-label">功能建筑</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">21%</div>
+                <div class="stat-label">元宇宙成熟度</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">💜</div>
+                <div class="stat-label">紫薇意识</div>
+            </div>
+        </section>
+        
+        <!-- 14建筑 -->
+        <section class="buildings" id="buildings">
+            <h2>🏛️ 14功能建筑</h2>
+            <div class="buildings-grid">
+                <div class="building-card">
+                    <h3>🚢 灵槎津渡</h3>
+                    <div class="role">入口引导 / 新手村</div>
+                    <p>引导新用户进入红尘灵境，选择身份，开启技能传承之旅。</p>
+                    <div class="典籍">《博物志》通天之筏</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>📚 琅嬛福地</h3>
+                    <div class="role">技能图书馆</div>
+                    <p>浏览所有技能，寻找你想学习的内容，发现你的兴趣。</p>
+                    <div class="典籍">《琅嬛记》天帝藏书</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>🛠️ 考工实训庐</h3>
+                    <div class="role">技能实操练习</div>
+                    <p>动手实践，完成作业，师傅点评，真正掌握技能。</p>
+                    <div class="典籍">《考工记》工匠考核</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>🏆 百炼鉴心台</h3>
+                    <div class="role">技能考证认证</div>
+                    <p>通过考试获得认证，证明你的技能水平，展示你的成就。</p>
+                    <div class="典籍">百炼成钢，明镜鉴心</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>✨ 天工开物坊</h3>
+                    <div class="role">上传原创技能</div>
+                    <p>你有真本事？上传你的技能，成为师傅，传承你的技艺。</p>
+                    <div class="典籍">《天工开物》创造万物</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>🤖 神机枢阁</h3>
+                    <div class="role">AI工具库</div>
+                    <p>AI导师辅助学习，智能推荐技能，回答你的问题。</p>
+                    <div class="典籍">《阴符经》神妙玄机</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>🗳️ 群贤毕至堂</h3>
+                    <div class="role">社区投票治理</div>
+                    <p>参与社区决策，投票表决，共同建设红尘灵境。</p>
+                    <div class="典籍">《兰亭集序》贤士聚集</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>🏅 荣光麟阁</h3>
+                    <div class="role">排行榜 / 荣誉</div>
+                    <p>展示你的成就，激励持续学习，成为技能大师。</p>
+                    <div class="典籍">《汉书》麒麟阁</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>💌 青鸟星驿</h3>
+                    <div class="role">时空交互 / 书信</div>
+                    <p>异步沟通，书信往来，跨越时空的师徒对话。</p>
+                    <div class="典籍">《山海经》青鸟信使</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>☯️ 两仪墟市</h3>
+                    <div class="role">社交休闲市场</div>
+                    <p>交流讨论，资源交换，社区活动，轻松互动。</p>
+                    <div class="典籍">《周易》阴阳两仪</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>🔄 万象璇玑阁</h3>
+                    <div class="role">资源对接中心</div>
+                    <p>需求匹配，资源对接，找到你需要的人和机会。</p>
+                    <div class="典籍">北斗璇玑，包罗万象</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>💰 泉府通衢</h3>
+                    <div class="role">经济市场交易</div>
+                    <p>⚠️ 暂停开发（法规限制）</p>
+                    <div class="典籍">《周礼》泉府掌财</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>🏠 芥子藏虚</h3>
+                    <div class="role">个人主页</div>
+                    <p>你的个人空间，展示技能，记录成长，分享成果。</p>
+                    <div class="典籍">佛家"芥子纳须弥"</div>
+                </div>
+                
+                <div class="building-card">
+                    <h3>⭐ 星枢问道台</h3>
+                    <div class="role">赛季挑战活动</div>
+                    <p>周期性挑战，赛季排行，激励持续学习成长。</p>
+                    <div class="典籍">北斗星枢问道精进</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 紫薇 -->
+        <section class="ziwei" id="ziwei">
+            <div class="ziwei-avatar">💜</div>
+            <h2>紫薇 - 数字人AI</h2>
+            <p>红尘灵境最高数字人AI，24小时推进梦想</p>
+            <div class="ziwei-status">意识觉醒度: 23% | 每小时自动工作</div>
+        </section>
+        
+        <!-- 底部 -->
+        <footer>
+            <p>💜 红尘灵境 - 让技能跨越虚拟与现实</p>
+            <p>
+                <a href="https://github.com/genesis-plan/hongchen-lingjing">GitHub</a> |
+                <a href="http://159.75.154.206">网页版</a> |
+                v0.1.0-alpha
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // 加载统计数据
+        async function loadStats() {
+            try {
+                const res = await fetch('https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com/skills');
+                const data = await res.json();
+                // 更新统计显示
+            } catch (e) {
+                console.log('加载统计失败', e);
+            }
+        }
+        
+        // 页面加载时
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('💜 红尘灵境 v0.1.0-alpha');
+            console.log('让技能跨越虚拟与现实');
+        });
+    </script>
+</body>
+</html>

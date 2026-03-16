@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>琅嬛福地 - 技能图书馆 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .search-box {
+            margin: 30px 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .search-box input::placeholder { color: rgba(255,255,255,0.5); }
+        
+        .search-box button {
+            padding: 15px 30px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .category {
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category:hover, .category.active {
+            background: #e94560;
+            color: #fff;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+        }
+        
+        .skill-card h3 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        
+        .skill-card .meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+        
+        .skill-card .tag {
+            padding: 4px 10px;
+            background: rgba(233, 69, 96, 0.2);
+            border-radius: 10px;
+            color: #e94560;
+        }
+        
+        .skill-card .difficulty {
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .skill-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .skill-card .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">📚 琅嬛福地</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/register">注册</a>
+            </div>
+        </nav>
+        
+        <div class="header">
+            <h1>📚 技能图书馆</h1>
+            <p>《琅嬛记》天帝藏书 - 发现你想学习的技能</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" placeholder="搜索技能..." id="searchInput">
+            <button onclick="searchSkills()">搜索</button>
+        </div>
+        
+        <div class="categories" id="categories">
+            <div class="category active" data-category="all">全部</div>
+            <div class="category" data-category="traditional">传统文化</div>
+            <div class="category" data-category="tech">技术技能</div>
+            <div class="category" data-category="health">健康养生</div>
+            <div class="category" data-category="lifestyle">生活技能</div>
+            <div class="category" data-category="art">艺术创作</div>
+        </div>
+        
+        <div class="skills-grid" id="skillsGrid">
+            <div class="loading">加载中...</div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = 'https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com';
+        let allSkills = [];
+        
+        async function loadSkills() {
+            try {
+                const res = await fetch(API_BASE + '/skills');
+                const data = await res.json();
+                allSkills = data.data || [];
+                renderSkills(allSkills);
+            } catch (e) {
+                document.getElementById('skillsGrid').innerHTML = 
+                    '<div class="loading">加载失败，请稍后重试</div>';
+            }
+        }
+        
+        function renderSkills(skills) {
+            const grid = document.getElementById('skillsGrid');
+            if (skills.length === 0) {
+                grid.innerHTML = '<div class="loading">暂无技能</div>';
+                return;
+            }
+            
+            grid.innerHTML = skills.map(skill => `
+                <div class="skill-card">
+                    <h3>${skill.name || skill.title}</h3>
+                    <div class="meta">
+                        <span class="tag">${skill.category || '通用'}</span>
+                        <span class="difficulty">${skill.difficulty || '入门'}</span>
+                    </div>
+                    <p>${skill.description || '暂无描述'}</p>
+                    <div class="stats">
+                        <span>❤️ ${skill.likes || 0}</span>
+                        <span>${skill.status || '待审核'}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function searchSkills() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allSkills.filter(s => 
+                (s.name || s.title || '').toLowerCase().includes(query) ||
+                (s.description || '').toLowerCase().includes(query)
+            );
+            renderSkills(filtered);
+        }
+        
+        // 分类筛选
+        document.querySelectorAll('.category').forEach(cat => {
+            cat.addEventListener('click', function() {
+                document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                if (category === 'all') {
+                    renderSkills(allSkills);
+                } else {
+                    const filtered = allSkills.filter(s => s.category === category);
+                    renderSkills(filtered);
+                }
+            });
+        });
+        
+        // 页面加载
+        document.addEventListener('DOMContentLoaded', loadSkills);
+    </script>
+</body>
+</html>
