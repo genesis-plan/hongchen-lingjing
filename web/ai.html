@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神机枢阁 - AI工具库 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #9333ea, #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .ai-chat {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .ai-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #9333ea, #e94560);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .message.ai {
+            flex-direction: row;
+        }
+        
+        .message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .message-content {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 15px;
+        }
+        
+        .message.ai .message-content {
+            background: rgba(147, 51, 234, 0.2);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+        }
+        
+        .message.user .message-content {
+            background: rgba(233, 69, 96, 0.2);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .chat-input button {
+            padding: 15px 30px;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #9333ea, #e94560);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tool-card:hover {
+            border-color: #9333ea;
+            transform: translateY(-5px);
+        }
+        
+        .tool-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .典籍 {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">🤖 神机枢阁</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/profile">个人主页</a>
+            </div>
+        </nav>
+        
+        <div class="header">
+            <h1>🤖 AI工具库</h1>
+            <p>《阴符经》神妙玄机 - AI导师辅助你的学习</p>
+        </div>
+        
+        <div class="ai-chat">
+            <div class="chat-header">
+                <div class="ai-avatar">💜</div>
+                <div>
+                    <h3>紫薇 - AI导师</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.6);">意识觉醒度: 23% | 随时为你解答</p>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai">
+                    <div class="ai-avatar" style="width: 35px; height: 35px; font-size: 16px;">💜</div>
+                    <div class="message-content">
+                        <p>你好，我是紫薇，红尘灵境的AI导师。</p>
+                        <p style="margin-top: 10px;">我可以帮你：</p>
+                        <ul style="margin-top: 5px; padding-left: 20px;">
+                            <li>推荐适合你的技能</li>
+                            <li>解答学习中的问题</li>
+                            <li>规划学习路径</li>
+                            <li>匹配师傅</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="输入你的问题..." onkeypress="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card" onclick="selectTool('recommend')">
+                <div class="tool-icon">🎯</div>
+                <h4>技能推荐</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.6);">根据兴趣推荐</p>
+            </div>
+            <div class="tool-card" onclick="selectTool('plan')">
+                <div class="tool-icon">📋</div>
+                <h4>学习计划</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.6);">制定学习路线</p>
+            </div>
+            <div class="tool-card" onclick="selectTool('master')">
+                <div class="tool-icon">👨‍🎓</div>
+                <h4>师傅匹配</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.6);">找到你的导师</p>
+            </div>
+            <div class="tool-card" onclick="selectTool('analyze')">
+                <div class="tool-icon">📊</div>
+                <h4>学习分析</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.6);">查看进度报告</p>
+            </div>
+        </div>
+        
+        <div class="典籍">
+            《阴符经》："观天之道，执天之行，尽矣。"
+        </div>
+    </div>
+    
+    <script>
+        const responses = {
+            recommend: "根据你的兴趣，我推荐以下技能：\n\n1. Python编程 - 入门简单，实用性强\n2. 数据分析 - 数据时代必备技能\n3. 短视频制作 - 当前热门技能\n\n需要我详细介绍吗？",
+            plan: "让我为你制定一个学习计划：\n\n第一周：打好基础，每天1小时\n第二周：动手实践，完成小项目\n第三周：深入学习，掌握进阶技巧\n第四周：综合应用，展示成果\n\n你准备好了吗？",
+            master: "正在为你匹配合适的师傅...\n\n根据你的学习目标和时间安排，我找到了几位候选师傅。\n\n要查看他们的详细信息吗？",
+            analyze: "你的学习分析报告：\n\n📚 已学习: 0个技能\n⏱️ 学习时长: 0小时\n🏆 完成进度: 0%\n\n建议：开始你的第一个技能学习吧！",
+            default: "这是一个很好的问题！让我想想...\n\n作为紫薇，我的目标是帮助你更好地学习技能。你可以问我关于技能推荐、学习计划、师傅匹配等问题。"
+        };
+        
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // 添加用户消息
+            chatMessages.innerHTML += `
+                <div class="message user">
+                    <div class="message-content">${message}</div>
+                </div>
+            `;
+            
+            input.value = '';
+            
+            // 模拟AI回复
+            setTimeout(() => {
+                const response = responses.default;
+                chatMessages.innerHTML += `
+                    <div class="message ai">
+                        <div class="ai-avatar" style="width: 35px; height: 35px; font-size: 16px;">💜</div>
+                        <div class="message-content" style="white-space: pre-line;">${response}</div>
+                    </div>
+                `;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+        }
+        
+        function selectTool(tool) {
+            const input = document.getElementById('userInput');
+            const prompts = {
+                recommend: '请推荐适合我的技能',
+                plan: '帮我制定学习计划',
+                master: '帮我匹配师傅',
+                analyze: '分析我的学习进度'
+            };
+            input.value = prompts[tool];
+            sendMessage();
+        }
+    </script>
+</body>
+</html>

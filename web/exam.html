@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百炼鉴心台 - 技能认证 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .exam-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .exam-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .exam-level {
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        .level-beginner { background: #22c55e; }
+        .level-intermediate { background: #f59e0b; }
+        .level-advanced { background: #e94560; }
+        
+        .exam-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .exam-info p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+        }
+        
+        .exam-meta {
+            display: flex;
+            gap: 20px;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        
+        .start-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            color: #1a1a2e;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .certificates {
+            margin-top: 40px;
+        }
+        
+        .certificates h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .cert-item {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .cert-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .典籍 {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">🏆 百炼鉴心台</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/profile">个人主页</a>
+            </div>
+        </nav>
+        
+        <div class="header">
+            <h1>🏆 技能认证</h1>
+            <p>百炼成钢，明镜鉴心 - 通过考试获得认证</p>
+        </div>
+        
+        <div class="exam-card">
+            <div class="exam-header">
+                <h3>Python基础认证考试</h3>
+                <span class="exam-level level-beginner">入门级</span>
+            </div>
+            <div class="exam-info">
+                <p>测试Python基础语法、数据类型、控制流程等知识。</p>
+                <div class="exam-meta">
+                    <span>⏱️ 30分钟</span>
+                    <span>❓ 20道题</span>
+                    <span>📊 60分及格</span>
+                </div>
+                <a href="#" class="start-btn">开始考试</a>
+            </div>
+        </div>
+        
+        <div class="exam-card">
+            <div class="exam-header">
+                <h3>数据分析认证考试</h3>
+                <span class="exam-level level-intermediate">进阶级</span>
+            </div>
+            <div class="exam-info">
+                <p>测试Pandas、NumPy、数据可视化等数据分析技能。</p>
+                <div class="exam-meta">
+                    <span>⏱️ 45分钟</span>
+                    <span>❓ 25道题</span>
+                    <span>📊 70分及格</span>
+                </div>
+                <a href="#" class="start-btn">开始考试</a>
+            </div>
+        </div>
+        
+        <div class="certificates">
+            <h2>📜 我的证书</h2>
+            <div class="cert-list">
+                <div class="cert-item" style="opacity: 0.5;">
+                    <div class="cert-icon">📜</div>
+                    <div>暂无证书</div>
+                    <div style="font-size: 12px; margin-top: 5px;">通过考试获得认证证书</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="典籍">
+            "百炼成钢，明镜鉴心。"
+        </div>
+    </div>
+</body>
+</html>

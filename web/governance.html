@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>群贤毕至堂 - 社区治理 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #22c55e, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .create-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, #22c55e, #4ade80);
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        
+        .proposals {
+            margin-top: 30px;
+        }
+        
+        .proposal-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .proposal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .proposal-status {
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        
+        .status-voting { background: #e94560; }
+        .status-passed { background: #22c55e; }
+        .status-pending { background: #f59e0b; }
+        
+        .proposal-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .proposal-desc {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .vote-section {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .vote-option {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .vote-yes {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        
+        .vote-yes:hover {
+            background: rgba(34, 197, 94, 0.3);
+        }
+        
+        .vote-no {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .vote-no:hover {
+            background: rgba(239, 68, 68, 0.3);
+        }
+        
+        .vote-count {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .典籍 {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">🗳️ 群贤毕至堂</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/profile">个人主页</a>
+            </div>
+        </nav>
+        
+        <div class="header">
+            <h1>🗳️ 社区投票</h1>
+            <p>《兰亭集序》贤士聚集 - 共同建设红尘灵境</p>
+            <a href="#" class="create-btn">📝 发起提案</a>
+        </div>
+        
+        <div class="proposals">
+            <div class="proposal-card">
+                <div class="proposal-header">
+                    <div>
+                        <span class="proposal-status status-voting">投票中</span>
+                        <span style="margin-left: 10px; color: rgba(255,255,255,0.5);">剩余 3 天</span>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.5);">#001</div>
+                </div>
+                <h3 class="proposal-title">关于增加"技能认证"功能的提案</h3>
+                <p class="proposal-desc">
+                    提议在百炼鉴心台增加技能认证功能，用户可以通过考试获得官方认证证书，增强技能学习的价值。
+                </p>
+                <div class="vote-section">
+                    <div class="vote-option vote-yes">
+                        <div class="vote-count">0</div>
+                        <div>赞成</div>
+                    </div>
+                    <div class="vote-option vote-no">
+                        <div class="vote-count">0</div>
+                        <div>反对</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="典籍">
+            "永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。群贤毕至，少长咸集。"
+        </div>
+    </div>
+</body>
+</html>
