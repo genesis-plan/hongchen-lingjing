@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏮 红尘灵境 · 十四殿 · 赛博国风技能共创空间</title>
+    <style>
+        :root { --primary: #6a11cb; --secondary: #2575fc; --accent: #ff7e5f; --dark: #2d3436; --light: #f9f9f9; }
+        * { box-sizing: border-box; margin: 0; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
+        body { background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); color: #333; min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 30px auto; background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.5); }
+        h1, h2 { text-align: center; color: var(--dark); margin-bottom: 15px; }
+        h1 { font-size: 2.8em; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .slogan { text-align: center; font-size: 1.1em; margin-bottom: 30px; color: #666; font-style: italic; }
+
+        /* 导航栏（14个选项卡） */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        .tab-btn {
+            padding: 8px 16px;
+            background: none;
+            border: 2px solid transparent;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .tab-content.active { display: block; }
+
+        /* 通用样式 */
+        .building-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(106,17,203,0.15);
+            margin: 20px 0;
+        }
+        .wish-input, .skill-input { width: 100%; padding: 18px; border: 2px solid #ddd; border-radius: 12px; font-size: 1em; margin-bottom: 20px; resize: vertical; transition: border 0.3s; }
+        .wish-input:focus, .skill-input:focus { outline: none; border-color: var(--primary); }
+        .btn { background: linear-gradient(to right, var(--primary), var(--secondary)); color: white; padding: 14px 32px; border: none; border-radius: 10px; cursor: pointer; font-size: 1em; font-weight: bold; display: inline-block; margin: 10px 5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(106, 17, 203, 0.4); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6); opacity: 0.95; }
+        .list-item { background: #f8fafc; border-left: 5px solid var(--primary); padding: 20px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        .seed-tags { margin: 25px 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .seed-tag { background: #e8f4ff; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.9em; transition: all 0.2s; border: 1px solid #c2e0ff; }
+        .seed-tag:hover { background: #c2e0ff; transform: scale(1.05); }
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            flex: 1 1 200px;
+            background: #f8faff;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e0e7ff;
+        }
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        .feature-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .coming-soon {
+            background: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            color: #666;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        .landing-area {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(145deg, #f9f5ff, #f0f0ff);
+            border-radius: 30px;
+            margin: 30px 0;
+        }
+        .ship-icon {
+            font-size: 5rem;
+            color: var(--primary);
+            filter: drop-shadow(0 0 15px var(--primary));
+            animation: float 3s infinite ease-in-out;
+            margin-bottom: 20px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .anon-id {
+            font-size: 1.2rem;
+            color: #666;
+            background: rgba(106,17,203,0.1);
+            padding: 10px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .skill-card {
+            background: #f0f0ff;
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 500px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .skill-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        .skill-progress {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .progress-step::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -50%;
+            width: 100%;
+            height: 3px;
+            background: #ddd;
+            z-index: 0;
+        }
+        .progress-step:first-child::before { display: none; }
+        .progress-step.completed .step-icon {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 5px;
+            position: relative;
+            z-index: 1;
+        }
+        .step-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .quiz-option {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quiz-option:hover {
+            border-color: var(--primary);
+            background: #f0f0ff;
+        }
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background: #e0e0ff;
+            font-weight: bold;
+        }
+        .certificate {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .certificate h3 {
+            color: #856404;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏮 红尘灵境</h1>
+        <p class="slogan">「 以古风为骨，以科技为翼，人人皆是技能共创者 」</p>
+
+        <!-- 14个建筑选项卡 -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="home">🚪 灵槎津渡</button>
+            <button class="tab-btn" data-tab="library">📜 琅嬛福地</button>
+            <button class="tab-btn" data-tab="practice">📋 考工实训庐</button>
+            <button class="tab-btn" data-tab="exam">⚖️ 百炼鉴心台</button>
+            <button class="tab-btn" data-tab="create">🛠️ 天工开物坊</button>
+            <button class="tab-btn" data-tab="shenji">🧠 神机枢阁</button>
+            <button class="tab-btn" data-tab="govern">👥 群贤毕至堂</button>
+            <button class="tab-btn" data-tab="honor">🏆 荣光麟阁</button>
+            <button class="tab-btn" data-tab="post">🕊️ 青鸟星驿</button>
+            <button class="tab-btn" data-tab="market">☯️ 两仪墟市</button>
+            <button class="tab-btn" data-tab="resource">🌐 万象璇玑阁</button>
+            <button class="tab-btn" data-tab="economy">💰 泉府通衢</button>
+            <button class="tab-btn" data-tab="space">🪷 芥子藏虚</button>
+            <button class="tab-btn" data-tab="challenge">🌟 星枢问道台</button>
+        </div>
+
+        <!-- 1号 灵槎津渡 -->
+        <div id="home" class="tab-content active">
+            <h2>🚪 灵槎津渡 · 初入灵境</h2>
+            <div class="landing-area">
+                <div class="ship-icon">⛵</div>
+                <p style="font-size: 1.3rem; margin-bottom: 20px;">欢迎来到红尘灵境，这里是你的登岸之地。</p>
+                <button class="btn" onclick="landing()">⚓ 灵槎登岸</button>
+                <p id="anon-id-display" class="anon-id">等待登岸...</p>
+                <p style="color: #888; margin-top: 20px;">登岸后将获得永久匿名ID，开启灵境之旅。</p>
+            </div>
+        </div>
+
+        <!-- 2号 琅嬛福地 -->
+        <div id="library" class="tab-content">
+            <h2>📜 琅嬛福地 · 技能图书馆</h2>
+            <p style="text-align: center;">推荐给你第一个技能：太极·无极式</p>
+            <div class="skill-card">
+                <div class="skill-icon">☯️</div>
+                <h3>太极·无极式</h3>
+                <p>太极入门第一式，站桩基础，调和身心。</p>
+                <p style="color: #888; margin: 15px 0;">通过点亮此技能，开启太极传承之路。</p>
+                <button class="btn" onclick="lightSkill()" id="light-skill-btn">✨ 点亮技能</button>
+                <p id="skill-status" style="margin-top: 15px;"></p>
+            </div>
+            <div class="seed-tags">
+                <span class="seed-tag" onclick="fillWish('想学3分钟汉服齐胸襦裙系带的正确方法')">#汉服系带</span>
+                <span class="seed-tag" onclick="fillWish('想要简单的传统拱手礼教学')">#传统礼仪</span>
+                <span class="seed-tag" onclick="fillWish('想要古风头像涂鸦教程')">#古风涂鸦</span>
+            </div>
+            <textarea id="wishInput" class="wish-input" placeholder="在此描述你想学会的技能..."></textarea>
+            <button class="btn" onclick="submitWish()">✨ 发布心愿</button>
+            <div id="wishList"></div>
+        </div>
+
+        <!-- 3号 考工实训庐 -->
+        <div id="practice" class="tab-content">
+            <h2>📋 考工实训庐 · 技能实操</h2>
+            <div id="practice-area">
+                <div id="steps-container" class="skill-progress"></div>
+                <div id="step-desc" style="text-align: center; margin: 20px 0;">点击下方按钮开始练习</div>
+                <div style="text-align: center;">
+                    <button class="btn" onclick="startPractice()" id="start-practice">开始练习</button>
+                    <button class="btn" onclick="nextStep()" id="next-step" style="display:none;">下一步</button>
+                    <button class="btn" onclick="finishPractice()" id="finish-practice" style="display:none;">完成练习</button>
+                </div>
+                <div id="practice-message"></div>
+            </div>
+        </div>
+
+        <!-- 4号 百炼鉴心台 -->
+        <div id="exam" class="tab-content">
+            <h2>⚖️ 百炼鉴心台 · 考核认证</h2>
+            <div id="quiz-area">
+                <p><strong>问题：无极式的正确要领是什么？</strong></p>
+                <div class="quiz-option" onclick="selectAnswer(1)">A. 双脚并拢，膝盖弯曲，双手上抬</div>
+                <div class="quiz-option" onclick="selectAnswer(2)">B. 双脚与肩同宽，膝盖微屈，双手自然下垂</div>
+                <div class="quiz-option" onclick="selectAnswer(3)">C. 双脚分开，挺直膝盖，双手叉腰</div>
+                <div style="text-align: center;">
+                    <button class="btn" onclick="submitQuiz()" id="submit-quiz">提交答案</button>
+                </div>
+                <div id="quiz-result"></div>
+                <div id="certificate-area" style="display:none;">
+                    <div class="certificate">
+                        <h3>🏅 技能证书</h3>
+                        <p style="font-size: 1.3rem;">太极·无极式</p>
+                        <p>习练者：<span id="cert-name">匿名行者</span></p>
+                        <p>授予日期：<span id="cert-date"></span></p>
+                        <p>红尘灵境 · 百炼鉴心台</p>
+                    </div>
+                    <button class="btn" onclick="viewHonor()">查看荣誉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5号 天工开物坊 -->
+        <div id="create" class="tab-content">
+            <h2>🛠️ 天工开物坊 · 创造本源</h2>
+            <p>将你的技能转化为可传承的典籍</p>
+            <input type="text" id="skillTitle" class="skill-input" placeholder="技能名称">
+            <textarea id="skillDesc" class="skill-input" rows="4" placeholder="详细描述你的技能..."></textarea>
+            <button class="btn" onclick="submitSkill()">📖 生成典籍</button>
+            <div id="skillResult"></div>
+        </div>
+
+        <!-- 6号 神机枢阁 -->
+        <div id="shenji" class="tab-content">
+            <h2>🧠 神机枢阁 · 智慧中枢</h2>
+            <div class="building-card">
+                <p>为全生态提供AI能力，当前已集成智谱GLM-4.7-Flash免费大模型。</p>
+                <div class="feature-grid">
+                    <div class="feature-card"><i>🤖</i><h4>智能问答</h4><p>回答技能相关问题</p></div>
+                    <div class="feature-card"><i>🛡️</i><h4>内容审核</h4><p>敏感词过滤</p></div>
+                    <div class="feature-card"><i>📚</i><h4>技能推荐</h4><p>个性化推荐</p></div>
+                </div>
+                <textarea id="aiQuestion" class="wish-input" placeholder="试试向神机提问..."></textarea>
+                <button class="btn" onclick="askShenji()">提问</button>
+                <div id="shenjiAnswer" class="list-item"></div>
+                <div id="shenji-stats" class="coming-soon">状态：运行中</div>
+            </div>
+        </div>
+
+        <!-- 7号 群贤毕至堂 -->
+        <div id="govern" class="tab-content">
+            <h2>👥 群贤毕至堂 · 社区共治</h2>
+            <div class="building-card">
+                <p>发起提案，AI为您生成摘要和关键词</p>
+                <textarea id="proposalContent" class="wish-input" placeholder="输入您的提案内容..."></textarea>
+                <button class="btn" onclick="generateSummary()">生成摘要</button>
+                <div id="proposalResult" class="list-item"></div>
+            </div>
+        </div>
+
+        <!-- 8号 荣光麟阁 -->
+        <div id="honor" class="tab-content">
+            <h2>🏆 荣光麟阁 · 荣誉殿堂</h2>
+            <div class="building-card">
+                <p>查看你的荣誉与成就</p>
+                <div id="tai-chi-honor" class="list-item">
+                    <h4>🏅 太极入门者</h4>
+                    <p>状态：<span id="tai-chi-status" class="status-badge status-pending">未完成</span></p>
+                </div>
+                <button class="btn" onclick="refreshHonor()">刷新荣誉</button>
+                <div id="honorComment"></div>
+            </div>
+        </div>
+
+        <!-- 9号 青鸟星驿 -->
+        <div id="post" class="tab-content">
+            <h2>🕊️ 青鸟星驿 · 时空交互</h2>
+            <div class="building-card">
+                <p>给古人或未来的自己写一封信</p>
+                <select id="letterTarget" class="skill-input">
+                    <option value="李白">李白</option>
+                    <option value="苏轼">苏轼</option>
+                    <option value="王羲之">王羲之</option>
+                    <option value="future">未来的自己</option>
+                </select>
+                <textarea id="letterContent" class="wish-input" placeholder="输入你的信..."></textarea>
+                <button class="btn" onclick="sendLetter()">寄出</button>
+                <div id="letterReply" class="list-item"></div>
+            </div>
+        </div>
+
+        <!-- 10号 两仪墟市 -->
+        <div id="market" class="tab-content">
+            <h2>☯️ 两仪墟市 · 社交休闲</h2>
+            <div class="building-card">
+                <p>今日热门话题推荐</p>
+                <button class="btn" onclick="getTopics()">获取话题</button>
+                <div id="topicsList" class="list-item"></div>
+            </div>
+        </div>
+
+        <!-- 11号 万象璇玑阁 -->
+        <div id="resource" class="tab-content">
+            <h2>🌐 万象璇玑阁 · 资源中枢</h2>
+            <div class="building-card">
+                <p>发布资源需求或寻找合作</p>
+                <input type="text" id="demandInput" class="skill-input" placeholder="例如：我需要木工师傅...">
+                <button class="btn" onclick="matchResource()">匹配资源</button>
+                <div id="resourceResult" class="list-item"></div>
+            </div>
+        </div>
+
+        <!-- 12号 泉府通衢 -->
+        <div id="economy" class="tab-content">
+            <h2>💰 泉府通衢 · 经济市场</h2>
+            <div class="building-card">
+                <p>作品价值展示</p>
+                <input type="text" id="workTitle" class="skill-input" placeholder="作品名称">
+                <textarea id="workDesc" class="wish-input" placeholder="作品简介..."></textarea>
+                <button class="btn" onclick="generateDescription()">生成简介</button>
+                <div id="workResult" class="list-item"></div>
+            </div>
+        </div>
+
+        <!-- 13号 芥子藏虚 -->
+        <div id="space" class="tab-content">
+            <h2>🪷 芥子藏虚 · 个人空间</h2>
+            <div class="building-card">
+                <p>你的数字分身与足迹</p>
+                <div class="character-builder">
+                    <div class="char-option" onclick="selectCharPart('hanfu', '齐胸襦裙')">汉服 · 齐胸襦裙</div>
+                    <div class="char-option" onclick="selectCharPart('hanfu', '圆领袍')">汉服 · 圆领袍</div>
+                    <div class="char-option" onclick="selectCharPart('accessory', '机械发簪')">配饰 · 机械发簪</div>
+                    <div class="char-option" onclick="selectCharPart('pattern', '云纹数据流')">纹饰 · 云纹数据流</div>
+                </div>
+                <div id="characterPreview">灵相未显，待君造化...</div>
+                <button class="btn" onclick="saveCharacter()">保存灵相</button>
+                <button class="btn" onclick="generateFootprintStory()">生成足迹故事</button>
+                <div id="footprintStory"></div>
+            </div>
+        </div>
+
+        <!-- 14号 星枢问道台 -->
+        <div id="challenge" class="tab-content">
+            <h2>🌟 星枢问道台 · 活动挑战</h2>
+            <div class="building-card">
+                <p>参与赛季挑战，赢取荣誉</p>
+                <input type="text" id="challengeTheme" class="skill-input" placeholder="挑战主题（如：木工技能）">
+                <button class="btn" onclick="generateChallenge()">生成挑战题目</button>
+                <div id="challengeResult" class="list-item"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>红尘灵境 · 创世实验 | 灵相与心愿存于云端，会话终了时本地痕迹将匿名化。</p>
+        </footer>
+    </div>
+
+    <script>
+        // ---------- 全局变量 ----------
+        let currentStep = 0;
+        let steps = [];
+        let selectedAnswer = 0;
+        let userCharacter = { hanfu: '', accessory: '', pattern: '' };
+
+        // 登岸功能
+        function landing() {
+            const anonId = 'anon_' + Math.random().toString(36).substring(2, 18);
+            localStorage.setItem('anon_id', anonId);
+            document.getElementById('anon-id-display').innerText = `你的匿名ID：${anonId}`;
+            alert('登岸成功！欢迎来到红尘灵境。');
+        }
+
+        // 点亮技能
+        function lightSkill() {
+            if (!localStorage.getItem('anon_id')) {
+                alert('请先在灵槎津渡登岸');
+                document.querySelector('[data-tab="home"]').click();
+                return;
+            }
+            localStorage.setItem('skillLighted', 'true');
+            document.getElementById('light-skill-btn').disabled = true;
+            document.getElementById('skill-status').innerText = '✅ 技能已点亮';
+            alert('太极·无极式已点亮！');
+        }
+
+        // 发布心愿（模拟）
+        function submitWish() {
+            const wish = document.getElementById('wishInput').value;
+            if (!wish) return alert('请输入心愿');
+            alert(`心愿“${wish}”已发布，等待实现。`);
+            document.getElementById('wishInput').value = '';
+        }
+
+        // 练习相关
+        function startPractice() {
+            if (!localStorage.getItem('skillLighted')) {
+                alert('请先在琅嬛福地点亮技能');
+                return;
+            }
+            // 模拟步骤数据
+            steps = [
+                "第一步：双脚与肩同宽，自然站立",
+                "第二步：膝盖微屈，如轻坐下",
+                "第三步：腰背挺直，双手自然下垂",
+                "第四步：静立片刻，感受呼吸"
+            ];
+            const container = document.getElementById('steps-container');
+            container.innerHTML = '';
+            steps.forEach((step, idx) => {
+                container.innerHTML += `
+                    <div class="progress-step" id="step${idx+1}">
+                        <div class="step-icon">${idx+1}</div>
+                        <div class="step-label">${step.substring(0,6)}...</div>
+                    </div>
+                `;
+            });
+            currentStep = 0;
+            document.getElementById('start-practice').style.display = 'none';
+            document.getElementById('next-step').style.display = 'inline-block';
+            document.getElementById('step-desc').innerText = steps[0];
+        }
+
+        function nextStep() {
+            currentStep++;
+            for (let i = 1; i <= currentStep; i++) {
+                const el = document.getElementById(`step${i}`);
+                if (el) el.classList.add('completed');
+            }
+            if (currentStep < steps.length) {
+                document.getElementById('step-desc').innerText = steps[currentStep];
+            }
+            if (currentStep >= steps.length) {
+                document.getElementById('next-step').style.display = 'none';
+                document.getElementById('finish-practice').style.display = 'inline-block';
+                document.getElementById('step-desc').innerText = '已完成所有步骤，点击完成练习';
+            }
+        }
+
+        function finishPractice() {
+            localStorage.setItem('practiceCompleted', 'true');
+            alert('练习完成！可以参加考核了。');
+            document.querySelector('[data-tab="exam"]').click();
+        }
+
+        // 考核
+        function selectAnswer(ans) {
+            selectedAnswer = ans;
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+        }
+
+        function submitQuiz() {
+            if (!localStorage.getItem('practiceCompleted')) {
+                alert('请先在考工实训庐完成练习');
+                return;
+            }
+            const correct = (selectedAnswer === 2);
+            if (correct) {
+                localStorage.setItem('examPassed', 'true');
+                document.getElementById('quiz-area').style.display = 'none';
+                document.getElementById('certificate-area').style.display = 'block';
+                document.getElementById('cert-name').innerText = localStorage.getItem('anon_id') || '匿名行者';
+                document.getElementById('cert-date').innerText = new Date().toLocaleDateString();
+            } else {
+                alert('答案错误，请重试');
+            }
+        }
+
+        function viewHonor() {
+            document.querySelector('[data-tab="honor"]').click();
+        }
+
+        // 神机枢阁问答（模拟）
+        function askShenji() {
+            const q = document.getElementById('aiQuestion').value;
+            if (!q) return;
+            document.getElementById('shenjiAnswer').innerHTML = `🤖 模拟回答：关于“${q}”的问题，请联系神机枢阁获取真实AI回复。`;
+        }
+
+        // 其他建筑功能（模拟）
+        function generateSummary() {
+            const content = document.getElementById('proposalContent').value;
+            document.getElementById('proposalResult').innerHTML = `摘要：这是一个关于“${content.substring(0,20)}”的提案。关键词：治理、社区。`;
+        }
+
+        function refreshHonor() {
+            const status = document.getElementById('tai-chi-status');
+            if (localStorage.getItem('examPassed')) {
+                status.innerText = '已完成';
+                status.className = 'status-badge status-completed';
+            } else {
+                status.innerText = '未完成';
+                status.className = 'status-badge status-pending';
+            }
+        }
+
+        function sendLetter() {
+            const target = document.getElementById('letterTarget').value;
+            const content = document.getElementById('letterContent').value;
+            document.getElementById('letterReply').innerHTML = `模拟回信：来自${target}的回复...`;
+        }
+
+        function getTopics() {
+            document.getElementById('topicsList').innerHTML = '今日热门话题：太极、汉服、榫卯';
+        }
+
+        function matchResource() {
+            const demand = document.getElementById('demandInput').value;
+            document.getElementById('resourceResult').innerHTML = `根据“${demand}”，匹配到3个资源。`;
+        }
+
+        function generateDescription() {
+            const title = document.getElementById('workTitle').value;
+            document.getElementById('workResult').innerHTML = `简介：《${title}》是一部优秀的技能作品。`;
+        }
+
+        function selectCharPart(cat, val) {
+            userCharacter[cat] = val;
+            document.getElementById('characterPreview').innerText = `当前灵相：${val}`;
+        }
+
+        function saveCharacter() {
+            alert('灵相已保存');
+        }
+
+        function generateFootprintStory() {
+            document.getElementById('footprintStory').innerHTML = '你的足迹：点亮太极，练习4步，通过考核。';
+        }
+
+        function generateChallenge() {
+            const theme = document.getElementById('challengeTheme').value;
+            document.getElementById('challengeResult').innerHTML = `挑战题目：在30分钟内完成一件${theme}作品。`;
+        }
+
+        // 选项卡切换
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+
+        // 页面加载时从localStorage恢复状态
+        window.onload = function() {
+            const savedId = localStorage.getItem('anon_id');
+            if (savedId) document.getElementById('anon-id-display').innerText = `你的匿名ID：${savedId}`;
+            if (localStorage.getItem('skillLighted')) {
+                document.getElementById('light-skill-btn')?.setAttribute('disabled', 'true');
+                document.getElementById('skill-status').innerText = '✅ 技能已点亮';
+            }
+            if (localStorage.getItem('examPassed')) {
+                document.getElementById('tai-chi-status').innerText = '已完成';
+                document.getElementById('tai-chi-status').className = 'status-badge status-completed';
+            }
+        };
+    </script>
+</body>
+</html>

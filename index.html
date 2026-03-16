@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏮 元境大同 · 赛博国风技能共创空间</title>
+    <style>
+        :root { --primary: #6a11cb; --secondary: #2575fc; --accent: #ff7e5f; --dark: #2d3436; --light: #f9f9f9; }
+        * { box-sizing: border-box; margin: 0; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
+        body { background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); color: #333; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 30px auto; background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.5); }
+        h1, h2 { text-align: center; color: var(--dark); margin-bottom: 15px; }
+        h1 { font-size: 2.8em; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .slogan { text-align: center; font-size: 1.1em; margin-bottom: 30px; color: #666; font-style: italic; }
+        .nav-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid #eee; }
+        .tab-btn { padding: 12px 25px; background: none; border: 2px solid transparent; border-radius: 50px; cursor: pointer; font-size: 1em; font-weight: 500; transition: all 0.3s; }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .tab-content.active { display: block; }
+        .path-selector { display: flex; gap: 25px; justify-content: center; margin: 40px 0; flex-wrap: wrap; }
+        .path-card { flex: 1; min-width: 280px; border: 2px solid #e0e0e0; padding: 30px; border-radius: 20px; text-align: center; cursor: pointer; transition: all 0.4s; background: white; }
+        .path-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(106, 17, 203, 0.15); }
+        .path-card.selected { border-color: var(--primary); background: linear-gradient(135deg, #f9f7ff 0%, #eef2ff 100%); }
+        .path-icon { font-size: 3.5em; margin-bottom: 20px; }
+        .wish-input, .skill-input { width: 100%; padding: 18px; border: 2px solid #ddd; border-radius: 12px; font-size: 1em; margin-bottom: 20px; resize: vertical; transition: border 0.3s; }
+        .wish-input:focus, .skill-input:focus { outline: none; border-color: var(--primary); }
+        .btn { background: linear-gradient(to right, var(--primary), var(--secondary)); color: white; padding: 14px 32px; border: none; border-radius: 10px; cursor: pointer; font-size: 1em; font-weight: bold; display: inline-block; margin: 10px 5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(106, 17, 203, 0.4); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6); opacity: 0.95; }
+        .seed-tags { margin: 25px 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .seed-tag { background: #e8f4ff; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.9em; transition: all 0.2s; border: 1px solid #c2e0ff; }
+        .seed-tag:hover { background: #c2e0ff; transform: scale(1.05); }
+        .list-item { background: #f8fafc; border-left: 5px solid var(--primary); padding: 20px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        .hidden { display: none; }
+        .character-builder { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin: 25px 0; }
+        .char-option { border: 2px solid #ddd; padding: 15px; text-align: center; border-radius: 12px; cursor: pointer; background: white; transition: all 0.3s; }
+        .char-option.selected { border-color: var(--accent); background-color: #fff5f0; font-weight: bold; }
+        #characterPreview { text-align: center; padding: 25px; border: 2px dashed var(--primary); border-radius: 15px; margin: 25px 0; font-size: 1.3em; min-height: 80px; background: #fcfaff; }
+        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 0.9em; }
+        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; margin-left: 10px; }
+        .status-pending { background: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏮 元境大同</h1>
+        <p class="slogan">「 以古风为骨，以科技为翼，人人皆是技能共创者 」</p>
+
+        <!-- 顶部导航 -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('home')">🏠 创世入口</button>
+            <button class="tab-btn" onclick="switchTab('wish')">📜 心愿云墙</button>
+            <button class="tab-btn" onclick="switchTab('task')">📋 任务星阁</button>
+            <button class="tab-btn" onclick="switchTab('create')">🛠️ 造化工坊</button>
+        </div>
+
+        <!-- 首页：新手引导 -->
+        <div id="home" class="tab-content active">
+            <h2>🚪 选择你的元境初代身份</h2>
+            <p style="text-align: center; color: #666;">选择任意路径，即刻解锁「技能共创」之权</p>
+            <div class="path-selector">
+                <div class="path-card" onclick="selectPath('tai-chi')" id="pathTaiChi">
+                    <div class="path-icon">☯️</div>
+                    <h3>路径甲：感知内在平衡</h3>
+                    <p>【五韵太极 · 寻身心元律】</p>
+                    <p>通过古老的运动，感知身心平衡，找到创造的节奏。</p>
+                </div>
+                <div class="path-card" onclick="selectPath('character')" id="pathCharacter">
+                    <div class="path-icon">👤</div>
+                    <h3>路径乙：铸就专属灵相</h3>
+                    <p>【古风数字灵相 · 铸元境道标】</p>
+                    <p>选择一个代表你的初代形象，开启元境之旅。</p>
+                </div>
+            </div>
+
+            <!-- 太极体验引导 -->
+            <div id="taiChiGuide" class="hidden">
+                <h3>☯️ 太极入门引导</h3>
+                <p>1. 站立，双脚与肩同宽，膝盖微曲，全身放松...</p>
+                <button class="btn" onclick="completeTaiChi()">✅ 我已体验完成，进入元境</button>
+            </div>
+
+            <!-- 古风形象创建器 -->
+            <div id="characterCreator" class="hidden">
+                <h3>👤 元境灵相铸造 · 文字版</h3>
+                <p>请通过以下选择，组合出你的专属身份标识：</p>
+                <div class="character-builder">
+                    <div class="char-option" onclick="selectCharPart('hanfu', '齐胸襦裙')">汉服 · 齐胸襦裙</div>
+                    <div class="char-option" onclick="selectCharPart('hanfu', '圆领袍')">汉服 · 圆领袍</div>
+                    <div class="char-option" onclick="selectCharPart('hanfu', '马面裙')">汉服 · 马面裙</div>
+                    <div class="char-option" onclick="selectCharPart('accessory', '机械发簪')">配饰 · 机械发簪</div>
+                    <div class="char-option" onclick="selectCharPart('accessory', '数据流苏')">配饰 · 数据流苏</div>
+                    <div class="char-option" onclick="selectCharPart('pattern', '云纹数据流')">纹饰 · 云纹数据流</div>
+                    <div class="char-option" onclick="selectCharPart('pattern', '太极电路纹')">纹饰 · 太极电路纹</div>
+                    <div class="char-option" onclick="selectCharPart('pattern', '乾坤二进制')">纹饰 · 乾坤二进制</div>
+                </div>
+                <div id="characterPreview">灵相未显，待君造化...</div>
+                <button class="btn" onclick="generateCharacter()">🎨 生成并铭刻我的灵相</button>
+                <p style="text-align:center; margin-top:20px;"><a href="javascript:skipCharacter()" style="color: #666;">[暂不铸造，直接入境]</a></p>
+            </div>
+        </div>
+
+        <!-- 心愿墙 -->
+        <div id="wish" class="tab-content">
+            <h2>📜 元境心愿云墙</h2>
+            <p style="text-align: center;">在此许下心愿：国风妆造 / 传统技艺 / 二次元创作 / 数字艺术...</p>
+            <div class="seed-tags">
+                <span class="seed-tag" onclick="fillWish('想学3分钟汉服齐胸襦裙系带的正确方法（无工具，文字版）')">#汉服系带</span>
+                <span class="seed-tag" onclick="fillWish('想要简单的传统拱手礼/作揖礼教学（分场合：日常/正式）')">#传统礼仪</span>
+                <span class="seed-tag" onclick="fillWish('想要手机端10分钟古风头像涂鸦教程（文字版步骤）')">#古风涂鸦</span>
+                <span class="seed-tag" onclick="fillWish('想学简单的汉字动态效果制作方法（文字版，不用软件）')">#汉字动画</span>
+                <span class="seed-tag" onclick="fillWish('想要古风照片调色参数分享（手机修图，分分钟上手）')">#古风调色</span>
+            </div>
+            <textarea id="newWish" class="wish-input" placeholder="在此描述你想学会的生活技能或渴望的知识...（例如：如何快速叠好一件汉服）"></textarea>
+            <div style="text-align: center;">
+                <button class="btn" onclick="submitWish()">✨ 发布心愿至云端</button>
+            </div>
+            <div id="wishList">
+                <div class="list-item">
+                    <p><strong>【示例心愿】</strong> 想学3分钟汉服齐胸襦裙系带的正确方法（无工具，文字版）</p>
+                    <p style="color: #888; margin-top: 8px;">发布者：系统 | 状态：<span class="status-badge status-pending">待实现</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 任务大厅 -->
+        <div id="task" class="tab-content">
+            <h2>📋 任务星阁 · 国风技能待共创</h2>
+            <p style="text-align: center;">以下是由心愿转化的任务，等待有缘行者将其转化为可传承的技能。</p>
+            <div id="taskList">
+                <div class="list-item">
+                    <h4>任务：汉服齐胸襦裙系带教程</h4>
+                    <p>来源心愿：“想学3分钟汉服齐胸襦裙系带的正确方法”</p>
+                    <button class="btn" onclick="claimTask(1, '汉服齐胸襦裙系带教程')">🔗 认领此任务</button>
+                </div>
+                <div class="list-item">
+                    <h4>任务：古风头像涂鸦入门</h4>
+                    <p>来源心愿：“想要手机端10分钟古风头像涂鸦教程”</p>
+                    <button class="btn" onclick="claimTask(2, '古风头像涂鸦入门')">🔗 认领此任务</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 技能创建器 -->
+        <div id="create" class="tab-content">
+            <h2>🛠️ 造化工坊</h2>
+            <p>你正在将任务 <strong id="currentTaskTitle">【请先到“任务星阁”认领一个任务】</strong> 转化为可传承的技能。</p>
+            <input type="text" id="skillTitle" class="skill-input" placeholder="为你的技能起一个清晰的名字（例如：三分钟汉服系带法）">
+            <textarea id="skillSteps" class="skill-input" rows="6" placeholder="请按步骤详细描述（例如：1. 准备... 2. 第一步操作... 3. 关键要点...）"></textarea>
+            <textarea id="skillNotes" class="skill-input" rows="3" placeholder="注意事项或常见误区（选填）"></textarea>
+            <div style="text-align: center;">
+                <button class="btn" onclick="submitSkill()">🚀 提交技能至基石库</button>
+                <button class="btn" style="background: linear-gradient(to right, #FF8A00, #FF2070);" onclick="aiAssist()">🤖 AI助手：帮我优化格式</button>
+            </div>
+            <div id="creationResult" style="margin-top: 25px; text-align: center;"></div>
+        </div>
+
+        <footer>
+            <p>元境大同 · 创世实验 | 灵相与心愿存于云端，会话终了时本地痕迹将匿名化。</p>
+            <p style="font-size: 0.8em; color: #aaa;">当前核心API已就绪：心愿发布功能可真实调用云端函数。</p>
+        </footer>
+    </div>
+
+    <script>
+        /* ========== 【核心配置区】请确保函数配置正确 ==========
+         * 在阿里云函数计算控制台，检查 `meta-post-wish` 函数：
+         * 1. 【配置】页签中，环境变量 `OSS_BUCKET_NAME` 已设置为 `datongyuzhou-static`
+         * 2. 【OSS控制台】中，`datongyuzhou-static` Bucket 的 `data/` 目录下已创建空文件 `wishes.json` (内容为 [])
+         */
+        const API_URL_POST_WISH = 'https://meta-post-wish-xoinuppars.cn-hongkong.fcapp.run';
+        // =========================================================
+
+        let userPath = null;
+        let userCharacter = { hanfu: '', accessory: '', pattern: '' };
+        let claimedTask = { id: null, title: '【请先到“任务星阁”认领一个任务】' };
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+            if (tabName === 'wish') loadWishes();
+        }
+
+        function selectPath(path) {
+            userPath = path;
+            document.getElementById('pathTaiChi').classList.remove('selected');
+            document.getElementById('pathCharacter').classList.remove('selected');
+            document.getElementById('taiChiGuide').classList.add('hidden');
+            document.getElementById('characterCreator').classList.add('hidden');
+
+            event.currentTarget.closest('.path-card').classList.add('selected');
+            document.getElementById(path + 'Guide').classList.remove('hidden');
+        }
+
+        function completeTaiChi() {
+            alert('太极体验完成！你已获得「身心平衡」状态。正在进入元境...');
+            localStorage.setItem('userPath', 'tai-chi');
+            switchTab('wish');
+        }
+
+        function selectCharPart(category, value) {
+            const el = event.currentTarget;
+            const wasSelected = el.classList.contains('selected');
+            document.querySelectorAll('.char-option').forEach(opt => {
+                if (opt.getAttribute('data-cat') === category) opt.classList.remove('selected');
+            });
+            if (!wasSelected) {
+                el.classList.add('selected');
+                el.setAttribute('data-cat', category);
+                userCharacter[category] = value;
+            } else {
+                userCharacter[category] = '';
+            }
+            updateCharacterPreview();
+        }
+
+        function updateCharacterPreview() {
+            const parts = [];
+            if (userCharacter.hanfu) parts.push(userCharacter.hanfu);
+            if (userCharacter.accessory) parts.push(`配${userCharacter.accessory}`);
+            if (userCharacter.pattern) parts.push(`饰${userCharacter.pattern}`);
+            const preview = parts.length > 0 ? parts.join(' · ') : '灵相未显，待君造化...';
+            document.getElementById('characterPreview').innerText = preview;
+        }
+
+        function generateCharacter() {
+            if (!userCharacter.hanfu) { alert('请至少选择一项汉服形制，此为灵相之基。'); return; }
+            localStorage.setItem('userCharacter', JSON.stringify(userCharacter));
+            localStorage.setItem('userPath', 'character');
+            alert(`灵相【${document.getElementById('characterPreview').innerText}】已铭刻！此乃你在元境之道标。`);
+            switchTab('wish');
+        }
+
+        function skipCharacter() {
+            if (confirm('直接入境将使用默认云游行者身份，是否继续？')) {
+                localStorage.setItem('userPath', 'skipped');
+                switchTab('wish');
+            }
+        }
+
+        // 心愿墙功能
+        function fillWish(text) {
+            document.getElementById('newWish').value = text;
+        }
+
+        async function submitWish() {
+            const content = document.getElementById('newWish').value.trim();
+            if (!content) { alert('心愿内容不可为空。'); return; }
+
+            const submitBtn = event.currentTarget;
+            submitBtn.disabled = true;
+            submitBtn.textContent = '发布中...';
+
+            try {
+                const response = await fetch(API_URL_POST_WISH, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: content,
+                        author: localStorage.getItem('userCharacter') ? '灵相行者' : '云游行者'
+                    })
+                });
+
+                const result = await response.json();
+                if (response.ok && result.success) {
+                    alert('✨ 心愿已成功发布至「元境」！它已转化为任务，等待其他行者实现。');
+                    document.getElementById('newWish').value = '';
+                    // 此处未来可调用 getWishes 刷新列表
+                } else {
+                    alert(`发布失败：${result.message || '未知错误'}`);
+                }
+            } catch (error) {
+                console.error('发布心愿出错:', error);
+                alert('网络波动，连接元境失败，请稍后重试。');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '✨ 发布心愿至云端';
+            }
+        }
+
+        function loadWishes() {
+            // 此处预留：未来接入 `meta-get-wishes` 函数后，可动态加载列表
+            document.getElementById('wishList').innerHTML = `
+                <div class="list-item">
+                    <p><strong>【示例心愿】</strong> 想学3分钟汉服齐胸襦裙系带的正确方法（无工具，文字版）</p>
+                    <p style="color: #888; margin-top: 8px;">发布者：系统 | 状态：<span class="status-badge status-pending">待实现</span></p>
+                </div>
+                <div class="list-item">
+                    <p><strong>【用户心愿】</strong> <span id="latestWish">等待你的第一个真实心愿...</span></p>
+                    <p style="color: #888; margin-top: 8px;">发布者：你 | 状态：<span class="status-badge status-pending">已发布</span></p>
+                </div>
+            `;
+        }
+
+        function claimTask(id, title) {
+            claimedTask = { id, title };
+            document.getElementById('currentTaskTitle').innerText = `【${title}】`;
+            alert(`✅ 已成功认领任务「${title}」！请前往「造化工坊」将其转化为技能。`);
+            switchTab('create');
+        }
+
+        function submitSkill() {
+            const title = document.getElementById('skillTitle').value.trim();
+            const steps = document.getElementById('skillSteps').value.trim();
+            if (!title || !steps) { alert('请填写技能标题和具体步骤。'); return; }
+            if (claimedTask.id === null) { alert('请先认领一个任务。'); return; }
+
+            document.getElementById('creationResult').innerHTML = `
+                <div class="list-item" style="background: #e8f7f0; border-left-color: #2ecc71;">
+                    <h4>✅ 技能提交成功！</h4>
+                    <p>技能《${title}》已提交至基石库，等待审核。感谢你的智慧贡献！</p>
+                    <p>认领的任务【${claimedTask.title}】状态已更新。</p>
+                </div>
+            `;
+            // 此处预留：未来接入 `meta-submit-skill` 函数
+            setTimeout(() => {
+                document.getElementById('skillTitle').value = '';
+                document.getElementById('skillSteps').value = '';
+                document.getElementById('skillNotes').value = '';
+                document.getElementById('creationResult').innerHTML = '';
+            }, 5000);
+        }
+
+        function aiAssist() {
+            const steps = document.getElementById('skillSteps').value;
+            if (!steps) {
+                alert('🤖 AI助手：请先输入一些步骤描述，我来帮你优化结构。');
+                return;
+            }
+            alert('🤖 AI助手：已收到你的文本。此功能待接入大模型服务后，可自动优化格式、补充要点。');
+        }
+
+        // 初始化
+        window.onload = function() {
+            const savedPath = localStorage.getItem('userPath');
+            if (savedPath && savedPath !== 'skipped') {
+                switchTab('wish');
+            }
+            // 加载示例数据
+            loadWishes();
+        };
+    </script>
+</body>
+</html>

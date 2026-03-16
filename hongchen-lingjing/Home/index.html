@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏮 元境大同 · 赛博国风技能共创空间</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🏮 元境大同</h1>
+        <p class="slogan">「 以古风为骨，以科技为翼，人人皆是技能共创者 」</p>
+
+        <!-- 顶部导航 -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('home')">🏠 创世入口</button>
+            <button class="tab-btn" onclick="switchTab('wish')">📜 心愿云墙</button>
+            <button class="tab-btn" onclick="switchTab('task')">📋 任务星阁</button>
+            <button class="tab-btn" onclick="switchTab('create')">🛠️ 造化工坊</button>
+        </div>
+
+        <!-- 首页：新手引导 -->
+        <div id="home" class="tab-content active">
+            <h2>🚪 选择你的元境初代身份</h2>
+            <p style="text-align: center; color: #666;">选择任意路径，即刻解锁「技能共创」之权</p>
+            <div class="path-selector">
+                <div class="path-card" onclick="selectPath('tai-chi')" id="pathTaiChi">
+                    <div class="path-icon">☯️</div>
+                    <h3>路径甲：感知内在平衡</h3>
+                    <p>【五韵太极 · 寻身心元律】</p>
+                    <p>通过古老的运动，感知身心平衡，找到创造的节奏。</p>
+                </div>
+                <div class="path-card" onclick="selectPath('character')" id="pathCharacter">
+                    <div class="path-icon">👤</div>
+                    <h3>路径乙：铸就专属灵相</h3>
+                    <p>【古风数字灵相 · 铸元境道标】</p>
+                    <p>选择一个代表你的初代形象，开启元境之旅。</p>
+                </div>
+            </div>
+
+            <!-- 太极体验引导 -->
+            <div id="taiChiGuide" class="hidden">
+                <h3>☯️ 太极入门引导</h3>
+                <p>1. 站立，双脚与肩同宽，膝盖微曲，全身放松...</p>
+                <button class="btn" onclick="completeTaiChi()">✅ 我已体验完成，进入元境</button>
+            </div>
+
+            <!-- 古风形象创建器 -->
+            <div id="characterCreator" class="hidden">
+                <h3>👤 元境灵相铸造 · 文字版</h3>
+                <p>请通过以下选择，组合出你的专属身份标识：</p>
+                <div class="character-builder">
+                    <div class="char-option" onclick="selectCharPart('hanfu', '齐胸襦裙')">汉服 · 齐胸襦裙</div>
+                    <div class="char-option" onclick="selectCharPart('hanfu', '圆领袍')">汉服 · 圆领袍</div>
+                    <div class="char-option" onclick="selectCharPart('hanfu', '马面裙')">汉服 · 马面裙</div>
+                    <div class="char-option" onclick="selectCharPart('accessory', '机械发簪')">配饰 · 机械发簪</div>
+                    <div class="char-option" onclick="selectCharPart('accessory', '数据流苏')">配饰 · 数据流苏</div>
+                    <div class="char-option" onclick="selectCharPart('pattern', '云纹数据流')">纹饰 · 云纹数据流</div>
+                    <div class="char-option" onclick="selectCharPart('pattern', '太极电路纹')">纹饰 · 太极电路纹</div>
+                    <div class="char-option" onclick="selectCharPart('pattern', '乾坤二进制')">纹饰 · 乾坤二进制</div>
+                </div>
+                <div id="characterPreview">灵相未显，待君造化...</div>
+                <button class="btn" onclick="generateCharacter()">🎨 生成并铭刻我的灵相</button>
+                <p style="text-align:center; margin-top:20px;"><a href="javascript:skipCharacter()"
+                        style="color: #666;">[暂不铸造，直接入境]</a></p>
+            </div>
+        </div>
+
+        <!-- 心愿墙 -->
+        <div id="wish" class="tab-content">
+            <h2>📜 元境心愿云墙</h2>
+            <p style="text-align: center;">在此许下心愿：国风妆造 / 传统技艺 / 二次元创作 / 数字艺术...</p>
+            <div class="seed-tags">
+                <span class="seed-tag" onclick="fillWish('想学3分钟汉服齐胸襦裙系带的正确方法（无工具，文字版）')">#汉服系带</span>
+                <span class="seed-tag" onclick="fillWish('想要简单的传统拱手礼/作揖礼教学（分场合：日常/正式）')">#传统礼仪</span>
+                <span class="seed-tag" onclick="fillWish('想要手机端10分钟古风头像涂鸦教程（文字版步骤）')">#古风涂鸦</span>
+                <span class="seed-tag" onclick="fillWish('想学简单的汉字动态效果制作方法（文字版，不用软件）')">#汉字动画</span>
+                <span class="seed-tag" onclick="fillWish('想要古风照片调色参数分享（手机修图，分分钟上手）')">#古风调色</span>
+            </div>
+            <textarea id="newWish" class="wish-input" placeholder="在此描述你想学会的生活技能或渴望的知识...（例如：如何快速叠好一件汉服）"></textarea>
+            <div style="text-align: center;">
+                <button class="btn" onclick="submitWish()">✨ 发布心愿至云端</button>
+            </div>
+            <div id="wishList">
+                <div class="list-item">
+                    <p><strong>【示例心愿】</strong> 想学3分钟汉服齐胸襦裙系带的正确方法（无工具，文字版）</p>
+                    <p style="color: #888; margin-top: 8px;">发布者：系统 | 状态：<span
+                            class="status-badge status-pending">待实现</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 任务大厅 -->
+        <div id="task" class="tab-content">
+            <h2>📋 任务星阁 · 国风技能待共创</h2>
+            <p style="text-align: center;">以下是由心愿转化的任务，等待有缘行者将其转化为可传承的技能。</p>
+            <div id="taskList">
+                <div class="list-item">
+                    <h4>任务：汉服齐胸襦裙系带教程</h4>
+                    <p>来源心愿：“想学3分钟汉服齐胸襦裙系带的正确方法”</p>
+                    <button class="btn" onclick="claimTask(1, '汉服齐胸襦裙系带教程')">🔗 认领此任务</button>
+                </div>
+                <div class="list-item">
+                    <h4>任务：古风头像涂鸦入门</h4>
+                    <p>来源心愿：“想要手机端10分钟古风头像涂鸦教程”</p>
+                    <button class="btn" onclick="claimTask(2, '古风头像涂鸦入门')">🔗 认领此任务</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 技能创建器 -->
+        <div id="create" class="tab-content">
+            <h2>🛠️ 造化工坊</h2>
+            <p>你正在将任务 <strong id="currentTaskTitle">【请先到“任务星阁”认领一个任务】</strong> 转化为可传承的技能。</p>
+            <input type="text" id="skillTitle" class="skill-input" placeholder="为你的技能起一个清晰的名字（例如：三分钟汉服系带法）">
+            <textarea id="skillSteps" class="skill-input" rows="6"
+                placeholder="请按步骤详细描述（例如：1. 准备... 2. 第一步操作... 3. 关键要点...）"></textarea>
+            <textarea id="skillNotes" class="skill-input" rows="3" placeholder="注意事项或常见误区（选填）"></textarea>
+            <div style="text-align: center;">
+                <button class="btn" onclick="submitSkill()">🚀 提交技能至基石库</button>
+                <button class="btn" style="background: linear-gradient(to right, #FF8A00, #FF2070);"
+                    onclick="aiAssist()">🤖 AI助手：帮我优化格式</button>
+            </div>
+            <div id="creationResult" style="margin-top: 25px; text-align: center;"></div>
+        </div>
+
+        <footer>
+            <p>元境大同 · 创世实验 | 灵相与心愿存于云端，会话终了时本地痕迹将匿名化。</p>
+            <p style="font-size: 0.8em; color: #aaa;">当前核心API已就绪：心愿发布功能可真实调用云端函数。</p>
+        </footer>
+    </div>
+
+    <script src="../JS/app.js"></script>
+</body>
+
+</html>
