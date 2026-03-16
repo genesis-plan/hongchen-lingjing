@@ -1,0 +1,74 @@
+<!--pages/exam/exam.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">⚖️ 百炼鉴心台</text>
+    <text class="subtitle">考核认证</text>
+  </view>
+
+  <!-- 考核选择 -->
+  <view class="exam-list" wx:if="{{!currentExam}}">
+    <view class="exam-card" wx:for="{{availableExams}}" wx:key="id" bindtap="startExam" data-exam="{{item}}">
+      <text class="exam-icon">{{item.icon}}</text>
+      <view class="exam-info">
+        <text class="exam-name">{{item.name}}</text>
+        <text class="exam-desc">{{item.desc}}</text>
+        <view class="exam-status">
+          <text class="status-text">{{item.completed ? '已通过' : '未完成'}}</text>
+        </view>
+      </view>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 考核进行中 -->
+  <view class="exam-area" wx:if="{{currentExam && !examCompleted}}">
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{(currentQuestion + 1) / questions.length * 100}}%"></view>
+    </view>
+
+    <view class="question-card">
+      <text class="question-number">第 {{currentQuestion + 1}}/{{questions.length}} 题</text>
+      <text class="question-text">{{questions[currentQuestion].question}}</text>
+
+      <view class="options-list">
+        <view class="option-item {{selectedAnswer === index ? 'selected' : ''}}"
+              wx:for="{{questions[currentQuestion].options}}"
+              wx:key="*this"
+              wx:for-index="index"
+              bindtap="selectOption"
+              data-index="{{index}}">
+          <text class="option-label">{{index + 1}}</text>
+          <text class="option-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="button-group">
+      <button class="btn-secondary" bindtap="prevQuestion" wx:if="{{currentQuestion > 0}}">上一题</button>
+      <button class="btn-primary" bindtap="submitAnswer">{{currentQuestion === questions.length - 1 ? '提交' : '下一题'}}</button>
+    </view>
+  </view>
+
+  <!-- 考核结果 -->
+  <view class="result-area" wx:if="{{examCompleted}}">
+    <view class="result-card">
+      <text class="result-icon">{{examPassed ? '🎉' : '📚'}}</text>
+      <text class="result-title">{{examPassed ? '恭喜通过！' : '继续努力'}}</text>
+      <text class="result-score">得分：{{score}}/{{questions.length}}</text>
+
+      <view class="result-detail" wx:if="{{examPassed}}">
+        <view class="certificate">
+          <text class="cert-title">技能证书</text>
+          <text class="cert-skill">{{currentExam.name}}</text>
+          <text class="cert-user">习练者：{{userName}}</text>
+          <text class="cert-date">授予日期：{{certDate}}</text>
+          <text class="cert-seal">红尘灵境 · 百炼鉴心台</text>
+        </view>
+      </view>
+
+      <button class="btn-primary" bindtap="goToHonor" wx:if="{{examPassed}}">查看荣誉</button>
+      <button class="btn-secondary" bindtap="retryExam" wx:if="{{!examPassed}}">重新考核</button>
+      <button class="btn-secondary" bindtap="backToList">返回</button>
+    </view>
+  </view>
+</view>

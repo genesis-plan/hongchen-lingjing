@@ -1,0 +1,66 @@
+<!--pages/honor/honor.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">🏆 荣光麟阁</text>
+    <text class="subtitle">荣誉殿堂</text>
+  </view>
+
+  <!-- 用户信息 -->
+  <view class="user-card">
+    <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+    <view class="user-info">
+      <text class="user-name">{{userInfo.nickName}}</text>
+      <text class="user-id">ID: {{userInfo.userId}}</text>
+    </view>
+    <view class="user-stats">
+      <view class="stat-item">
+        <text class="stat-value">{{honorList.length}}</text>
+        <text class="stat-label">荣誉</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{skillCount}}</text>
+        <text class="stat-label">技能</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{practiceCount}}</text>
+        <text class="stat-label">练习</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 荣誉列表 -->
+  <view class="section">
+    <text class="section-title">获得的荣誉</text>
+
+    <view class="honor-list">
+      <view class="honor-card" wx:for="{{honorList}}" wx:key="id">
+        <text class="honor-icon">{{item.icon}}</text>
+        <view class="honor-info">
+          <text class="honor-name">{{item.name}}</text>
+          <text class="honor-desc">{{item.desc}}</text>
+          <text class="honor-date">获得时间：{{item.date}}</text>
+        </view>
+        <text class="honor-badge">✓</text>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{honorList.length === 0}}">
+      暂无荣誉，快去学习技能吧！
+    </view>
+  </view>
+
+  <!-- 待解锁荣誉 -->
+  <view class="section">
+    <text class="section-title">待解锁荣誉</text>
+
+    <view class="honor-list locked">
+      <view class="honor-card locked" wx:for="{{lockedHonors}}" wx:key="id">
+        <text class="honor-icon">🔒</text>
+        <view class="honor-info">
+          <text class="honor-name">{{item.name}}</text>
+          <text class="honor-desc">{{item.condition}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

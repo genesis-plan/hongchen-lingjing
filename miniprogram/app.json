@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/landing/landing",
+    "pages/home/home",
+    "pages/library/library",
+    "pages/practice/practice",
+    "pages/exam/exam",
+    "pages/create/create",
+    "pages/ai/ai",
+    "pages/community/community",
+    "pages/letters/letters",
+    "pages/social/social",
+    "pages/market/market",
+    "pages/economy/economy",
+    "pages/challenge/challenge",
+    "pages/honor/honor",
+    "pages/space/space"
+  ],
+  "window": {
+    "navigationBarTitleText": "红尘灵境",
+    "navigationBarBackgroundColor": "#6a11cb",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f5f5",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#6a11cb",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "灵境",
+        "iconPath": "images/tab/home.png",
+        "selectedIconPath": "images/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/library/library",
+        "text": "琅嬛",
+        "iconPath": "images/tab/library.png",
+        "selectedIconPath": "images/tab/library-active.png"
+      },
+      {
+        "pagePath": "pages/practice/practice",
+        "text": "实训",
+        "iconPath": "images/tab/practice.png",
+        "selectedIconPath": "images/tab/practice-active.png"
+      },
+      {
+        "pagePath": "pages/honor/honor",
+        "text": "荣誉",
+        "iconPath": "images/tab/honor.png",
+        "selectedIconPath": "images/tab/honor-active.png"
+      },
+      {
+        "pagePath": "pages/space/space",
+        "text": "空间",
+        "iconPath": "images/tab/space.png",
+        "selectedIconPath": "images/tab/space-active.png"
+      }
+    ]
+  },
+  "cloud": true,
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

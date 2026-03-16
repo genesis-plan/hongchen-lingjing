@@ -1,0 +1,47 @@
+<!--泉府通衢页面 - 经济市场-->
+<view class="container">
+  <view class="header">
+    <view class="title">泉府通衢</view>
+    <view class="subtitle">经济市场，自由交易</view>
+  </view>
+
+  <view class="user-assets">
+    <view class="asset-item">
+      <image src="/images/lingstone.png" class="asset-icon" />
+      <view class="asset-info">
+        <text class="asset-label">灵石</text>
+        <text class="asset-value">{{lingstone}}</text>
+      </view>
+    </view>
+    <view class="asset-item">
+      <image src="/images/jade.png" class="asset-icon" />
+      <view class="asset-info">
+        <text class="asset-label">玉石</text>
+        <text class="asset-value">{{jade}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="tabs">
+    <view class="tab {{activeTab === 'market' ? 'active' : ''}}" bindtap="switchTab" data-tab="market">交易市场</view>
+    <view class="tab {{activeTab === 'my' ? 'active' : ''}}" bindtap="switchTab" data-tab="my">我的上架</view>
+  </view>
+
+  <scroll-view class="content" scroll-y wx:if="{{activeTab === 'market'}}">
+    <view class="market-list">
+      <view class="market-item" wx:for="{{marketItems}}" wx:key="id">
+        <image class="item-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="item-info">
+          <view class="item-name">{{item.name}}</view>
+          <view class="item-seller">卖家：{{item.seller}}</view>
+          <view class="item-price">{{item.price}} 灵石</view>
+        </view>
+        <button class="buy-btn" bindtap="buyItem" data-id="{{item.id}}">购买</button>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="fab" bindtap="showSellModal">
+    <text>+</text>
+  </view>
+</view>

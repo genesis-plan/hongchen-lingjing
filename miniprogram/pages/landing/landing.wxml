@@ -1,0 +1,58 @@
+<!--pages/landing/landing.wxml-->
+<view class="container">
+  <view class="ship-icon">⛵</view>
+  <view class="title">灵槎津渡</view>
+  <view class="subtitle">初入灵境，踏上传承之路</view>
+
+  <view class="landing-area">
+    <view class="welcome-text">
+      欢迎来到红尘灵境，这里是你的登岸之地。
+    </view>
+
+    <view class="anon-id" wx:if="{{!userId}}">
+      等待登岸...
+    </view>
+
+    <view class="anon-id" wx:if="{{userId}}">
+      你的匿名ID：{{userId}}
+    </view>
+
+    <button class="btn-primary" wx:if="{{!userId}}" bindtap="handleLogin">
+      ⚓ 灵槎登岸
+    </button>
+
+    <button class="btn-primary" wx:if="{{userId}}" bindtap="goToHome">
+      🚀 进入灵境
+    </button>
+
+    <view class="info-text">
+      登岸后将获得永久匿名ID，开启灵境之旅。
+    </view>
+  </view>
+
+  <view class="features">
+    <view class="feature-item">
+      <text class="feature-icon">📚</text>
+      <view class="feature-text">
+        <text class="feature-title">技能传承</text>
+        <text class="feature-desc">学习传统技艺，守护文化瑰宝</text>
+      </view>
+    </view>
+
+    <view class="feature-item">
+      <text class="feature-icon">🤝</text>
+      <view class="feature-text">
+        <text class="feature-title">社区共治</text>
+        <text class="feature-desc">与同道中人共建美好未来</text>
+      </view>
+    </view>
+
+    <view class="feature-item">
+      <text class="feature-icon">🏆</text>
+      <view class="feature-text">
+        <text class="feature-title">荣誉系统</text>
+        <text class="feature-desc">记录成就，见证成长</text>
+      </view>
+    </view>
+  </view>
+</view>

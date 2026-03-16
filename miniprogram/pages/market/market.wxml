@@ -1,0 +1,32 @@
+<!--万象璇玑阁页面 - 资源中枢-->
+<view class="container">
+  <view class="header">
+    <view class="title">万象璇玑阁</view>
+    <view class="subtitle">资源中枢，智慧宝库</view>
+  </view>
+
+  <view class="resource-grid">
+    <view class="resource-card" wx:for="{{resources}}" wx:key="id">
+      <image class="resource-icon" src="{{item.icon}}" mode="aspectFill" />
+      <view class="resource-info">
+        <view class="resource-name">{{item.name}}</view>
+        <view class="resource-count">{{item.count}} 个</view>
+      </view>
+      <button class="resource-btn" bindtap="useResource" data-id="{{item.id}}">使用</button>
+    </view>
+  </view>
+
+  <view class="exchange-area">
+    <view class="area-title">资源兑换</view>
+    <view class="exchange-list">
+      <view class="exchange-item" wx:for="{{exchanges}}" wx:key="id">
+        <view class="exchange-info">
+          <view class="exchange-name">{{item.name}}</view>
+          <view class="exchange-desc">{{item.description}}</view>
+        </view>
+        <view class="exchange-price">{{item.price}} 灵石</view>
+        <button class="exchange-btn" bindtap="exchange" data-id="{{item.id}}">兑换</button>
+      </view>
+    </view>
+  </view>
+</view>

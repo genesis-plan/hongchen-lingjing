@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 红尘灵境</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            cursor: pointer;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .forgot-password {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            color: #999;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-btn:hover {
+            border-color: #667eea;
+            background: #f8f8ff;
+        }
+
+        .social-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-btn span {
+            color: #666;
+            font-weight: bold;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .register-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .legal-links {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        .legal-links a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        .legal-links a:hover {
+            color: #667eea;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>欢迎回来</h1>
+                <p>登录红尘灵境，继续你的修行之路</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <!-- 用户名 -->
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" required
+                           placeholder="请输入用户名">
+                </div>
+
+                <!-- 密码 -->
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" required
+                           placeholder="请输入密码">
+                </div>
+
+                <!-- 选项 -->
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">记住我</label>
+                    </div>
+                    <a href="#" class="forgot-password" onclick="alert('找回密码功能开发中')">忘记密码？</a>
+                </div>
+
+                <button type="submit" class="login-btn">登录</button>
+            </form>
+
+            <div class="divider">
+                <span>或</span>
+            </div>
+
+            <!-- 社交登录 -->
+            <div class="social-login">
+                <button class="social-btn" onclick="socialLogin('wechat')">
+                    <span>💬</span>
+                    <span>微信登录</span>
+                </button>
+                <button class="social-btn" onclick="socialLogin('qq')">
+                    <span>🐧</span>
+                    <span>QQ登录</span>
+                </button>
+            </div>
+
+            <div class="register-link">
+                还没有账号？<a href="register.html">立即注册</a>
+            </div>
+
+            <div class="legal-links">
+                <a href="privacy-policy.html" target="_blank">隐私政策</a>
+                <span> | </span>
+                <a href="terms-of-service.html" target="_blank">服务条款</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 处理登录
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            console.log('登录数据:', { username, rememberMe });
+
+            // TODO: 调用后端API验证登录
+            // 这里先模拟登录成功
+
+            // 检查本地存储是否有该用户
+            const userData = localStorage.getItem('user_' + username);
+
+            if (userData) {
+                const user = JSON.parse(userData);
+                if (user.password === password) {
+                    // 登录成功
+                    localStorage.setItem('currentUser', JSON.stringify({
+                        username: user.username,
+                        email: user.email,
+                        loginTime: new Date().toISOString()
+                    }));
+
+                    alert('登录成功！欢迎回来，' + username);
+                    window.location.href = 'index.html';
+                } else {
+                    alert('密码错误，请重试');
+                }
+            } else {
+                alert('用户不存在，请先注册');
+            }
+        }
+
+        // 社交登录
+        function socialLogin(platform) {
+            // TODO: 实现真正的社交登录
+            if (platform === 'wechat') {
+                alert('微信登录功能开发中');
+            } else if (platform === 'qq') {
+                alert('QQ登录功能开发中');
+            }
+        }
+
+        // 页面加载时检查是否已登录
+        window.onload = function() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                // 已登录，跳转到首页
+                if (confirm('您已经登录，是否跳转到首页？')) {
+                    window.location.href = 'index.html';
+                }
+            }
+        };
+    </script>
+</body>
+</html>

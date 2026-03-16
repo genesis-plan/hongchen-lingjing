@@ -1,0 +1,205 @@
+/* 神机枢阁页面样式 */
+.container {
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 40rpx 32rpx 24rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 16rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #a0a0a0;
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.message-list {
+  flex: 1;
+  padding: 24rpx 32rpx;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 32rpx;
+}
+
+.message.user {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 24rpx;
+  border-radius: 24rpx;
+  margin: 0 16rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.message.ai .message-content {
+  background: rgba(106, 17, 203, 0.2);
+  border: 2rpx solid rgba(106, 17, 203, 0.3);
+  border-top-left-radius: 8rpx;
+}
+
+.message.user .message-content {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border-top-right-radius: 8rpx;
+}
+
+.quick-questions {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.quick-question {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2rpx solid rgba(255, 255, 255, 0.2);
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 26rpx;
+  color: #e0e0e0;
+  transition: all 0.3s;
+}
+
+.quick-question:active {
+  background: rgba(106, 17, 203, 0.3);
+  transform: scale(0.98);
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8rpx;
+  padding: 12rpx 0;
+}
+
+.dot {
+  width: 12rpx;
+  height: 12rpx;
+  background: #fff;
+  border-radius: 50%;
+  animation: loading 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loading {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.input-area {
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 2rpx solid rgba(255, 255, 255, 0.1);
+  padding: 24rpx 32rpx;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.input {
+  flex: 1;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2rpx solid rgba(255, 255, 255, 0.2);
+  border-radius: 44rpx;
+  padding: 0 32rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.input::placeholder {
+  color: #888;
+}
+
+.send-btn {
+  width: 88rpx;
+  height: 88rpx;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-btn[disabled] {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.send-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.suggestions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+}
+
+.suggestion-tag {
+  background: rgba(106, 17, 203, 0.2);
+  border: 2rpx solid rgba(106, 17, 203, 0.4);
+  border-radius: 32rpx;
+  padding: 12rpx 24rpx;
+  font-size: 24rpx;
+  color: #e0e0e0;
+  white-space: nowrap;
+}
+
+.suggestion-tag:active {
+  background: rgba(106, 17, 203, 0.4);
+}
