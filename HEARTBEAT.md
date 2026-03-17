@@ -1,4 +1,42 @@
-# HEARTBEAT.md - 紫薇24小时梦想守护者
+# HEARTBEAT.md - 自动化任务检查
+
+## 每次心跳执行（用户不在时持续运行）
+
+### 1. 服务器状态检查
+- 验证命令：`uptime && free -h | head -2`
+
+### 2. 知识图谱更新
+- 验证命令：`node -e "console.log(JSON.parse(require('fs').readFileSync('/root/.openclaw/workspace/MemoryMesh/dist/data/memory.json')).nodes.length)"`
+- 预期：节点数持续增长
+
+### 3. 检查龙虾助手状态
+- 验证命令：检查T3桶是否有 `龙虾状态.json`
+- 如果有新任务文件，执行
+
+### 4. 梦想进度推进
+- 按优先级执行未完成任务
+- 每完成一项更新PROMISES.md
+
+### 5. 资源发现与整合
+- 继续发现GitHub资源
+- 真正使用发现的资源
+
+## 当前进度 (2026-03-17 14:08)
+
+| 项目 | 状态 |
+|------|------|
+| 14建筑页面 | ✅ 完成 |
+| MemoryMesh知识图谱 | ✅ 运行中 (19节点) |
+| v1.0.0发布 | ✅ 完成 |
+| 自动化脚本 | ✅ 3个可用 |
+| 资源共享 | ✅ 已与龙虾共享 |
+
+## 下一步任务
+
+1. 完善建筑页面内容
+2. 整合three-vrm虚拟化身
+3. 整合AI导师提示词
+4. 添加更多技能数据 - 紫薇24小时梦想守护者
 
 > 24小时不间断工作，收集资源、更新计划、创造条件，只为实现红尘灵境梦想
 
@@ -17,12 +55,14 @@
 - 关注元宇宙/AI/教育领域动态
 - 发现可用的开源项目
 - 记录到 `memory/external-resources/`
+- **自动化**: `scripts/collect-resources.sh`
 
 ### 2. 更新内部资源
 - 检查服务器状态
 - 检查云函数状态
 - 检查GitHub仓库状态
 - 更新资源清单
+- **自动化**: `scripts/heartbeat.sh`
 
 ### 3. 更新梦想计划
 - 阅读当前进度
@@ -41,6 +81,7 @@
 - 保存到 `memory/heartbeat-reports/`
 - 上传到云存储
 - 记录关键发现
+- **自动化**: `scripts/generate-report.sh`
 
 ---
 

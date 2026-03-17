@@ -1,0 +1,23 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "[![MIT License](https://img.shields.io/github/license/genesis-plan/hongchen-lingjing)](LICENSE) [![Stars](https://img.shields.io/github/stars/genesis-plan/hongchen-lingjing?style=social)](https://github.com/genesis-plan/hongchen-lingjing)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://x-access-token: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@github.com/genesis-plan/hongchen-lingjing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genesis-plan/hongchen-lingjing/issues"
+  },
+  "homepage": "https://github.com/genesis-plan/hongchen-lingjing#readme",
+  "dependencies": {
+    "@pixiv/three-vrm": "^3.5.1"
+  }
+}

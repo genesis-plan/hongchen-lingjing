@@ -242,9 +242,20 @@
 - **TDSQL-C MySQL**: 2个数据库实例
 
 ### 发现的外部资源（2026-03-17）
-- **知识图谱**: @modelcontextprotocol/server-memory, mcp-knowledge-graph
-- **技能平台**: NationalSecurityAgency/skills-service (SkillTree)
-- **虚拟化身**: VerseEngine/three-avatar
+
+#### 已整合使用
+- **MemoryMesh** (336 stars) - ✅ 已下载运行，创建紫薇知识图谱schemas
+  - add_memory.schema.json - 记忆节点
+  - add_skill.schema.json - 技能节点
+  - add_building.schema.json - 建筑节点
+  - add_task.schema.json - 任务节点
+  - add_resource.schema.json - 资源节点
+
+#### 待整合
+- **context-portal** (756 stars) - MCP知识图谱，项目记忆系统
+- **learn-agentic-ai** (3,980 stars) - AI代理学习方案
+- **three-vrm** (1,822 stars) - VRM化身系统
+- **Mr.-Ranedeer-AI-Tutor** (29,676 stars) - AI导师提示词
 
 ---
 
