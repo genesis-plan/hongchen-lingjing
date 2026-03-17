@@ -1,0 +1,133 @@
+# 📝 更新index.html添加3D入口
+
+需要修改的文件：`C:\Users\Administrator\Desktop\红尘灵境网页版\index.html`
+
+## 🎯 修改位置
+
+在index.html中找到以下部分（大约第40-50行）：
+
+```html
+<div class="features-grid">
+    <div class="feature-card">
+        <span class="feature-icon">🏠</span>
+        <h3 class="feature-title">灵境主页</h3>
+        <p class="feature-desc">查看你的技能树，管理学习进度</p>
+        <button class="feature-btn" onclick="navigateTo('home')">进入</button>
+    </div>
+    
+    <div class="feature-card">
+        <span class="feature-icon">📚</span>
+        <h3 class="feature-title">琅嬛藏书</h3>
+        <p class="feature-desc">浏览浩瀚的知识宝库</p>
+        <button class="feature-btn" onclick="navigateTo('library')">进入</button>
+    </div>
+    
+    <div class="feature-card">
+        <span class="feature-icon">🎯</span>
+        <h3 class="feature-title">修炼实训</h3>
+        <p class="feature-desc">通过实践提升技能水平</p>
+        <button class="feature-btn" onclick="navigateTo('practice')">进入</button>
+    </div>
+    
+    <div class="feature-card">
+        <span class="feature-icon">🏆</span>
+        <h3 class="feature-title">荣誉殿堂</h3>
+        <p class="feature-desc">展示你的成就与徽章</p>
+        <button class="feature-btn" onclick="navigateTo('honor')">进入</button>
+    </div>
+</div>
+```
+
+## 🎯 需要添加的新卡片
+
+在现有卡片后面添加：
+
+```html
+<div class="feature-card">
+    <span class="feature-icon">🎮</span>
+    <h3 class="feature-title">3D预览</h3>
+    <p class="feature-desc">体验14座建筑的3D视觉预览</p>
+    <button class="feature-btn" onclick="window.location.href='threejs-demo.html'">进入</button>
+</div>
+```
+
+## 🎯 完整修改后应该长这样：
+
+```html
+<div class="features-grid">
+    <div class="feature-card">
+        <span class="feature-icon">🏠</span>
+        <h3 class="feature-title">灵境主页</h3>
+        <p class="feature-desc">查看你的技能树，管理学习进度</p>
+        <button class="feature-btn" onclick="navigateTo('home')">进入</button>
+    </div>
+    
+    <div class="feature-card">
+        <span class="feature-icon">📚</span>
+        <h3 class="feature-title">琅嬛藏书</h3>
+        <p class="feature-desc">浏览浩瀚的知识宝库</p>
+        <button class="feature-btn" onclick="navigateTo('library')">进入</button>
+    </div>
+    
+    <div class="feature-card">
+        <span class="feature-icon">🎯</span>
+        <h3 class="feature-title">修炼实训</h3>
+        <p class="feature-desc">通过实践提升技能水平</p>
+        <button class="feature-btn" onclick="navigateTo('practice')">进入</button>
+    </div>
+    
+    <div class="feature-card">
+        <span class="feature-icon">🏆</span>
+        <h3 class="feature-title">荣誉殿堂</h3>
+        <p class="feature-desc">展示你的成就与徽章</p>
+        <button class="feature-btn" onclick="navigateTo('honor')">进入</button>
+    </div>
+    
+    <div class="feature-card">
+        <span class="feature-icon">🎮</span>
+        <h3 class="feature-title">3D预览</h3>
+        <p class="feature-desc">体验14座建筑的3D视觉预览</p>
+        <button class="feature-btn" onclick="window.location.href='threejs-demo.html'">进入</button>
+    </div>
+</div>
+```
+
+## 🎯 操作步骤
+
+1. **打开文件**：`C:\Users\Administrator\Desktop\红尘灵境网页版\index.html`
+2. **查找**：`<div class="features-grid">`
+3. **在最后一个** `</div>` **前添加**新的卡片代码
+4. **保存文件**
+
+## 🎯 或者直接复制这个文件
+
+我已经创建了一个**可以直接使用的新页面**：
+`C:\Users\Administrator\Desktop\红尘灵境网页版\threejs-demo.html`
+
+## 🎯 现在就可以测试
+
+**打开浏览器**，输入：
+```
+file:///C:/Users/Administrator/Desktop/红尘灵境网页版/threejs-demo.html
+```
+
+或者**双击**文件图标直接打开！
+
+## 🎯 完成效果
+
+✅ **14座建筑的3D可视化**
+✅ **无需安装任何软件**
+✅ **直接浏览器运行**
+✅ **完整的交互功能**
+✅ **响应式设计**
+
+## 🎯 立即可以做的事
+
+1. **双击** `threejs-demo.html` 打开
+2. **查看**3D建筑展示
+3. **点击**建筑查看详情
+4. **体验**3D控制功能
+
+**不需要懂技术！**
+**不需要安装软件！**
+**直接就能用！**

@@ -1,0 +1,13 @@
+{
+  "name": "hclj-web-deploy",
+  "version": "1.0.0",
+  "description": "红尘灵境网页版自动部署工具",
+  "main": "auto-deploy.js",
+  "scripts": {
+    "deploy": "node auto-deploy.js"
+  },
+  "dependencies": {
+    "@cloudbase/manager-node": "^2.0.0",
+    "@cloudbase/cli": "^1.0.0"
+  }
+}
