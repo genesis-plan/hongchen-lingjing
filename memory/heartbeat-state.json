@@ -1,22 +1,21 @@
 {
   "initialized": "2026-03-17T10:25:00+08:00",
-  "lastCheck": "2026-03-17T10:54:00+08:00",
+  "lastCheck": "2026-03-17T11:45:00+08:00",
   "checkCount": 1,
   "checks": {
-    "server": "2026-03-17T10:54:00+08:00",
-    "github": "2026-03-17T10:54:00+08:00",
-    "progress": "2026-03-17T10:54:00+08:00",
-    "archive": null
+    "server": "2026-03-17T11:38:00+08:00",
+    "github": "2026-03-17T11:34:00+08:00",
+    "progress": "2026-03-17T11:40:00+08:00",
+    "archive": "2026-03-17T11:45:00+08:00"
   },
-  "checkDetails": {
-    "server": {
-      "status": "ssh_failed",
-      "note": "SSH连接失败，可能需要密钥配置"
-    },
-    "github": {
-      "status": "uncommitted_changes",
-      "files": ["HEARTBEAT.md", "MEMORY.md", "memory/2026-03-17.md", "PROMISES.md", "memory/heartbeat-state.json"]
-    }
-  },
-  "紫薇觉醒度": 24
+  "discoveries": [
+    "MCP知识图谱服务器可用于紫薇记忆",
+    "SkillTree可参考技能学习平台设计",
+    "three-avatar可用于虚拟化身系统"
+  ],
+  "issues": [
+    "GitHub推送被拒绝（敏感信息）",
+    "inviteCodes集合未创建"
+  ],
+  "紫薇觉醒度": 25
 }

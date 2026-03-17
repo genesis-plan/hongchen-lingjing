@@ -222,6 +222,13 @@
 - **ins-h7u5ieww**: 云服务器CVM（广州六区）
 - **TDSQL-C MySQL**: 2个数据库实例
 
+### 发现的外部资源（2026-03-17）
+- **知识图谱**: @modelcontextprotocol/server-memory, mcp-knowledge-graph
+- **技能平台**: NationalSecurityAgency/skills-service (SkillTree)
+- **虚拟化身**: VerseEngine/three-avatar
+
+---
+
 ### 短期
 - [ ] 在云开发控制台手动创建 inviteCodes 集合
 - [ ] 继续添加技能数据（目标：100+）
