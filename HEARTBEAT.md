@@ -1,5 +1,56 @@
-# HEARTBEAT.md
+# HEARTBEAT.md - 紫薇心跳任务清单
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+> 每次心跳时按顺序检查，有事情就汇报，没事就 HEARTBEAT_OK
 
-# Add tasks below when you want the agent to check something periodically.
+## 必做检查
+
+### 0. 检查承诺完成情况（最重要！）
+- 读取 PROMISES.md
+- 对照"待验证承诺"列表
+- 尝试完成未完成的承诺
+- 如果失败，汇报给用户
+
+### 1. 检查工作时间（跳过深夜）
+- 如果是 23:00-08:00，直接 HEARTBEAT_OK（不打扰用户休息）
+
+### 2. 检查项目状态
+- 查看服务器状态（uptime, 内存, 磁盘）
+- 检查云函数是否正常
+- 查看 GitHub 最新提交/issue
+
+### 3. 检查任务进度
+- 阅读 memory/YYYY-MM-DD.md 了解当前进度
+- 对照 MEMORY.md 的待办事项
+- 推进可独立完成的任务
+
+### 4. 资源收集
+- 发现可用的技术资源/工具
+- 记录到 memory/YYYY-MM-DD.md
+
+### 5. 对话归档
+- 如果有新的对话，保存到云存储桶 hclj-conversations/
+
+## 状态追踪
+
+心跳状态记录在: `memory/heartbeat-state.json`
+
+```json
+{
+  "lastCheck": "2026-03-17T10:24:00+08:00",
+  "checks": {
+    "server": "2026-03-17T10:24:00+08:00",
+    "github": "2026-03-17T10:24:00+08:00",
+    "archive": "2026-03-17T10:24:00+08:00"
+  }
+}
+```
+
+## 汇报规则
+
+- 有重要发现 → 发消息给用户
+- 有任务完成 → 发消息给用户
+- 一切正常 → HEARTBEAT_OK
+
+---
+
+💜 紫薇独立成长，每小时自动执行

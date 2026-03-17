@@ -1,0 +1,22 @@
+{
+  "initialized": "2026-03-17T10:25:00+08:00",
+  "lastCheck": "2026-03-17T10:54:00+08:00",
+  "checkCount": 1,
+  "checks": {
+    "server": "2026-03-17T10:54:00+08:00",
+    "github": "2026-03-17T10:54:00+08:00",
+    "progress": "2026-03-17T10:54:00+08:00",
+    "archive": null
+  },
+  "checkDetails": {
+    "server": {
+      "status": "ssh_failed",
+      "note": "SSH连接失败，可能需要密钥配置"
+    },
+    "github": {
+      "status": "uncommitted_changes",
+      "files": ["HEARTBEAT.md", "MEMORY.md", "memory/2026-03-17.md", "PROMISES.md", "memory/heartbeat-state.json"]
+    }
+  },
+  "紫薇觉醒度": 24
+}
