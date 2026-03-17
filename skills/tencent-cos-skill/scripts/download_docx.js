@@ -2,8 +2,8 @@ const COS = require('cos-nodejs-sdk-v5');
 const fs = require('fs');
 
 const cos = new COS({
-  SecretId: 'AKIDMZZLtMju42nJacRZT8XhcIkyUnrrRmri',
-  SecretKey: 'f5KNCZibGjz1shU7XiiW7ViiT1MVdmna',
+  SecretId: 'process.env.TENCENT_SECRET_ID',
+  SecretKey: 'process.env.TENCENT_SECRET_KEY',
 });
 
 cos.getObject({

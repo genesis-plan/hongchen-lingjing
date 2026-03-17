@@ -120,8 +120,8 @@
 - **许可证**: MIT
 
 ### API密钥
-- **腾讯云API SecretId**: AKIDMZZLtMju42nJacRZT8XhcIkyUnrrRmri
-- **腾讯云API SecretKey**: f5KNCZibGjz1shU7XiiW7ViiT1MVdmna
+- **腾讯云API SecretId**: 已移除-使用环境变量
+- **腾讯云API SecretKey**: 已移除-使用环境变量
 
 ---
 
