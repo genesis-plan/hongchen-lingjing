@@ -69,25 +69,57 @@ const mockLibrary = [
         id: 1,
         title: '基础心法入门',
         description: '学习最基础的修炼心法，为你的修行之路打下坚实基础。',
-        icon: '📖'
+        icon: '📖',
+        content: '筑基期是修行的起点。每日清晨，面向东方，吸入第一缕紫气，运转周天，持续49天即可筑基成功。'
     },
     {
         id: 2,
         title: '灵气感应术',
         description: '学习如何感知和吸收周围的天地灵气。',
-        icon: '🌌'
+        icon: '🌌',
+        content: '灵气无处不在，山川河流、日月星辰皆有灵气。闭目静心，感受身边的气流，便是灵气感应之术。'
     },
     {
         id: 3,
         title: '修炼进阶指南',
         description: '从入门到精通的全面修炼指南。',
-        icon: '📚'
+        icon: '📚',
+        content: '修炼分为多个境界：筑基、金丹、元婴、化神。每个境界都需要大量的积累和感悟，不可急于求成。'
     },
     {
         id: 4,
         title: '境界突破秘籍',
         description: '掌握境界突破的关键技巧和心法。',
-        icon: '⚡'
+        icon: '⚡',
+        content: '境界突破需要天时地利人和。瓶颈期可多行善积德，积累功德，有助于突破境界。'
+    },
+    {
+        id: 5,
+        title: '剑道基础',
+        description: '学习御剑飞行的基础知识和技巧。',
+        icon: '🗡️',
+        content: '剑修以剑入道，万物皆可为剑。初期以木剑练习，培养人剑合一的感觉。'
+    },
+    {
+        id: 6,
+        title: '炼丹入门',
+        description: '了解炼丹的基础知识和常见丹方。',
+        icon: '⚗️',
+        content: '炼丹是修行者的重要技能。入门从最简单的聚气丹开始，需要掌握火候控制和药材搭配。'
+    },
+    {
+        id: 7,
+        title: '阵法初解',
+        description: '学习布置简单阵法的基础知识。',
+        icon: '🔯',
+        content: '阵法是天地之力的运用。最简单的聚灵阵可以聚集灵气，让修炼事半功倍。'
+    },
+    {
+        id: 8,
+        title: '灵兽契约',
+        description: '与灵兽建立契约的基础方法。',
+        icon: '🦊',
+        content: '与灵兽结缘需要真诚和缘分。最常见的灵宠有狐狸、鹤、龟等，各有特长。'
     }
 ];
 
@@ -277,8 +309,36 @@ function renderSkills() {
 // 查看技能详情
 function viewSkill(skillId) {
     const skill = mockSkills.find(s => s.id === skillId);
-    if (skill) {
-        alert(`${skill.name}\n\n${skill.description}\n\n当前等级: ${skill.level}/${skill.maxLevel}\n类型: ${skill.type}`);
+    if (!skill) return;
+    
+    const isMaxLevel = skill.level >= skill.maxLevel;
+    const message = isMaxLevel 
+        ? `${skill.name}\n\n${skill.description}\n\n当前等级: ${skill.level}/${skill.maxLevel} (已达巅峰)\n类型: ${skill.type}`
+        : `${skill.name}\n\n${skill.description}\n\n当前等级: ${skill.level}/${skill.maxLevel}\n类型: ${skill.type}\n\n点击"修炼"提升等级！`;
+    
+    if (confirm(message + (isMaxLevel ? '' : '\n\n是否开始修炼？'))) {
+        if (!isMaxLevel) {
+            upgradeSkill(skillId);
+        }
+    }
+}
+
+// 升级技能
+function upgradeSkill(skillId) {
+    const skill = mockSkills.find(s => s.id === skillId);
+    if (skill && skill.level < skill.maxLevel) {
+        skill.level++;
+        
+        // 随机获得经验
+        const expGained = Math.floor(Math.random() * 20) + 10;
+        
+        alert(`🎉 修炼成功！\n\n${skill.name} 提升到 ${skill.level} 级！\n获得 ${expGained} 点经验值！\n\n继续修炼，突破极限！`);
+        
+        renderSkills();
+        updateStats();
+        
+        // 检查是否有新荣誉
+        checkNewHonor();
     }
 }
 
@@ -301,9 +361,22 @@ function renderLibrary() {
 // 打开书籍
 function openBook(bookId) {
     const book = mockLibrary.find(b => b.id === bookId);
-    if (book) {
-        alert(`${book.title}\n\n${book.description}`);
-    }
+    if (!book) return;
+    
+    // 创建阅读弹窗
+    const modal = document.createElement('div');
+    modal.id = 'book-modal';
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:10000;display:flex;justify-content:center;align-items:center;';
+    modal.innerHTML = `
+        <div style="background:linear-gradient(135deg,#667eea,#764ba2);padding:30px;border-radius:20px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;color:white;">
+            <h2 style="margin-top:0;">${book.icon} ${book.title}</h2>
+            <p style="font-size:14px;color:#ddd;">${book.description}</p>
+            <hr style="border-color:rgba(255,255,255,0.3);">
+            <div style="line-height:1.8;font-size:16px;white-space:pre-wrap;">${book.content || '内容待完善...'}</div>
+            <button onclick="this.closest('#book-modal').remove()" style="margin-top:20px;padding:10px 30px;background:#fff;color:#667eea;border:none;border-radius:20px;cursor:pointer;font-size:16px;">关闭窗口</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
 }
 
 // 搜索琅嬛藏书
@@ -351,8 +424,52 @@ function renderPractice() {
 // 开始实训
 function startPractice(practiceId) {
     const practice = mockPractice.find(p => p.id === practiceId);
-    if (practice) {
-        alert(`开始实训: ${practice.title}\n\n${practice.description}\n\n建议时长: ${practice.duration}`);
+    if (!practice) return;
+    
+    const confirmed = confirm(`开始实训: ${practice.title}\n\n${practice.description}\n\n难度: ${practice.difficulty}\n时长: ${practice.duration}\n\n确认开始吗？`);
+    
+    if (confirmed) {
+        // 模拟实训进行
+        setTimeout(() => {
+            // 增加实训次数
+            if (!appState.currentUser) {
+                appState.currentUser = { practiceCount: 0 };
+            }
+            appState.currentUser.practiceCount = (appState.currentUser.practiceCount || 0) + 1;
+            saveUserData();
+            
+            // 随机提升一个技能
+            const randomSkill = mockSkills[Math.floor(Math.random() * mockSkills.length)];
+            if (randomSkill && randomSkill.level < randomSkill.maxLevel) {
+                randomSkill.level++;
+            }
+            
+            alert(`🎉 实训完成！\n\n${practice.title} 已完成！\n\n获得奖励：\n+ 修炼经验\n+ ${randomSkill?.name || '技能'} 经验值\n\n太棒了！继续加油！`);
+            
+            renderPractice();
+            updateStats();
+            checkNewHonor();
+        }, 1500);
+    }
+}
+
+// 检查新荣誉
+function checkNewHonor() {
+    const practiceCount = appState.currentUser?.practiceCount || 0;
+    const skillCount = mockSkills.filter(s => s.level > 1).length;
+    
+    // 检查并解锁荣誉
+    if (practiceCount >= 1) {
+        const honor1 = mockHonors.find(h => h.id === 1);
+        if (honor1) honor1.obtained = true;
+    }
+    if (skillCount >= 1) {
+        const honor2 = mockHonors.find(h => h.id === 2);
+        if (honor2) honor2.obtained = true;
+    }
+    if (practiceCount >= 7) {
+        const honor3 = mockHonors.find(h => h.id === 3);
+        if (honor3) honor3.obtained = true;
     }
 }
 
