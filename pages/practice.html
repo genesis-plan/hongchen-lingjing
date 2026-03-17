@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修炼实训 - 红尘灵境</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="top-nav">
+            <button class="back-btn" onclick="history.back()">← 返回</button>
+            <div class="nav-title">修炼实训</div>
+        </nav>
+        <main class="main-content">
+            <div class="practice-stats">
+                <div class="stat-item">
+                    <div class="stat-label">已完成</div>
+                    <div class="stat-value" id="completed-count">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">进行中</div>
+                    <div class="stat-value" id="inprogress-count">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">总计</div>
+                    <div class="stat-value" id="total-count">0</div>
+                </div>
+            </div>
+            <div id="practice-list" class="practice-grid">
+                <!-- 动态加载实训项目 -->
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+</body>
+</html>
