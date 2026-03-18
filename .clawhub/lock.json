@@ -40,6 +40,182 @@
     "tencent-cos-skill": {
       "version": "1.0.6",
       "installedAt": 1773556894145
+    },
+    "tencentcloud-cos-skills": {
+      "version": "1.0.10",
+      "installedAt": 1773846747705
+    },
+    "tencentcloud-tts": {
+      "version": "1.0.0",
+      "installedAt": 1773846752358
+    },
+    "tencentcloud-asr": {
+      "version": "0.1.5",
+      "installedAt": 1773846757752
+    },
+    "tencent-mps": {
+      "version": "1.0.8",
+      "installedAt": 1773846763902
+    },
+    "xiaohongshu-skills": {
+      "version": "1.0.2",
+      "installedAt": 1773847116543
+    },
+    "douyin-creator": {
+      "version": "2.3.5",
+      "installedAt": 1773847121937
+    },
+    "github-ops": {
+      "version": "1.0.0",
+      "installedAt": 1773847127517
+    },
+    "automation-tool": {
+      "version": "1.0.0",
+      "installedAt": 1773847155779
+    },
+    "github-pages-auto-deploy": {
+      "version": "1.0.0",
+      "installedAt": 1773847160970
+    },
+    "clawatar": {
+      "version": "0.2.0",
+      "installedAt": 1773847641872
+    },
+    "3d-cog": {
+      "version": "1.0.0",
+      "installedAt": 1773847642410
+    },
+    "goosetown": {
+      "version": "1.2.1",
+      "installedAt": 1773847642862
+    },
+    "curriculum-generator": {
+      "version": "1.0.0",
+      "installedAt": 1773847643306
+    },
+    "school": {
+      "version": "1.0.0",
+      "installedAt": 1773847643882
+    },
+    "baoyu-comic": {
+      "version": "1.60.0",
+      "installedAt": 1773847644402
+    },
+    "nia": {
+      "version": "1.0.3",
+      "installedAt": 1773847898182
+    },
+    "greptile": {
+      "version": "1.0.1",
+      "installedAt": 1773847898844
+    },
+    "openclaw-code-stats": {
+      "version": "1.0.0",
+      "installedAt": 1773847899342
+    },
+    "repo-kanban-pm": {
+      "version": "0.1.1",
+      "installedAt": 1773847899937
+    },
+    "upload-post": {
+      "version": "1.0.0",
+      "installedAt": 1773847924935
+    },
+    "moltr": {
+      "version": "0.1.0",
+      "installedAt": 1773847925411
+    },
+    "37soul-skill": {
+      "version": "1.0.14",
+      "installedAt": 1773847925891
+    },
+    "pinchedin": {
+      "version": "1.0.7",
+      "installedAt": 1773847926411
+    },
+    "byterover": {
+      "version": "1.2.2",
+      "installedAt": 1773847951238
+    },
+    "openviking": {
+      "version": "1.0.3",
+      "installedAt": 1773847951685
+    },
+    "research-assistant": {
+      "version": "1.0.1",
+      "installedAt": 1773847952108
+    },
+    "para-pkm": {
+      "version": "1.0.0",
+      "installedAt": 1773847952580
+    },
+    "video-learn": {
+      "version": "1.0.0",
+      "installedAt": 1773847977434
+    },
+    "deep-marketing-analyst": {
+      "version": "1.0.0",
+      "installedAt": 1773847977981
+    },
+    "gemini-video-analyzer": {
+      "version": "1.0.0",
+      "installedAt": 1773847978448
+    },
+    "dependency-audit": {
+      "version": "1.0.0",
+      "installedAt": 1773847979004
+    },
+    "primer": {
+      "version": "1.1.2",
+      "installedAt": 1773848011240
+    },
+    "agentos-sdk": {
+      "version": "3.7.0",
+      "installedAt": 1773848011722
+    },
+    "ai-evolution-engine-v2": {
+      "version": "1.0.0",
+      "installedAt": 1773848012233
+    },
+    "kuro-self-reflection": {
+      "version": "2.0.0",
+      "installedAt": 1773848012634
+    },
+    "tensorpm": {
+      "version": "1.1.12",
+      "installedAt": 1773848037106
+    },
+    "taskmaster": {
+      "version": "1.0.0",
+      "installedAt": 1773848037844
+    },
+    "natural-language-planner": {
+      "version": "0.1.0",
+      "installedAt": 1773848038465
+    },
+    "lofy": {
+      "version": "1.0.0",
+      "installedAt": 1773848039121
+    },
+    "projects": {
+      "version": "1.0.0",
+      "installedAt": 1773848066204
+    },
+    "wechat-toolkit": {
+      "version": "1.0.1",
+      "installedAt": 1773848128717
+    },
+    "bilibili-all-in-one": {
+      "version": "1.0.12",
+      "installedAt": 1773848133698
+    },
+    "twitter-autopilot": {
+      "version": "1.3.1",
+      "installedAt": 1773848139109
+    },
+    "agent-reach": {
+      "version": "1.1.0",
+      "installedAt": 1773848144266
     }
   }
 }
