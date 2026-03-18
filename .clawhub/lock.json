@@ -216,6 +216,182 @@
     "agent-reach": {
       "version": "1.1.0",
       "installedAt": 1773848144266
+    },
+    "awesun-remote-control": {
+      "version": "1.0.0",
+      "installedAt": 1773850927176
+    },
+    "activityclaw-usage": {
+      "version": "1.0.0",
+      "installedAt": 1773850927673
+    },
+    "dianping-query": {
+      "version": "1.0.0",
+      "installedAt": 1773850928137
+    },
+    "agent-safehouse": {
+      "version": "0.1.0",
+      "installedAt": 1773850928918
+    },
+    "feishu-messaging-0": {
+      "version": "1.0.0",
+      "installedAt": 1773850929401
+    },
+    "douyin-video-publish": {
+      "version": "1.0.0",
+      "installedAt": 1773851109743
+    },
+    "douyin-auto-reply": {
+      "version": "1.0.1",
+      "installedAt": 1773851110241
+    },
+    "douyin-hot-trend": {
+      "version": "1.1.0",
+      "installedAt": 1773851110676
+    },
+    "kim-msg": {
+      "version": "1.2.0",
+      "installedAt": 1773851111117
+    },
+    "kling-video": {
+      "version": "1.0.2",
+      "installedAt": 1773851111707
+    },
+    "xhs": {
+      "version": "1.2.5",
+      "installedAt": 1773851137090
+    },
+    "xiaohongshu-video-publish": {
+      "version": "1.0.0",
+      "installedAt": 1773851137556
+    },
+    "xiaohongshu-viral-copy": {
+      "version": "1.0.0",
+      "installedAt": 1773851137972
+    },
+    "video-publish-all": {
+      "version": "1.0.0",
+      "installedAt": 1773851138427
+    },
+    "video-script-creator": {
+      "version": "2.3.3",
+      "installedAt": 1773851138890
+    },
+    "soroban": {
+      "version": "1.0.1",
+      "installedAt": 1773851770109
+    },
+    "lobster-tank": {
+      "version": "1.1.0",
+      "installedAt": 1773851770539
+    },
+    "macro-monitor": {
+      "version": "1.0.2",
+      "installedAt": 1773851770992
+    },
+    "phoenix-sheld": {
+      "version": "1.0.0",
+      "installedAt": 1773851771479
+    },
+    "midos-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1773851920273
+    },
+    "miliger-qmd-manager": {
+      "version": "1.2.0",
+      "installedAt": 1773851920738
+    },
+    "memory-core-ng": {
+      "version": "0.1.0",
+      "installedAt": 1773851921285
+    },
+    "memory-cn": {
+      "version": "1.0.0",
+      "installedAt": 1773851921800
+    },
+    "qmd-memory": {
+      "version": "1.0.0",
+      "installedAt": 1773851922283
+    },
+    "obsidian-openclaw": {
+      "version": "1.0.0",
+      "installedAt": 1773851953509
+    },
+    "web-to-markdown": {
+      "version": "1.0.0",
+      "installedAt": 1773851954009
+    },
+    "self-improving-agent": {
+      "version": "1.0.11",
+      "installedAt": 1773852339733
+    },
+    "self-improving": {
+      "version": "1.2.16",
+      "installedAt": 1773852340182
+    },
+    "evolver": {
+      "version": "1.31.0",
+      "installedAt": 1773852340649
+    },
+    "capability-evolver": {
+      "version": "1.31.0",
+      "installedAt": 1773852341154
+    },
+    "github-analyzer": {
+      "version": "1.0.0",
+      "installedAt": 1773853182978
+    },
+    "ai-competitor-analyzer": {
+      "version": "1.0.52",
+      "installedAt": 1773853183433
+    },
+    "cnki-advanced-search": {
+      "version": "1.1.0",
+      "installedAt": 1773853183909
+    },
+    "skill-analyzer": {
+      "version": "0.2.0",
+      "installedAt": 1773853184410
+    },
+    "lokuli-booking": {
+      "version": "1.0.1",
+      "installedAt": 1773853210563
+    },
+    "double729-plansuite": {
+      "version": "0.2.1",
+      "installedAt": 1773853211132
+    },
+    "plan-my-day-bak-2026-01-28t18-01-27-10-30": {
+      "version": "1.0.0",
+      "installedAt": 1773853211690
+    },
+    "ftw": {
+      "version": "1.0.3",
+      "installedAt": 1773853212186
+    },
+    "research-engine": {
+      "version": "1.0.0",
+      "installedAt": 1773853635594
+    },
+    "weekly-report-generator": {
+      "version": "1.0.0",
+      "installedAt": 1773853801135
+    },
+    "agent-swarm-ex": {
+      "version": "1.0.0",
+      "installedAt": 1773853907048
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1773853982154
+    },
+    "free-ride": {
+      "version": "1.0.4",
+      "installedAt": 1773854195035
+    },
+    "skill-creator": {
+      "version": "0.1.0",
+      "installedAt": 1773854272717
     }
   }
 }
