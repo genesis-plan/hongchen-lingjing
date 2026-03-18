@@ -392,6 +392,38 @@
     "skill-creator": {
       "version": "0.1.0",
       "installedAt": 1773854272717
+    },
+    "elite-longterm-memory": {
+      "version": "1.2.3",
+      "installedAt": 1773854348216
+    },
+    "automation-workflows": {
+      "version": "0.1.0",
+      "installedAt": 1773854348515
+    },
+    "trello": {
+      "version": "1.0.0",
+      "installedAt": 1773854348843
+    },
+    "ui-ux-pro-max": {
+      "version": "0.1.0",
+      "installedAt": 1773854427528
+    },
+    "memory-manager": {
+      "version": "1.0.0",
+      "installedAt": 1773854428034
+    },
+    "agent-sensei-ultimate": {
+      "version": "1.0.0",
+      "installedAt": 1773854504907
+    },
+    "openclaw-money-maker": {
+      "version": "1.0.0",
+      "installedAt": 1773854577295
+    },
+    "smart-customer-service-cn": {
+      "version": "1.0.1",
+      "installedAt": 1773854577765
     }
   }
 }

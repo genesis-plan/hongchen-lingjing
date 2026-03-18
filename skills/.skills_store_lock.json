@@ -450,6 +450,54 @@
       "zip_url": "https://lightmake.site/api/v1/download?slug=skill-creator",
       "source": "skillhub",
       "version": "0.1.0"
+    },
+    "elite-longterm-memory": {
+      "name": "Elite Longterm Memory",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=elite-longterm-memory",
+      "source": "skillhub",
+      "version": "1.2.3"
+    },
+    "automation-workflows": {
+      "name": "Automation Workflows",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=automation-workflows",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "trello": {
+      "name": "Trello",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=trello",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ui-ux-pro-max": {
+      "name": "UI/UX Pro Max",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ui-ux-pro-max",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "memory-manager": {
+      "name": "Memory Manager",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=memory-manager",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "agent-sensei-ultimate": {
+      "name": "Agent Sensei Ultimate",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=agent-sensei-ultimate",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "openclaw-money-maker": {
+      "name": "OpenClaw Money Maker",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=openclaw-money-maker",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "smart-customer-service-cn": {
+      "name": "Smart Customer Service Cn",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=smart-customer-service-cn",
+      "source": "skillhub",
+      "version": "1.0.1"
     }
   }
 }
