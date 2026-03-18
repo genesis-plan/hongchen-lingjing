@@ -1,0 +1,143 @@
+/* 琅嬛福地·技能库 - 简化版样式 */
+
+page {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #e8e8e8;
+  font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* 赛博国风配色 */
+:root {
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --accent: #45b7d1;
+  --success: #96ceb4;
+  --warning: #feca57;
+  --purple: #a8e6cf;
+  --dark: #1a1a2e;
+  --darker: #16213e;
+  --light: #e8e8e8;
+}
+
+/* 容器 */
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+}
+
+/* 标题 */
+.page-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin: 30rpx 0;
+}
+
+.page-subtitle {
+  font-size: 28rpx;
+  color: var(--secondary);
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+/* 技能网格 */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-top: 30rpx;
+}
+
+/* 技能卡片 */
+.skill-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.3);
+}
+
+.skill-card:hover {
+  transform: translateY(-5rpx);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.4);
+}
+
+.skill-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.skill-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--light);
+  margin-bottom: 10rpx;
+}
+
+.skill-category {
+  font-size: 24rpx;
+  color: var(--secondary);
+  margin-bottom: 15rpx;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  color: var(--warning);
+  margin-bottom: 10rpx;
+}
+
+.skill-rating {
+  color: #ffd700;
+}
+
+/* 搜索栏 */
+.search-bar {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50rpx;
+  padding: 20rpx 30rpx;
+  margin: 20rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--light);
+  font-size: 28rpx;
+  margin-left: 15rpx;
+}
+
+/* 分类筛选 */
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  margin: 20rpx 0;
+  padding: 10rpx 0;
+}
+
+.category-tab {
+  white-space: nowrap;
+  padding: 15rpx 30rpx;
+  margin-right: 20rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50rpx;
+  font-size: 26rpx;
+  color: var(--light);
+  transition: all 0.3s ease;
+}
+
+.category-tab.active {
+  background: var(--primary);
+  color: white;
+}

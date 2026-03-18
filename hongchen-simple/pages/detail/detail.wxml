@@ -1,0 +1,87 @@
+<!-- 技能详情页 -->
+<view class="container">
+  <!-- 技能头部 -->
+  <view class="skill-header card">
+    <text class="skill-icon-large">{{skill.icon}}</text>
+    <view class="skill-info">
+      <view class="skill-name-large">{{skill.name}}</view>
+      <view class="skill-meta-large">
+        <text class="category-tag">{{skill.category}}</text>
+        <text class="level-tag">{{skill.level}}</text>
+        <text class="duration-tag">⏱️ {{skill.duration}}</text>
+      </view>
+      <view class="rating-row">
+        <text class="stars">⭐⭐⭐⭐⭐</text>
+        <text class="rating-text">{{skill.rating}} ({{skill.students}}人学习)</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 技能描述 -->
+  <view class="card">
+    <view class="section-title">📖 技能介绍</view>
+    <view class="skill-description">{{skill.description}}</view>
+  </view>
+
+  <!-- 学习目标 -->
+  <view class="card">
+    <view class="section-title">🎯 学习目标</view>
+    <view class="learning-goals">
+      <view class="goal-item">✅ 掌握基础理论知识和原理</view>
+      <view class="goal-item">✅ 熟练运用核心操作技巧</view>
+      <view class="goal-item">✅ 独立完成基础实践项目</view>
+      <view class="goal-item">✅ 具备进一步深入学习的能力</view>
+    </view>
+  </view>
+
+  <!-- 课程安排 -->
+  <view class="card">
+    <view class="section-title">📅 课程安排</view>
+    <view class="course-outline">
+      <view class="course-module">
+        <text class="module-number">1</text>
+        <view class="module-content">
+          <view class="module-title">理论学习</view>
+          <view class="module-desc">基础知识讲解与案例分析</view>
+        </view>
+      </view>
+      <view class="course-module">
+        <text class="module-number">2</text>
+        <view class="module-content">
+          <view class="module-title">示范操作</view>
+          <view class="module-desc">老师演示标准操作流程</view>
+        </view>
+      </view>
+      <view class="course-module">
+        <text class="module-number">3</text>
+        <view class="module-content">
+          <view class="module-title">实践练习</view>
+          <view class="module-desc">动手操作，老师指导纠错</view>
+        </view>
+      </view>
+      <view class="course-module">
+        <text class="module-number">4</text>
+        <view class="module-content">
+          <view class="module-title">作品展示</view>
+          <view class="module-desc">完成作品，分享心得体验</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button class="btn-primary" bindtap="startLearning">开始学习</button>
+    <button class="btn-secondary" bindtap="addToFavorite">❤️ 收藏技能</button>
+  </view>
+
+  <!-- 相关推荐 -->
+  <view class="card">
+    <view class="section-title">💡 相关推荐</view>
+    <view class="related-skills">
+      <view class="related-skill" wx:for="{{relatedSkills}}" wx:key="id">
+        <text>{{item.icon}} {{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
