@@ -498,6 +498,12 @@
       "zip_url": "https://lightmake.site/api/v1/download?slug=smart-customer-service-cn",
       "source": "skillhub",
       "version": "1.0.1"
+    },
+    "setup-cloudbase-openclaw": {
+      "name": "Setup CloudBase for OpenClaw",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=setup-cloudbase-openclaw",
+      "source": "skillhub",
+      "version": "1.1.0"
     }
   }
 }

@@ -424,6 +424,10 @@
     "smart-customer-service-cn": {
       "version": "1.0.1",
       "installedAt": 1773854577765
+    },
+    "setup-cloudbase-openclaw": {
+      "version": "1.1.0",
+      "installedAt": 1773857101706
     }
   }
 }
