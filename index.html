@@ -266,6 +266,20 @@
                 </div>
 
                 <!-- 技能列表 -->
+                    <!-- VR技能区域 -->
+                    <div class="list-item" style="border-left-color: #9b59b6;">
+                        <h4>🥽 VR竹编工艺</h4>
+                        <p>在虚拟环境中学习传统竹编，3D可视化编织过程</p>
+                        <p style="color: #888; font-size: 0.9em;">难度：初级 | 学习人数：0</p>
+                        <button class="btn" style="margin-top: 10px; padding: 8px 20px;">开始VR学习</button>
+                    </div>
+                    <div class="list-item" style="border-left-color: #3498db;">
+                        <h4>🥽 VR刺绣体验</h4>
+                        <p>VR手部追踪体验刺绣针法，感受丝线穿梭</p>
+                        <p style="color: #888; font-size: 0.9em;">难度：中级 | 学习人数：0</p>
+                        <button class="btn" style="margin-top: 10px; padding: 8px 20px;">开始VR学习</button>
+                    </div>
+                    <h3 style="margin-top: 40px;">🥽 VR传统工艺实训</h3>
                 <div style="margin-top: 30px;">
                     <h3>🌟 热门技能</h3>
 
@@ -771,4 +785,33 @@
     <!-- 云函数API客户端 -->
     <script src="api.js"></script>
 </body>
-</html>
+</html><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// 紫薇3D头像初始化
+function initZiweiAvatar() {
+    const canvas = document.getElementById('avatar-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({canvas: canvas, alpha: true});
+    
+    // 用几何体代替VRM模型（替代法）
+    const geometry = new THREE.BoxGeometry(2, 2, 2);
+    const material = new THREE.MeshBasicMaterial({ 
+        color: 0x667eea,
+        wireframe: true
+    });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+    
+    camera.position.z = 5;
+    
+    function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    }
+    animate();
+}
+window.addEventListener('load', initZiweiAvatar);
+</script>
