@@ -323,7 +323,7 @@
     },
     "self-improving-agent": {
       "version": "1.0.11",
-      "installedAt": 1773852339733
+      "installedAt": 1773892584521
     },
     "self-improving": {
       "version": "1.2.16",
@@ -428,6 +428,10 @@
     "setup-cloudbase-openclaw": {
       "version": "1.1.0",
       "installedAt": 1773857101706
+    },
+    "Github": {
+      "version": "",
+      "installedAt": 1773892613042
     }
   }
 }
