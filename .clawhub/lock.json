@@ -7,27 +7,27 @@
     },
     "summarize": {
       "version": "1.0.0",
-      "installedAt": 1773556866465
+      "installedAt": 1774080848148
     },
     "agent-browser": {
       "version": "0.2.0",
-      "installedAt": 1773556868407
+      "installedAt": 1774080848454
     },
     "find-skills": {
       "version": "0.1.0",
-      "installedAt": 1773556870491
+      "installedAt": 1774080848747
     },
     "github": {
       "version": "1.0.0",
-      "installedAt": 1773556874358
+      "installedAt": 1774080849056
     },
     "obsidian": {
       "version": "1.0.0",
-      "installedAt": 1773556876183
+      "installedAt": 1774080849376
     },
     "weather": {
       "version": "1.0.0",
-      "installedAt": 1773556878381
+      "installedAt": 1774080849706
     },
     "tencentcloud-lighthouse-skill": {
       "version": "1.0.0",
@@ -436,6 +436,10 @@
     "humanizer": {
       "version": "1.0.0",
       "installedAt": 1773961621526
+    },
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1774080847806
     }
   }
 }
