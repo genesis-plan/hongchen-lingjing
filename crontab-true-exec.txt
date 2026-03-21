@@ -1,0 +1,18 @@
+# 紫薇真正自主执行系统 - Cron配置
+# 不生成框架，直接填充内容
+# ============================================================
+
+# 哲学学习（09:00）- 真正执行
+0 9 * * * /root/.openclaw/workspace/true-auto-exec.sh philosophy >> /root/.openclaw/workspace/memory/optimization-logs/cron-true-exec.log 2>&1
+
+# 商业学习（14:00）- 真正执行
+0 14 * * * /root/.openclaw/workspace/true-auto-exec.sh business >> /root/.openclaw/workspace/memory/optimization-logs/cron-true-exec.log 2>&1
+
+# 数学学习（15:00）- 真正执行
+0 15 * * * /root/.openclaw/workspace/true-auto-exec.sh math >> /root/.openclaw/workspace/memory/optimization-logs/cron-true-exec.log 2>&1
+
+# 验证报告生成（20:00）
+0 20 * * * /root/.openclaw/workspace/true-auto-exec.sh verify >> /root/.openclaw/workspace/memory/optimization-logs/cron-true-exec.log 2>&1
+
+# 保留原有的备份任务
+0 2 * * * /root/.openclaw/workspace/scripts/daily-backup-sync.sh >> /root/.openclaw/workspace/memory/automation-logs/cron-backup.log 2>&1

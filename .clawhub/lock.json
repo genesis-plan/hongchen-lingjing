@@ -432,6 +432,10 @@
     "Github": {
       "version": "",
       "installedAt": 1773892613042
+    },
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1773961621526
     }
   }
 }
