@@ -1,9 +1,0 @@
-{
-  "name": "markLetterRead",
-  "version": "1.0.0",
-  "description": "标记信件已读",
-  "main": "index.js",
-  "dependencies": {
-    "wx-server-sdk": "~2.6.3"
-  }
-}

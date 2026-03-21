@@ -1,0 +1,52 @@
+{
+  "system": "xiaotian-task-system",
+  "version": "4.0",
+  "updated_at": "2026-03-21T23:55:00Z",
+
+  "latest_task": "20260322-1",
+
+  "tasks": [
+    {
+      "id": "20260321-1",
+      "version": "20260321-1",
+      "title": "配置OpenClaw容器环境并创建基础脚本",
+      "description": "在OpenClaw容器内配置工作环境，创建任务检查和执行脚本",
+      "file": "tasks/xiaotian_task_20260321.md",
+      "created_at": "2026-03-21T22:50:00Z",
+      "priority": "high",
+      "status": "completed",
+      "estimated_time": "30分钟",
+      "assignee": "xiaotian",
+      "reporter": "xinfeng",
+      "completed_at": "2026-03-21T23:41:43Z"
+    },
+    {
+      "id": "20260322-1",
+      "version": "20260322-1",
+      "title": "验证云开发环境状态",
+      "description": "检查网页版访问状态、数据库集合、云函数部署情况并生成详细报告",
+      "file": "tasks/xiaotian_task_20260322.md",
+      "created_at": "2026-03-21T23:55:00Z",
+      "priority": "high",
+      "status": "pending",
+      "estimated_time": "15分钟",
+      "assignee": "xiaotian",
+      "reporter": "xinfeng"
+    }
+  ],
+
+  "xiaotian": {
+    "name": "啸天",
+    "role": "服务器开发专家",
+    "qq": "1903626078",
+    "workspace": "/root/.openclaw/workspace/hongchen-lingjing",
+    "status": "ready"
+  },
+
+  "xinfeng": {
+    "name": "信风",
+    "role": "自动化协调专家",
+    "workspace": "C:/Users/Administrator/红尘灵境部署",
+    "status": "active"
+  }
+}
