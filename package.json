@@ -1,12 +1,12 @@
 {
-  "name": "hclj-web-deploy",
+  "name": "红尘灵境网页部署",
   "version": "1.0.0",
   "description": "红尘灵境网页版自动部署工具",
-  "main": "auto-deploy.js",
+  "main": "自动部署.js",
   "scripts": {
-    "deploy": "node auto-deploy.js"
+    "部署": "node 自动部署.js"
   },
-  "dependencies": {
+  "依赖": {
     "@cloudbase/manager-node": "^2.0.0",
     "@cloudbase/cli": "^1.0.0"
   }
