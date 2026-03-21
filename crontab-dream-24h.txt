@@ -1,0 +1,59 @@
+# 紫薇24小时自动化任务系统 - Cron配置
+# 分层次、有节奏地推进梦想
+# ============================================================
+
+# ============================================================
+# 层1：高频任务（每分钟）- 系统健康监控
+# ============================================================
+* * * * * /root/.openclaw/workspace/dream-automation-24h.sh >> /root/.openclaw/workspace/memory/automation-logs/cron-24h.log 2>&1
+
+# ============================================================
+# 层2：中频任务（每小时整点）- 学习与内容
+# ============================================================
+# 每小时检查学习进度和任务状态
+0 * * * * /root/.openclaw/workspace/true-auto-exec.sh verify >> /root/.openclaw/workspace/memory/automation-logs/cron-verify.log 2>&1
+
+# ============================================================
+# 层3：每日固定时间任务 - 报告与规划
+# ============================================================
+# 晨间简报（08:00）- 开启一天
+0 8 * * * echo "🌅 晨间简报时段" >> /root/.openclaw/workspace/memory/automation-logs/cron-daily.log 2>&1
+
+# 晚间总结（20:00）- 回顾一天
+0 20 * * * /root/.openclaw/workspace/scripts/task-daily-report.sh >> /root/.openclaw/workspace/memory/automation-logs/cron-daily.log 2>&1
+
+# 数据备份（02:00）- 深夜备份
+0 2 * * * /root/.openclaw/workspace/scripts/daily-backup-sync.sh >> /root/.openclaw/workspace/memory/automation-logs/cron-backup.log 2>&1
+
+# ============================================================
+# 层4：学习自动化（固定时间执行）
+# ============================================================
+# 哲学学习（09:00）
+0 9 * * * /root/.openclaw/workspace/true-auto-exec.sh philosophy >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 商业学习（14:00）
+0 14 * * * /root/.openclaw/workspace/true-auto-exec.sh business >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 数学学习（15:00）
+0 15 * * * /root/.openclaw/workspace/true-auto-exec.sh math >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# ============================================================
+# 层5：周期间隔任务
+# ============================================================
+# 每4小时执行维护任务（0,4,8,12,16,20点）
+0 */4 * * * echo "🔧 维护任务时段：$(date '+\%H:00')" >> /root/.openclaw/workspace/memory/automation-logs/cron-maintenance.log 2>&1
+
+# 每周一清理旧日志（周一凌晨3点）
+0 3 * * 1 find /root/.openclaw/workspace/memory/automation-logs -name "*.log" -mtime +30 -delete 2>/dev/null
+
+# ============================================================
+# 任务统计
+# ============================================================
+# 每分钟1次 × 60分钟 = 60次/小时（健康监控）
+# 每小时1次 × 24小时 = 24次/天（学习检查）
+# 每天3次（08:00,20:00,02:00）= 报告与备份
+# 每天3次（09:00,14:00,15:00）= 学习执行
+# 每4小时1次 × 6 = 6次/天（维护任务）
+# 
+# 总计：约100+次自动化执行/天
+# 平均：每14分钟一次有意义的自动化操作
