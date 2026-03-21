@@ -1,0 +1,17 @@
+# GitHub 智能推送定时任务
+# 在最佳网络时间段自动执行GitHub操作
+
+# 最佳时间1: 15:00-16:30 - 每小时检查并推送
+0 15 * * * /root/.openclaw/workspace/scripts/github-smart-push.sh push >> /root/.openclaw/workspace/memory/automation-logs/cron-github.log 2>&1
+30 15 * * * /root/.openclaw/workspace/scripts/github-smart-push.sh push >> /root/.openclaw/workspace/memory/automation-logs/cron-github.log 2>&1
+0 16 * * * /root/.openclaw/workspace/scripts/github-smart-push.sh push >> /root/.openclaw/workspace/memory/automation-logs/cron-github.log 2>&1
+
+# 最佳时间2: 17:00-18:00 - 每小时检查并推送
+0 17 * * * /root/.openclaw/workspace/scripts/github-smart-push.sh push >> /root/.openclaw/workspace/memory/automation-logs/cron-github.log 2>&1
+30 17 * * * /root/.openclaw/workspace/scripts/github-smart-push.sh push >> /root/.openclaw/workspace/memory/automation-logs/cron-github.log 2>&1
+
+# 避免时间段不安排推送 (16:30-17:00)
+
+# 其他时间仅检查状态（不推送）
+0 14 * * * /root/.openclaw/workspace/scripts/github-smart-push.sh status >> /root/.openclaw/workspace/memory/automation-logs/cron-github.log 2>&1
+0 18 * * * /root/.openclaw/workspace/scripts/github-smart-push.sh status >> /root/.openclaw/workspace/memory/automation-logs/cron-github.log 2>&1
