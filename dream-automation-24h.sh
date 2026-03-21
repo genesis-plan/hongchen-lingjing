@@ -19,33 +19,52 @@ MINUTE=$(date +%M)
 echo "[$NOW] 自动化任务系统启动"
 
 # ============================================================
-# 高频任务：系统健康监控（每5分钟）
+# 层1：高频进化任务（每分钟）- 学习进化监控
 # ============================================================
-high_frequency_tasks() {
-  echo "[$NOW] 执行高频任务（健康监控）..."
+evolve_tasks() {
+  echo "[$NOW] 执行进化任务（学习进化监控）..."
   
-  # 1. 服务器健康检查
-  cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
-  mem_usage=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
-  disk_usage=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
+  # 1. 检查今日学习进度
+  today_learn=$(find $WORKSPACE/知识库/每日学习 -name "$(date +%Y-%m-%d)*.md" 2>/dev/null | wc -l)
+  target_learn=5
   
-  # 记录状态
-  echo "{\"time\":\"$NOW\",\"cpu\":$cpu_usage,\"mem\":$mem_usage,\"disk\":$disk_usage}" >> $LOG_DIR/health-metrics.jsonl
-  
-  # 告警检查
-  if [ $disk_usage -gt 85 ]; then
-    echo "🚨 磁盘告警：使用率 ${disk_usage}%" >> $LOG_DIR/alerts.log
+  if [ $today_learn -lt $target_learn ]; then
+    remaining=$((target_learn - today_learn))
+    echo "  📚 今日学习进度：$today_learn/$target_learn，还需 $remaining 个模块" >> $LOG_DIR/evolve-status.log
+    
+    # 根据当前时间自动触发学习
+    case $HOUR:$MINUTE in
+      09:00)
+        echo "  🎯 触发哲学学习" >> $LOG_DIR/evolve-trigger.log
+        /root/.openclaw/workspace/true-auto-exec.sh philosophy 2>/dev/null &
+        ;;
+      14:00)
+        echo "  🎯 触发商业学习" >> $LOG_DIR/evolve-trigger.log
+        /root/.openclaw/workspace/true-auto-exec.sh business 2>/dev/null &
+        ;;
+      15:00)
+        echo "  🎯 触发数学学习" >> $LOG_DIR/evolve-trigger.log
+        /root/.openclaw/workspace/true-auto-exec.sh math 2>/dev/null &
+        ;;
+    esac
+  else
+    echo "  ✅ 今日学习已完成：$today_learn/$target_learn" >> $LOG_DIR/evolve-status.log
   fi
   
-  if [ $mem_usage -gt 90 ]; then
-    echo "🚨 内存告警：使用率 ${mem_usage}%" >> $LOG_DIR/alerts.log
-  fi
-  
-  # 2. 知识图谱状态检查
+  # 2. 检查知识图谱增长
   node_count=$(node -e "console.log(JSON.parse(require('fs').readFileSync('$WORKSPACE/MemoryMesh/dist/data/memory.json')).nodes.length)" 2>/dev/null || echo "0")
-  echo "{\"time\":\"$NOW\",\"nodes\":$node_count}" >> $LOG_DIR/knowledge-growth.jsonl
+  echo "{\"time\":\"$NOW\",\"nodes\":$node_count,\"action\":\"evolve-check\"}" >> $LOG_DIR/knowledge-evolution.jsonl
   
-  echo "✅ 高频任务完成"
+  # 3. 检查技能产出进度
+  today_skills=$(find $WORKSPACE/技能内容 -name "*.md" -mtime -0.5 2>/dev/null | wc -l)
+  if [ $today_skills -eq 0 ] && [ "$HOUR" -ge "09" ] && [ "$HOUR" -le "18" ]; then
+    echo "  📝 今日尚无技能产出，工作时间内" >> $LOG_DIR/evolve-status.log
+  fi
+  
+  # 4. 记录进化状态
+  echo "{\"time\":\"$NOW\",\"learn\":$today_learn,\"skills\":$today_skills,\"nodes\":$node_count}" >> $LOG_DIR/evolution-timeline.jsonl
+  
+  echo "✅ 进化任务完成"
 }
 
 # ============================================================
@@ -319,20 +338,62 @@ EOF
 # 主执行逻辑
 # ============================================================
 
-# 每分钟都执行（被cron调用时）
-high_frequency_tasks
+case "$1" in
+  "evolve")
+    # 层1：每分钟执行的学习进化
+    evolve_tasks
+    ;;
+  "health-check")
+    # 每天一次的健康监控
+    echo "[$NOW] 执行健康监控..."
+    cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
+    mem_usage=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
+    disk_usage=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
+    node_count=$(node -e "console.log(JSON.parse(require('fs').readFileSync('$WORKSPACE/MemoryMesh/dist/data/memory.json')).nodes.length)" 2>/dev/null || echo "0")
+    
+    echo "[$NOW] 健康状态: CPU ${cpu_usage}%, 内存 ${mem_usage}%, 磁盘 ${disk_usage}%, 节点 $node_count" >> $LOG_DIR/health-daily.log
+    
+    if [ $disk_usage -gt 85 ]; then
+      echo "🚨 [$NOW] 磁盘告警：使用率 ${disk_usage}%" >> $LOG_DIR/health-daily.log
+    fi
+    ;;
+  "medium")
+    # 层2：每小时执行
+    if [ "$MINUTE" = "00" ]; then
+      medium_frequency_tasks
+    fi
+    ;;
+  "low")
+    # 层3：每4小时执行
+    if [ "$MINUTE" = "00" ] && [ $(($HOUR % 4)) -eq 0 ]; then
+      low_frequency_tasks
+    fi
+    ;;
+  "daily")
+    # 层4：每日固定时间
+    daily_tasks
+    ;;
+  "all")
+    # 执行所有（测试用）
+    evolve_tasks
+    if [ "$MINUTE" = "00" ]; then
+      medium_frequency_tasks
+    fi
+    if [ "$MINUTE" = "00" ] && [ $(($HOUR % 4)) -eq 0 ]; then
+      low_frequency_tasks
+    fi
+    daily_tasks
+    ;;
+  *)
+    echo "用法: $0 {evolve|health-check|medium|low|daily|all}"
+    echo ""
+    echo "evolve      - 每分钟执行：学习进化监控"
+    echo "health-check - 每天执行：系统健康检查"
+    echo "medium      - 每小时执行：学习进度检查"
+    echo "low         - 每4小时执行：维护任务"
+    echo "daily       - 每天固定时间：报告生成"
+    echo "all         - 执行所有（测试用）"
+    ;;
+esac
 
-# 每小时执行
-if [ "$MINUTE" = "00" ]; then
-  medium_frequency_tasks
-fi
-
-# 每4小时执行（0,4,8,12,16,20点）
-if [ "$MINUTE" = "00" ] && [ $(($HOUR % 4)) -eq 0 ]; then
-  low_frequency_tasks
-fi
-
-# 每日固定时间任务
-daily_tasks
-
-echo "[$NOW] 自动化任务执行完成"
+echo "[$NOW] 自动化任务执行完成: $1"

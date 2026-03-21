@@ -3,9 +3,9 @@
 # ============================================================
 
 # ============================================================
-# 层1：系统健康监控（每天一次，早上08:30）
+# 层1：高频进化任务（每分钟）- 学习进化监控
 # ============================================================
-30 8 * * * /root/.openclaw/workspace/dream-automation-24h.sh health-check >> /root/.openclaw/workspace/memory/automation-logs/cron-health.log 2>&1
+* * * * * /root/.openclaw/workspace/dream-automation-24h.sh evolve >> /root/.openclaw/workspace/memory/automation-logs/cron-evolve.log 2>&1
 
 # ============================================================
 # 层2：中频任务（每小时整点）- 学习与内容
@@ -46,14 +46,18 @@
 # 每周一清理旧日志（周一凌晨3点）
 0 3 * * 1 find /root/.openclaw/workspace/memory/automation-logs -name "*.log" -mtime +30 -delete 2>/dev/null
 
+# 系统健康监控（每天一次，早上08:30）
+30 8 * * * /root/.openclaw/workspace/dream-automation-24h.sh health-check >> /root/.openclaw/workspace/memory/automation-logs/cron-health.log 2>&1
+
 # ============================================================
 # 任务统计
 # ============================================================
-# 每天1次（08:30）= 健康监控
+# 每分钟1次 × 60分钟 = 1440次/天（学习进化监控）
 # 每小时1次 × 24小时 = 24次/天（学习检查）
 # 每天3次（08:00,20:00,02:00）= 报告与备份
 # 每天3次（09:00,14:00,15:00）= 学习执行
 # 每4小时1次 × 6 = 6次/天（维护任务）
+# 每天1次（08:30）= 健康监控
 # 
-# 总计：约36次/天有意义的自动化执行
-# 平均每40分钟一次有意义的推进
+# 总计：约1476次自动化执行/天
+# 核心：每分钟都在进化，每小时都有产出
