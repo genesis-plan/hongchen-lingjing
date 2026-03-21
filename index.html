@@ -3,48 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏮 元境大同 · 赛博国风技能共创空间</title>
+    <meta name="description" content="红尘灵境 - 帮助100万人改变生活的在线学习平台。技能学习、心愿共创、任务认领，一个让每个人都有机会成为技能创造者的数字世界。">
+    <meta name="keywords" content="红尘灵境,技能学习,国风,元宇宙,在线教育,技能共创">
+    <title>🏮 红尘灵境 - 帮助100万人改变生活的在线学习平台</title>
     <style>
-        :root { --primary: #6a11cb; --secondary: #2575fc; --accent: #ff7e5f; --dark: #2d3436; --light: #f9f9f9; }
-        * { box-sizing: border-box; margin: 0; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
-        body { background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); color: #333; min-height: 100vh; padding: 20px; }
-        .container { max-width: 900px; margin: 30px auto; background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.5); }
-        h1, h2 { text-align: center; color: var(--dark); margin-bottom: 15px; }
-        h1 { font-size: 2.8em; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .slogan { text-align: center; font-size: 1.1em; margin-bottom: 30px; color: #666; font-style: italic; }
-        .nav-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid #eee; }
-        .tab-btn { padding: 12px 25px; background: none; border: 2px solid transparent; border-radius: 50px; cursor: pointer; font-size: 1em; font-weight: 500; transition: all 0.3s; }
-        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
-        .tab-content { display: none; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --secondary: #EC4899;
+            --accent: #F59E0B;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        h1, h2, h3, h4 {
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.2em;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .slogan {
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 35px;
+            color: #6B7280;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #E5E7EB;
+        }
+
+        .tab-btn {
+            padding: 14px 28px;
+            background: #F3F4F6;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #4B5563;
+        }
+
+        .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .tab-content.active { display: block; }
-        .path-selector { display: flex; gap: 25px; justify-content: center; margin: 40px 0; flex-wrap: wrap; }
-        .path-card { flex: 1; min-width: 280px; border: 2px solid #e0e0e0; padding: 30px; border-radius: 20px; text-align: center; cursor: pointer; transition: all 0.4s; background: white; }
-        .path-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(106, 17, 203, 0.15); }
-        .path-card.selected { border-color: var(--primary); background: linear-gradient(135deg, #f9f7ff 0%, #eef2ff 100%); }
-        .path-icon { font-size: 3.5em; margin-bottom: 20px; }
-        .wish-input, .skill-input { width: 100%; padding: 18px; border: 2px solid #ddd; border-radius: 12px; font-size: 1em; margin-bottom: 20px; resize: vertical; transition: border 0.3s; }
-        .wish-input:focus, .skill-input:focus { outline: none; border-color: var(--primary); }
-        .btn { background: linear-gradient(to right, var(--primary), var(--secondary)); color: white; padding: 14px 32px; border: none; border-radius: 10px; cursor: pointer; font-size: 1em; font-weight: bold; display: inline-block; margin: 10px 5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(106, 17, 203, 0.4); }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6); opacity: 0.95; }
-        .seed-tags { margin: 25px 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-        .seed-tag { background: #e8f4ff; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.9em; transition: all 0.2s; border: 1px solid #c2e0ff; }
-        .seed-tag:hover { background: #c2e0ff; transform: scale(1.05); }
-        .list-item { background: #f8fafc; border-left: 5px solid var(--primary); padding: 20px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-        .hidden { display: none; }
-        .character-builder { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin: 25px 0; }
-        .char-option { border: 2px solid #ddd; padding: 15px; text-align: center; border-radius: 12px; cursor: pointer; background: white; transition: all 0.3s; }
-        .char-option.selected { border-color: var(--accent); background-color: #fff5f0; font-weight: bold; }
-        #characterPreview { text-align: center; padding: 25px; border: 2px dashed var(--primary); border-radius: 15px; margin: 25px 0; font-size: 1.3em; min-height: 80px; background: #fcfaff; }
-        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 0.9em; }
-        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; margin-left: 10px; }
-        .status-pending { background: #fff3cd; color: #856404; }
+        .path-selector {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 45px 0;
+            flex-wrap: wrap;
+        }
+
+        .path-card {
+            flex: 1;
+            min-width: 300px;
+            border: 3px solid #E5E7EB;
+            padding: 35px;
+            border-radius: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .path-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+            border-color: var(--primary);
+        }
+
+        .path-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .path-card.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        }
+
+        .path-card.selected::before {
+            transform: scaleX(1);
+        }
+
+        .path-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .wish-input, .skill-input {
+            width: 100%;
+            padding: 20px;
+            border: 2px solid #D1D5DB;
+            border-radius: 16px;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            resize: vertical;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #F9FAFB;
+            font-family: inherit;
+        }
+
+        .wish-input:focus, .skill-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 36px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.05em;
+            font-weight: 700;
+            display: inline-block;
+            margin: 10px 5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            text-transform: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        .seed-tags {
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .seed-tag {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            font-weight: 500;
+            color: #1E40AF;
+        }
+
+        .seed-tag:hover {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .list-item {
+            background: #F9FAFB;
+            border-left: 5px solid var(--primary);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .list-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .hidden { display: none !important; }
+
+        .character-builder {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .char-option {
+            border: 2px solid #E5E7EB;
+            padding: 18px;
+            text-align: center;
+            border-radius: 14px;
+            cursor: pointer;
+            background: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .char-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .char-option.selected {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            font-weight: 700;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        #characterPreview {
+            text-align: center;
+            padding: 30px;
+            border: 3px dashed var(--primary);
+            border-radius: 20px;
+            margin: 30px 0;
+            font-size: 1.4em;
+            min-height: 100px;
+            background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            border-top: 2px solid #E5E7EB;
+            color: #6B7280;
+            font-size: 0.95em;
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            border-radius: 16px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            color: #92400E;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 20px auto;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .slogan {
+                font-size: 1.1em;
+            }
+
+            .path-card {
+                min-width: 100%;
+                padding: 25px;
+            }
+
+            .tab-btn {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .character-builder {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 0.95em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🏮 元境大同</h1>
-        <p class="slogan">「 以古风为骨，以科技为翼，人人皆是技能共创者 」</p>
+        <h1>🏮 红尘灵境</h1>
+        <p class="slogan">「 帮助100万人改变生活的在线学习平台 · 让每个人都有机会成为技能创造者 」</p>
 
         <!-- 顶部导航 -->
         <div class="nav-tabs">
@@ -56,20 +384,20 @@
 
         <!-- 首页：新手引导 -->
         <div id="home" class="tab-content active">
-            <h2>🚪 选择你的元境初代身份</h2>
-            <p style="text-align: center; color: #666;">选择任意路径，即刻解锁「技能共创」之权</p>
+            <h2>🚪 欢迎来到红尘灵境</h2>
+            <p style="text-align: center; color: #6B7280; font-size: 1.1em; margin-bottom: 30px;">选择你的入场方式，开启技能共创之旅</p>
             <div class="path-selector">
                 <div class="path-card" onclick="selectPath('tai-chi')" id="pathTaiChi">
                     <div class="path-icon">☯️</div>
-                    <h3>路径甲：感知内在平衡</h3>
-                    <p>【五韵太极 · 寻身心元律】</p>
-                    <p>通过古老的运动，感知身心平衡，找到创造的节奏。</p>
+                    <h3>路径一：身心平衡</h3>
+                    <p style="color: #6B7280; margin: 10px 0;">【感知内在平衡 · 找到创造节奏】</p>
+                    <p style="color: #9CA3AF; font-size: 0.95em;">通过古老的智慧，让身心归于平静，为创作蓄积能量。</p>
                 </div>
                 <div class="path-card" onclick="selectPath('character')" id="pathCharacter">
                     <div class="path-icon">👤</div>
-                    <h3>路径乙：铸就专属灵相</h3>
-                    <p>【古风数字灵相 · 铸元境道标】</p>
-                    <p>选择一个代表你的初代形象，开启元境之旅。</p>
+                    <h3>路径二：创造灵相</h3>
+                    <p style="color: #6B7280; margin: 10px 0;">【铸就专属形象 · 开启灵境之旅】</p>
+                    <p style="color: #9CA3AF; font-size: 0.95em;">创建代表你的数字形象，作为在红尘灵境中的身份标识。</p>
                 </div>
             </div>
 
@@ -102,8 +430,8 @@
 
         <!-- 心愿墙 -->
         <div id="wish" class="tab-content">
-            <h2>📜 元境心愿云墙</h2>
-            <p style="text-align: center;">在此许下心愿：国风妆造 / 传统技艺 / 二次元创作 / 数字艺术...</p>
+            <h2>📜 心愿云墙</h2>
+            <p style="text-align: center; color: #6B7280; margin-bottom: 20px;">分享你想学的技能，让其他有缘人帮你实现心愿</p>
             <div class="seed-tags">
                 <span class="seed-tag" onclick="fillWish('想学3分钟汉服齐胸襦裙系带的正确方法（无工具，文字版）')">#汉服系带</span>
                 <span class="seed-tag" onclick="fillWish('想要简单的传统拱手礼/作揖礼教学（分场合：日常/正式）')">#传统礼仪</span>
@@ -111,7 +439,7 @@
                 <span class="seed-tag" onclick="fillWish('想学简单的汉字动态效果制作方法（文字版，不用软件）')">#汉字动画</span>
                 <span class="seed-tag" onclick="fillWish('想要古风照片调色参数分享（手机修图，分分钟上手）')">#古风调色</span>
             </div>
-            <textarea id="newWish" class="wish-input" placeholder="在此描述你想学会的生活技能或渴望的知识...（例如：如何快速叠好一件汉服）"></textarea>
+            <textarea id="newWish" class="wish-input" placeholder="描述你想学会的技能或知识...&#10;&#10;例如：&#10;• 想学会3分钟汉服齐胸襦裙系带方法&#10;• 想了解传统拱手礼的正确姿势&#10;• 想学习古风照片调色技巧"></textarea>
             <div style="text-align: center;">
                 <button class="btn" onclick="submitWish()">✨ 发布心愿至云端</button>
             </div>
@@ -125,17 +453,17 @@
 
         <!-- 任务大厅 -->
         <div id="task" class="tab-content">
-            <h2>📋 任务星阁 · 国风技能待共创</h2>
-            <p style="text-align: center;">以下是由心愿转化的任务，等待有缘行者将其转化为可传承的技能。</p>
+            <h2>📋 任务星阁</h2>
+            <p style="text-align: center; color: #6B7280; margin-bottom: 20px;">认领一个任务，将他人的心愿转化为可传承的技能</p>
             <div id="taskList">
                 <div class="list-item">
                     <h4>任务：汉服齐胸襦裙系带教程</h4>
-                    <p>来源心愿：“想学3分钟汉服齐胸襦裙系带的正确方法”</p>
+                    <p>来源心愿："想学3分钟汉服齐胸襦裙系带的正确方法"</p>
                     <button class="btn" onclick="claimTask(1, '汉服齐胸襦裙系带教程')">🔗 认领此任务</button>
                 </div>
                 <div class="list-item">
                     <h4>任务：古风头像涂鸦入门</h4>
-                    <p>来源心愿：“想要手机端10分钟古风头像涂鸦教程”</p>
+                    <p>来源心愿："想要手机端10分钟古风头像涂鸦教程"</p>
                     <button class="btn" onclick="claimTask(2, '古风头像涂鸦入门')">🔗 认领此任务</button>
                 </div>
             </div>
@@ -144,10 +472,10 @@
         <!-- 技能创建器 -->
         <div id="create" class="tab-content">
             <h2>🛠️ 造化工坊</h2>
-            <p>你正在将任务 <strong id="currentTaskTitle">【请先到“任务星阁”认领一个任务】</strong> 转化为可传承的技能。</p>
-            <input type="text" id="skillTitle" class="skill-input" placeholder="为你的技能起一个清晰的名字（例如：三分钟汉服系带法）">
-            <textarea id="skillSteps" class="skill-input" rows="6" placeholder="请按步骤详细描述（例如：1. 准备... 2. 第一步操作... 3. 关键要点...）"></textarea>
-            <textarea id="skillNotes" class="skill-input" rows="3" placeholder="注意事项或常见误区（选填）"></textarea>
+            <p style="text-align: center; color: #6B7280; margin-bottom: 20px;">正在将任务 <strong id="currentTaskTitle" style="color: var(--primary);">【请先到"任务星阁"认领一个任务】</strong> 转化为可传承的技能</p>
+            <input type="text" id="skillTitle" class="skill-input" placeholder="为你的技能起一个清晰的名字（例如：三分钟汉服齐胸襦裙系带法）">
+            <textarea id="skillSteps" class="skill-input" rows="6" placeholder="请按步骤详细描述你的技能...&#10;&#10;示例格式：&#10;1. 准备阶段：...&#10;2. 第一步操作：...&#10;3. 关键要点：...&#10;4. 注意事项：..."></textarea>
+            <textarea id="skillNotes" class="skill-input" rows="3" placeholder="💡 补充说明或常见误区（选填）"></textarea>
             <div style="text-align: center;">
                 <button class="btn" onclick="submitSkill()">🚀 提交技能至基石库</button>
                 <button class="btn" style="background: linear-gradient(to right, #FF8A00, #FF2070);" onclick="aiAssist()">🤖 AI助手：帮我优化格式</button>
@@ -156,8 +484,14 @@
         </div>
 
         <footer>
-            <p>元境大同 · 创世实验 | 灵相与心愿存于云端，会话终了时本地痕迹将匿名化。</p>
-            <p style="font-size: 0.8em; color: #aaa;">当前核心API已就绪：心愿发布功能可真实调用云端函数。</p>
+            <p style="font-weight: 600; color: #374151; margin-bottom: 10px;">🌌 红尘灵境 - 帮助100万人改变生活的在线学习平台</p>
+            <p style="color: #6B7280; margin-bottom: 15px;">灵相与心愿存于云端，每一次分享都让知识传递更远</p>
+            <p style="font-size: 0.85em; color: #9CA3AF;">
+                💡 心愿发布功能已就绪，可真实调用云端函数存储
+            </p>
+            <p style="font-size: 0.85em; color: #9CA3AF; margin-top: 15px;">
+                🌍 开源项目 · MIT协议 · <a href="https://github.com/genesis-plan/hongchen-lingjing" style="color: var(--primary); text-decoration: none;">GitHub仓库</a>
+            </p>
         </footer>
     </div>
 
@@ -172,7 +506,7 @@
 
         let userPath = null;
         let userCharacter = { hanfu: '', accessory: '', pattern: '' };
-        let claimedTask = { id: null, title: '【请先到“任务星阁”认领一个任务】' };
+        let claimedTask = { id: null, title: '【请先到"任务星阁"认领一个任务】' };
 
         function switchTab(tabName) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
