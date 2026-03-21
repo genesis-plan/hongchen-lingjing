@@ -1,0 +1,24 @@
+# 紫薇24小时跨学科学习计划 - Cron配置
+# 真正可执行，有明确产出，可验证
+# ============================================================
+
+# 学习模块1：哲学研读（09:00-09:45）
+0 9 * * * /root/.openclaw/workspace/24h-learning-cron.sh philosophy >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 学习模块2：商业思维（14:00-14:45）
+0 14 * * * /root/.openclaw/workspace/24h-learning-cron.sh business >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 学习模块3：数学思维（15:00-15:45）
+0 15 * * * /root/.openclaw/workspace/24h-learning-cron.sh math >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 学习模块4：艺术欣赏（16:00-16:45）
+0 16 * * * /root/.openclaw/workspace/24h-learning-cron.sh art >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 学习模块5：物理/系统思维（17:00-17:45）
+0 17 * * * /root/.openclaw/workspace/24h-learning-cron.sh physics >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 每日总结报告（20:00）
+0 20 * * * /root/.openclaw/workspace/24h-learning-cron.sh summary >> /root/.openclaw/workspace/memory/automation-logs/cron-learning.log 2>&1
+
+# 保留原有的备份任务
+0 2 * * * /root/.openclaw/workspace/scripts/daily-backup-sync.sh >> /root/.openclaw/workspace/memory/automation-logs/cron-backup.log 2>&1
