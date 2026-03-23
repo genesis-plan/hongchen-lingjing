@@ -1,0 +1,65 @@
+<!--pages/practice/practice.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">📋 考工实训庐</text>
+    <text class="subtitle">技能实操</text>
+  </view>
+
+  <!-- 技能选择 -->
+  <view class="skill-select" wx:if="{{!currentSkill}}">
+    <view class="skill-option" wx:for="{{availableSkills}}" wx:key="id" bindtap="selectSkill" data-skill="{{item}}">
+      <text class="skill-icon">{{item.icon}}</text>
+      <view class="skill-info">
+        <text class="skill-name">{{item.name}}</text>
+        <text class="skill-desc">{{item.desc}}</text>
+      </view>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 练习区域 -->
+  <view class="practice-area" wx:if="{{currentSkill}}">
+    <view class="skill-card">
+      <text class="skill-icon">{{currentSkill.icon}}</text>
+      <view class="skill-info">
+        <text class="skill-name">{{currentSkill.name}}</text>
+        <text class="skill-desc">{{currentSkill.desc}}</text>
+      </view>
+    </view>
+
+    <!-- 进度指示器 -->
+    <view class="progress-container">
+      <view class="step-dot {{index < currentStep ? 'completed' : ''}} {{index === currentStep ? 'active' : ''}}"
+            wx:for="{{steps}}"
+            wx:key="*this">
+        <text class="step-number">{{index + 1}}</text>
+      </view>
+    </view>
+
+    <!-- 步骤内容 -->
+    <view class="step-content">
+      <text class="step-title">{{steps[currentStep].title}}</text>
+      <text class="step-desc">{{steps[currentStep].desc}}</text>
+
+      <image class="step-image" wx:if="{{steps[currentStep].image}}" src="{{steps[currentStep].image}}" mode="aspectFill"></image>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="button-group">
+      <button class="btn-secondary" wx:if="{{currentStep > 0}}" bindtap="prevStep">上一步</button>
+      <button class="btn-primary" wx:if="{{currentStep < steps.length - 1}}" bindtap="nextStep">下一步</button>
+      <button class="btn-primary" wx:if="{{currentStep === steps.length - 1}}" bindtap="completePractice">完成练习</button>
+    </view>
+  </view>
+
+  <!-- 完成提示 -->
+  <view class="complete-modal" wx:if="{{showComplete}}">
+    <view class="modal-content">
+      <text class="modal-icon">✅</text>
+      <text class="modal-title">练习完成！</text>
+      <text class="modal-desc">您已完成所有练习步骤</text>
+      <button class="btn-primary" bindtap="goToExam">参加考核</button>
+      <button class="btn-secondary" bindtap="closeComplete">返回</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,205 @@
+/* pages/library/library.wxss */
+.container {
+  min-height: 100vh;
+  padding: 20rpx;
+  background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+}
+
+.header {
+  padding: 20rpx 0;
+}
+
+.title {
+  display: block;
+  font-size: 56rpx;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  display: block;
+  font-size: 28rpx;
+  text-align: center;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.search-bar {
+  position: relative;
+  margin: 30rpx 0;
+}
+
+.search-input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 100rpx 0 30rpx;
+  background: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.05);
+}
+
+.search-icon {
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36rpx;
+}
+
+.category-scroll {
+  white-space: nowrap;
+  margin-bottom: 30rpx;
+}
+
+.category-list {
+  display: inline-flex;
+  padding: 0 10rpx;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 16rpx 32rpx;
+  margin-right: 16rpx;
+  background: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  color: #666;
+  box-shadow: 0 4rpx 15rpx rgba(0,0,0,0.05);
+}
+
+.category-item.active {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+}
+
+.section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.skill-card {
+  background: white;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.05);
+}
+
+.skill-card.highlight {
+  background: linear-gradient(145deg, #f9f5ff, #f0f0ff);
+  border: 2rpx solid rgba(106,17,203,0.15);
+}
+
+.skill-icon {
+  font-size: 64rpx;
+  margin-right: 24rpx;
+}
+
+.skill-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.skill-desc {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 12rpx;
+}
+
+.skill-meta {
+  display: flex;
+  align-items: center;
+}
+
+.meta-tag {
+  padding: 6rpx 16rpx;
+  border-radius: 12rpx;
+  font-size: 22rpx;
+  margin-right: 16rpx;
+}
+
+.meta-tag.入门 {
+  background: #e8f5e9;
+  color: #4caf50;
+}
+
+.meta-tag.中级 {
+  background: #fff3e0;
+  color: #ff9800;
+}
+
+.meta-tag.进阶 {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.meta-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.skill-arrow {
+  font-size: 48rpx;
+  color: #ddd;
+}
+
+.btn-learn {
+  padding: 16rpx 32rpx;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  margin-left: 16rpx;
+}
+
+.wish-section {
+  background: white;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.05);
+}
+
+.wish-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.wish-input {
+  width: 100%;
+  min-height: 120rpx;
+  padding: 20rpx;
+  background: #fafafa;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty {
+  text-align: center;
+  padding: 80rpx;
+  color: #999;
+  font-size: 28rpx;
+}

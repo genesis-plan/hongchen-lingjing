@@ -1,9 +1,9 @@
 {
   "system": "xiaotian-task-system",
   "version": "4.0",
-  "updated_at": "2026-03-21T23:55:00Z",
+  "updated_at": "2026-03-22T20:35:00Z",
 
-  "latest_task": "20260322-1",
+  "latest_task": "20260322-2",
 
   "tasks": [
     {
@@ -30,6 +30,19 @@
       "priority": "high",
       "status": "pending",
       "estimated_time": "15分钟",
+      "assignee": "xiaotian",
+      "reporter": "xinfeng"
+    },
+    {
+      "id": "20260322-2",
+      "version": "20260322-2",
+      "title": "确认自动化任务系统执行报告",
+      "description": "检查CodeBuddy自动化任务系统运行状态，验证三个报告文件，生成系统状态报告",
+      "file": "tasks/xiaotian_task_20260322.md",
+      "created_at": "2026-03-22T20:35:00Z",
+      "priority": "high",
+      "status": "pending",
+      "estimated_time": "10分钟",
       "assignee": "xiaotian",
       "reporter": "xinfeng"
     }
