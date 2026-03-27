@@ -377,9 +377,9 @@
         <!-- 顶部导航 -->
         <div class="nav-tabs">
             <button class="tab-btn active" onclick="switchTab('home')">🏠 创世入口</button>
+            <button class="tab-btn" onclick="switchTab('library')">📚 琅琊福地</button>
             <button class="tab-btn" onclick="switchTab('wish')">📜 心愿云墙</button>
             <button class="tab-btn" onclick="switchTab('task')">📋 任务星阁</button>
-            <button class="tab-btn" onclick="switchTab('create')">🛠️ 造化工坊</button>
         </div>
 
         <!-- 首页：新手引导 -->
@@ -428,6 +428,37 @@
             </div>
         </div>
 
+        <!-- 琅琊福地：技能传授中心 -->
+        <div id="library" class="tab-content">
+            <h2>📚 琅琊福地</h2>
+            <p style="text-align: center; color: #6B7280; margin-bottom: 20px;">技能藏经阁 · 知识传承处</p>
+            
+            <!-- 搜索区域 -->
+            <div style="margin: 25px 0;">
+                <input type="text" id="skillSearch" class="wish-input" placeholder="🔍 搜索你想学的技能..." oninput="searchSkills()">
+            </div>
+            
+            <!-- 技能分类 -->
+            <div class="seed-tags">
+                <span class="seed-tag" onclick="filterSkills('全部')">全部</span>
+                <span class="seed-tag" onclick="filterSkills('国风美学')">🏮 国风美学</span>
+                <span class="seed-tag" onclick="filterSkills('道法养生')">🧘 道法养生</span>
+                <span class="seed-tag" onclick="filterSkills('传统工艺')">🏺 传统工艺</span>
+                <span class="seed-tag" onclick="filterSkills('艺术创作')">🎨 艺术创作</span>
+                <span class="seed-tag" onclick="filterSkills('生活技能')">🏠 生活技能</span>
+                <span class="seed-tag" onclick="filterSkills('数字技能')">💻 数字技能</span>
+            </div>
+            
+            <!-- 技能列表 -->
+            <div id="skillList" style="margin-top: 25px;">
+                <!-- 技能卡片将由JS动态生成 -->
+            </div>
+            
+            <p style="text-align: center; color: #9CA3AF; margin-top: 30px; font-size: 0.9em;">
+                📚 琅琊福地 · 技能藏经阁 · 持续更新中
+            </p>
+        </div>
+
         <!-- 心愿墙 -->
         <div id="wish" class="tab-content">
             <h2>📜 心愿云墙</h2>
@@ -469,19 +500,7 @@
             </div>
         </div>
 
-        <!-- 技能创建器 -->
-        <div id="create" class="tab-content">
-            <h2>🛠️ 造化工坊</h2>
-            <p style="text-align: center; color: #6B7280; margin-bottom: 20px;">正在将任务 <strong id="currentTaskTitle" style="color: var(--primary);">【请先到"任务星阁"认领一个任务】</strong> 转化为可传承的技能</p>
-            <input type="text" id="skillTitle" class="skill-input" placeholder="为你的技能起一个清晰的名字（例如：三分钟汉服齐胸襦裙系带法）">
-            <textarea id="skillSteps" class="skill-input" rows="6" placeholder="请按步骤详细描述你的技能...&#10;&#10;示例格式：&#10;1. 准备阶段：...&#10;2. 第一步操作：...&#10;3. 关键要点：...&#10;4. 注意事项：..."></textarea>
-            <textarea id="skillNotes" class="skill-input" rows="3" placeholder="💡 补充说明或常见误区（选填）"></textarea>
-            <div style="text-align: center;">
-                <button class="btn" onclick="submitSkill()">🚀 提交技能至基石库</button>
-                <button class="btn" style="background: linear-gradient(to right, #FF8A00, #FF2070);" onclick="aiAssist()">🤖 AI助手：帮我优化格式</button>
-            </div>
-            <div id="creationResult" style="margin-top: 25px; text-align: center;"></div>
-        </div>
+
 
         <footer>
             <p style="font-weight: 600; color: #374151; margin-bottom: 10px;">🌌 红尘灵境 - 帮助100万人改变生活的在线学习平台</p>
@@ -491,6 +510,10 @@
             </p>
             <p style="font-size: 0.85em; color: #9CA3AF; margin-top: 15px;">
                 🌍 开源项目 · MIT协议 · <a href="https://github.com/genesis-plan/hongchen-lingjing" style="color: var(--primary); text-decoration: none;">GitHub仓库</a>
+            </p>
+            <p style="font-size: 0.8em; color: #9CA3AF; margin-top: 15px;">
+                粤ICP备2026031206号-1<br>
+                粤公网安备44011402001267号
             </p>
         </footer>
     </div>
@@ -507,6 +530,67 @@
         let userPath = null;
         let userCharacter = { hanfu: '', accessory: '', pattern: '' };
         let claimedTask = { id: null, title: '【请先到"任务星阁"认领一个任务】' };
+        
+        // ========== 琅琊福地技能数据 ==========
+        const skillsData = [
+            // ===== 国风美学（最热门 ⭐热点）=====
+            { id: 1, title: '三分钟汉服齐胸襦裙系带法', category: '国风美学', level: '入门', author: '汉服达人', views: 0, desc: '无需工具，3分钟学会齐胸襦裙的正确系带方法' },
+            { id: 2, title: '马面裙穿搭指南', category: '国风美学', level: '入门', author: '国风博主', views: 0, desc: '2026明制爆火，马面裙日常穿搭技巧' },
+            { id: 3, title: '汉服妆造入门', category: '国风美学', level: '入门', author: '化妆师小白', views: 0, desc: '一梳一挽，在家也能完成古风造型' },
+            { id: 4, title: '古风照片调色参数', category: '国风美学', level: '入门', author: '摄影师大漠', views: 0, desc: '手机修图软件参数分享，分分钟上手' },
+            { id: 5, title: '传统叉手礼教程', category: '国风美学', level: '入门', author: '礼仪学者', views: 0, desc: '机场、银行同款礼仪，千年文化传承' },
+            { id: 6, title: '汉服拍照姿势大全', category: '国风美学', level: '入门', author: '旅拍达人', views: 0, desc: '景区打卡必备，古风拍照姿势精选' },
+            { id: 21, title: '唐妆复原教程', category: '国风美学', level: '进阶', author: '复原唐妆', views: 0, desc: '跟着《白日提灯》学唐代热门妆容' },
+            { id: 22, title: '古风发型图文教程', category: '国风美学', level: '入门', author: '发型师小雅', views: 0, desc: '龙抬头热潮，3款古风发型轻松搞定' },
+            
+            // ===== 道法养生（🧘新增 热点：#BecomingChinese）=====
+            { id: 23, title: '八段锦完整演示', category: '道法养生', level: '入门', author: '养生导师', views: 0, desc: '老外都在学！晨起15分钟活力满满' },
+            { id: 24, title: '太极拳入门24式', category: '道法养生', level: '入门', author: '武当传人', views: 0, desc: '传统养生功法，内外兼修' },
+            { id: 25, title: '五禽戏基础教学', category: '道法养生', level: '入门', author: '中医养生', views: 0, desc: '华佗创编，延年益寿五禽戏' },
+            { id: 26, title: '子午流注养生法', category: '道法养生', level: '进阶', author: '道医研究者', views: 0, desc: '按时辰养生，事半功倍' },
+            { id: 27, title: '枸杞养生茶配方', category: '道法养生', level: '入门', author: '养生达人', views: 0, desc: '中式生活必备，保温杯里泡枸杞' },
+            { id: 28, title: '站桩静心入门', category: '道法养生', level: '入门', author: '传统功夫', views: 0, desc: '每天10分钟桩功，精力充沛' },
+            { id: 29, title: '道家呼吸吐纳法', category: '道法养生', level: '入门', author: '清静行者', views: 0, desc: '调节气息，延年益寿的传统智慧' },
+            { id: 30, title: '二十四节气养生', category: '道法养生', level: '进阶', author: '中医世家', views: 0, desc: '顺应节气养生，这是龙抬头春季养生' },
+            
+            // ===== 传统工艺（非遗热门）=====
+            { id: 7, title: '传统竹编基础教程', category: '传统工艺', level: '入门', author: '竹匠张叔', views: 0, desc: '非遗技艺传承，学习竹编基本技法' },
+            { id: 8, title: '手工刺绣入门', category: '传统工艺', level: '入门', author: '绣娘阿香', views: 0, desc: '苏绣基础针法，小白也能学会' },
+            { id: 9, title: '盘扣制作技巧', category: '传统工艺', level: '入门', author: '服饰匠人', views: 0, desc: '传统盘扣制作，一枚扣一份心意' },
+            { id: 10, title: '香囊制作教程', category: '传统工艺', level: '入门', author: '香道爱好者', views: 0, desc: '端午香囊自己做，简单又风雅' },
+            
+            // ===== 艺术创作 ======
+            { id: 11, title: '国画基础入门', category: '艺术创作', level: '入门', author: '画家李工', views: 0, desc: '写意国画入门技法，毛笔基础训练' },
+            { id: 12, title: '手机端古风头像涂鸦', category: '艺术创作', level: '入门', author: '画师小筑', views: 0, desc: '10分钟学会用手机画古风头像' },
+            { id: 13, title: '书法入门基础', category: '艺术创作', level: '入门', author: '书法家', views: 0, desc: '零基础写毛笔字，从握笔开始' },
+            { id: 14, title: '古风插画技巧', category: '艺术创作', level: '进阶', author: '插画师', views: 0, desc: '古风插画入门，线条与配色要点' },
+            { id: 31, title: 'AI古风头像生成', category: '艺术创作', level: '入门', author: 'AI创作者', views: 0, desc: '用AI生成绝美古风头像，热点必备' },
+            
+            // ===== 生活技能 ======
+            { id: 15, title: '茶艺入门', category: '生活技能', level: '入门', author: '茶博士', views: 0, desc: '泡茶品茗的基础礼仪，入门必学' },
+            { id: 16, title: '城市种植指南', category: '生活技能', level: '入门', author: '都市农夫', views: 0, desc: '在阳台上种菜养花，都市农夫生活' },
+            { id: 17, title: '传统礼仪大全', category: '生活技能', level: '入门', author: '礼仪学者', views: 0, desc: '拱手礼、作揖礼、万福礼全解' },
+            
+            // ===== 数字技能（⭐AI热点）=====
+            { id: 18, title: '短视频剪辑入门', category: '数字技能', level: '入门', author: '剪辑师', views: 0, desc: '手机也能做出精美短视频' },
+            { id: 19, title: 'AI提示词工程', category: '数字技能', level: '进阶', author: 'AI研究者', views: 0, desc: '用好AI工具的秘诀，提升效率' },
+            { id: 20, title: '汉字动态效果制作', category: '数字技能', level: '进阶', author: '设计师阿文', views: 0, desc: '不用专业软件，文字动画制作' },
+            { id: 32, title: 'AI汉服设计入门', category: '数字技能', level: '进阶', author: 'AI设计师', views: 0, desc: '用AI画100套汉服，每套都绝美' }
+        ];
+        
+            // 技能分类图标
+        const categoryIcons = {
+            '全部': '📚',
+            '传统工艺': '🏺',
+            '道法养生': '🧘',
+            '生活技能': '🏠',
+            '数字技能': '💻',
+            '艺术创作': '🎨',
+            '国风美学': '🏮'
+        };
+        
+        let currentFilter = '全部';
+        let currentSearch = '';
 
         function switchTab(tabName) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -514,6 +598,7 @@
             event.currentTarget.classList.add('active');
             document.getElementById(tabName).classList.add('active');
             if (tabName === 'wish') loadWishes();
+            if (tabName === 'library') renderSkills();
         }
 
         function selectPath(path) {
@@ -573,6 +658,103 @@
             }
         }
 
+        // ========== 琅琊福地功能 ==========
+        function renderSkills() {
+            const container = document.getElementById('skillList');
+            let filtered = skillsData;
+            
+            // 应用筛选
+            if (currentFilter !== '全部') {
+                filtered = filtered.filter(s => s.category === currentFilter);
+            }
+            
+            // 应用搜索
+            if (currentSearch) {
+                filtered = filtered.filter(s => 
+                    s.title.includes(currentSearch) || 
+                    s.desc.includes(currentSearch) ||
+                    s.category.includes(currentSearch)
+                );
+            }
+            
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="list-item" style="text-align: center; color: #888;">暂无相关技能，快来传授第一个吧！</div>';
+                return;
+            }
+            
+            let html = '';
+            filtered.forEach(skill => {
+                const icon = categoryIcons[skill.category] || '📚';
+                html += `
+                    <div class="list-item" style="cursor: pointer;" onclick="viewSkill(${skill.id})">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <h4 style="color: var(--primary); margin-bottom: 8px;">${icon} ${skill.title}</h4>
+                                <p style="color: #666; font-size: 0.95em;">${skill.desc}</p>
+                            </div>
+                            <span class="status-badge" style="background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%); color: #1E40AF;">${skill.level}</span>
+                        </div>
+                        <p style="color: #888; margin-top: 12px; font-size: 0.9em;">
+                            📂 ${skill.category} · 👤 ${skill.author}${skill.views > 0 ? ' · 👁️ ' + skill.views + '人浏览' : ''}
+                        </p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+        
+        function searchSkills() {
+            currentSearch = document.getElementById('skillSearch').value.trim();
+            renderSkills();
+        }
+        
+        function filterSkills(category) {
+            currentFilter = category;
+            // 更新标签选中状态
+            document.querySelectorAll('.seed-tag').forEach(tag => {
+                tag.classList.remove('selected');
+                if (tag.textContent.includes(category) || (category === '全部' && tag.textContent === '全部')) {
+                    tag.classList.add('selected');
+                }
+            });
+            renderSkills();
+        }
+        
+        function viewSkill(id) {
+            const skill = skillsData.find(s => s.id === id);
+            if (!skill) return;
+            
+            const content = `
+                <div style="text-align: left;">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">${skill.title}</h3>
+                    <p style="color: #666; margin-bottom: 15px;">${skill.desc}</p>
+                    <div style="background: #F3F4F6; padding: 15px; border-radius: 10px; margin: 15px 0;">
+                        <p><strong>分类：</strong>${skill.category}</p>
+                        <p><strong>难度：</strong>${skill.level}</p>
+                        <p><strong>作者：</strong>${skill.author}</p>
+                        <p><strong>浏览：</strong>${skill.views > 0 ? skill.views + '人' : '暂无'}</p>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="btn" onclick="closeSkillDetail()">返回列表</button>
+                        <button class="btn" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);" onclick="startLearn(${skill.id})">开始学习</button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('skillList').innerHTML = `
+                <div class="list-item" id="skillDetail">${content}</div>
+            `;
+        }
+        
+        function closeSkillDetail() {
+            renderSkills();
+        }
+        
+        function startLearn(id) {
+            alert('📚 开始学习技能！祝你学有所成！\n\n（此功能后续可扩展为完整教程）');
+        }
+        
+
+        
         // 心愿墙功能
         function fillWish(text) {
             document.getElementById('newWish').value = text;
@@ -673,6 +855,8 @@
             }
             // 加载示例数据
             loadWishes();
+            // 加载技能列表
+            renderSkills();
         };
     </script>
 </body>
