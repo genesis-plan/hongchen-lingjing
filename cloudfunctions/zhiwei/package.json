@@ -1,0 +1,20 @@
+{
+  "name": "zhiwei",
+  "version": "1.0.0",
+  "description": "紫薇数字人云函数 - 红尘灵境智能助手",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@cloudbase/node-sdk": "latest"
+  },
+  "cloudfunction-config": {
+    "runtime": "Nodejs18.15",
+    "memorySize": 512,
+    "timeout": 30,
+    "triggers": []
+  },
+  "author": "紫薇",
+  "license": "MIT"
+}

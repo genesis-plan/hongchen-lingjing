@@ -1,0 +1,42 @@
+/* 红尘灵境统一样式架构 */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #45b7d1;
+    --dark-bg: #1a1a2e;
+    --darker-bg: #16213e;
+    --light-text: #e8e8e8;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+.page-header { text-align: center; margin-bottom: 40px; }
+.page-header h1 { font-size: 2.5em; color: var(--primary-color); margin-bottom: 10px; }
+.subtitle { color: var(--secondary-color); font-size: 1.2em; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: var(--shadow); transition: transform 0.3s ease; }
+.card:hover { transform: translateY(-5px); }
+
+.card h3 { color: var(--accent-color); margin-bottom: 15px; font-size: 1.3em; }
+
+/* 响应式设计 */
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .container { padding: 15px; } }
+
+/* SEO优化 */
+h1, h2, h3 { font-weight: 600; }
+img { max-width: 100%; height: auto; }
+
+/* 加载性能优化 */
+.lazy-load { opacity: 0; transition: opacity 0.3s; }
+.lazy-load.loaded { opacity: 1; }

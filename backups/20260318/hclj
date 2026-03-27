@@ -1,0 +1,63 @@
+# hongchenlingjing.com - 重定向到GitHub仓库
+server {
+    listen 80;
+    server_name hongchenlingjing.com www.hongchenlingjing.com;
+    
+    return 301 https://github.com/genesis-plan/hongchen-lingjing$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name hongchenlingjing.com www.hongchenlingjing.com;
+    
+    ssl_certificate /etc/letsencrypt/live/hongchenlingjing.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/hongchenlingjing.com/privkey.pem;
+    
+    ssl_protocols TLSv1.2 TLSv1.3;
+    
+    return 301 https://github.com/genesis-plan/hongchen-lingjing$request_uri;
+}
+
+# 红尘灵境.com - 主网站
+server {
+    listen 80;
+    server_name xn--0ns36f36xyln.com www.xn--0ns36f36xyln.com;
+    
+    root /var/www/hclj/web;
+    index index.html;
+    
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+    
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    server_name xn--0ns36f36xyln.com www.xn--0ns36f36xyln.com;
+    
+    ssl_certificate /etc/letsencrypt/live/xn--0ns36f36xyln.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/xn--0ns36f36xyln.com/privkey.pem;
+    
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256;
+    ssl_prefer_server_ciphers off;
+    
+    root /var/www/hclj/web;
+    index index.html;
+    
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+    
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+    
+    add_header Strict-Transport-Security "max-age=31536000" always;
+}

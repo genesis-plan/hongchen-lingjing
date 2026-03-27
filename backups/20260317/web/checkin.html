@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日签到 - 红尘灵境</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .checkin-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .checkin-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .checkin-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .checkin-subtitle {
+            font-size: 16px;
+            color: #a0a0a0;
+        }
+
+        .streak-info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .streak-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .streak-label {
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+
+        .checkin-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .calendar-day.today {
+            border: 2px solid #667eea;
+        }
+
+        .calendar-day.checked {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+
+        .calendar-day.missed {
+            opacity: 0.3;
+        }
+
+        .calendar-day .reward {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            font-size: 12px;
+        }
+
+        .checkin-button {
+            width: 100%;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .checkin-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .checkin-button:disabled {
+            background: #333;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .reward-info {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .reward-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .reward-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .reward-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .reward-days {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-bottom: 5px;
+        }
+
+        .reward-points {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .back-button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            padding: 40px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            text-align: center;
+            max-width: 400px;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .modal-reward {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .modal-message {
+            font-size: 16px;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+        }
+
+        .modal-button {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="checkin-container">
+        <div class="checkin-header">
+            <h1 class="checkin-title">每日签到</h1>
+            <p class="checkin-subtitle">坚持学习，每天进步一点点</p>
+        </div>
+
+        <div class="streak-info">
+            <div class="streak-number" id="streakNumber">0</div>
+            <div class="streak-label">连续签到天数</div>
+        </div>
+
+        <div class="checkin-calendar" id="checkinCalendar">
+            <!-- 日历将由JavaScript生成 -->
+        </div>
+
+        <button class="checkin-button" id="checkinButton" onclick="doCheckin()">
+            立即签到 +10积分
+        </button>
+
+        <div class="reward-info">
+            <div class="reward-title">🎁 连续签到奖励</div>
+            <div class="reward-list">
+                <div class="reward-item">
+                    <div class="reward-days">7天</div>
+                    <div class="reward-points">+50</div>
+                </div>
+                <div class="reward-item">
+                    <div class="reward-days">14天</div>
+                    <div class="reward-points">+100</div>
+                </div>
+                <div class="reward-item">
+                    <div class="reward-days">21天</div>
+                    <div class="reward-points">+200</div>
+                </div>
+                <div class="reward-item">
+                    <div class="reward-days">30天</div>
+                    <div class="reward-points">+500</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="back-button" onclick="goBack()">返回首页</button>
+        </div>
+    </div>
+
+    <div class="modal" id="checkinModal">
+        <div class="modal-content">
+            <div class="modal-title">✨ 签到成功！</div>
+            <div class="modal-reward" id="modalReward">+10</div>
+            <div class="modal-message">已获得积分奖励，继续加油！</div>
+            <button class="modal-button" onclick="closeModal()">好的</button>
+        </div>
+    </div>
+
+    <script>
+        // 获取或初始化签到数据
+        function getCheckinData() {
+            const data = localStorage.getItem('hclj_checkin_data');
+            return data ? JSON.parse(data) : {
+                totalDays: 0,
+                streak: 0,
+                lastCheckin: null,
+                calendar: {}
+            };
+        }
+
+        // 保存签到数据
+        function saveCheckinData(data) {
+            localStorage.setItem('hclj_checkin_data', JSON.stringify(data));
+        }
+
+        // 获取或初始化积分数据
+        function getUserPoints() {
+            const points = localStorage.getItem('hclj_user_points');
+            return points ? parseInt(points) : 0;
+        }
+
+        // 保存积分
+        function saveUserPoints(points) {
+            localStorage.setItem('hclj_user_points', points);
+        }
+
+        // 格式化日期
+        function formatDate(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        // 判断是否是今天
+        function isToday(dateStr) {
+            return formatDate(new Date()) === dateStr;
+        }
+
+        // 判断是否是昨天
+        function isYesterday(dateStr) {
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            return formatDate(yesterday) === dateStr;
+        }
+
+        // 计算连续签到天数
+        function calculateStreak(checkinData) {
+            let streak = 0;
+            let currentDate = new Date();
+
+            while (checkinData.calendar[formatDate(currentDate)]) {
+                streak++;
+                currentDate.setDate(currentDate.getDate() - 1);
+            }
+
+            return streak;
+        }
+
+        // 生成日历
+        function generateCalendar() {
+            const checkinData = getCheckinData();
+            const calendar = document.getElementById('checkinCalendar');
+            calendar.innerHTML = '';
+
+            // 显示最近30天
+            const today = new Date();
+            for (let i = 29; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                const dateStr = formatDate(date);
+                const dayNum = date.getDate();
+
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+
+                if (checkinData.calendar[dateStr]) {
+                    dayElement.classList.add('checked');
+                } else if (isToday(dateStr)) {
+                    dayElement.classList.add('today');
+                } else if (isYesterday(dateStr) && !checkinData.calendar[dateStr]) {
+                    dayElement.classList.add('missed');
+                }
+
+                dayElement.textContent = dayNum;
+                calendar.appendChild(dayElement);
+            }
+        }
+
+        // 更新连续签到天数
+        function updateStreakDisplay() {
+            const checkinData = getCheckinData();
+            checkinData.streak = calculateStreak(checkinData);
+            saveCheckinData(checkinData);
+
+            document.getElementById('streakNumber').textContent = checkinData.streak;
+        }
+
+        // 检查今天是否已签到
+        function hasCheckedInToday() {
+            const checkinData = getCheckinData();
+            const today = formatDate(new Date());
+            return checkinData.calendar[today];
+        }
+
+        // 计算签到奖励
+        function calculateReward(streak) {
+            let reward = 10; // 基础奖励
+
+            // 连续签到额外奖励
+            if (streak >= 30) {
+                reward += 500;
+            } else if (streak >= 21) {
+                reward += 200;
+            } else if (streak >= 14) {
+                reward += 100;
+            } else if (streak >= 7) {
+                reward += 50;
+            }
+
+            return reward;
+        }
+
+        // 执行签到
+        function doCheckin() {
+            const checkinData = getCheckinData();
+            const today = formatDate(new Date());
+
+            if (hasCheckedInToday()) {
+                alert('今天已经签到过了，明天再来吧！');
+                return;
+            }
+
+            // 更新签到数据
+            checkinData.calendar[today] = true;
+            checkinData.totalDays++;
+            checkinData.lastCheckin = today;
+            saveCheckinData(checkinData);
+
+            // 计算奖励
+            const reward = calculateReward(checkinData.streak + 1);
+
+            // 添加积分
+            const currentPoints = getUserPoints();
+            saveUserPoints(currentPoints + reward);
+
+            // 更新显示
+            updateStreakDisplay();
+            generateCalendar();
+            updateCheckinButton();
+
+            // 显示奖励弹窗
+            document.getElementById('modalReward').textContent = '+' + reward;
+            document.getElementById('checkinModal').classList.add('active');
+
+            // 保存签到记录
+            saveCheckinHistory(checkinData, reward);
+        }
+
+        // 更新签到按钮状态
+        function updateCheckinButton() {
+            const button = document.getElementById('checkinButton');
+
+            if (hasCheckedInToday()) {
+                button.disabled = true;
+                button.textContent = '今日已签到';
+            } else {
+                button.disabled = false;
+                const checkinData = getCheckinData();
+                const reward = calculateReward(checkinData.streak);
+                button.textContent = '立即签到 +' + reward;
+            }
+        }
+
+        // 保存签到历史记录
+        function saveCheckinHistory(checkinData, reward) {
+            const history = JSON.parse(localStorage.getItem('hclj_checkin_history') || '[]');
+            history.push({
+                date: formatDate(new Date()),
+                streak: checkinData.streak,
+                reward: reward
+            });
+            localStorage.setItem('hclj_checkin_history', JSON.stringify(history));
+        }
+
+        // 关闭弹窗
+        function closeModal() {
+            document.getElementById('checkinModal').classList.remove('active');
+        }
+
+        // 返回首页
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        // 页面加载时初始化
+        window.onload = function() {
+            generateCalendar();
+            updateStreakDisplay();
+            updateCheckinButton();
+        };
+    </script>
+</body>
+</html>

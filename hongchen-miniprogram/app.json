@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",           // 灵槎津渡 - 入口引导
+    "pages/profile/profile",       // 芥子藏虚 - 个人主页
+    "pages/library/library",       // 琅嬛福地 - 技能图书馆
+    "pages/training/training",     // 考工实训庐 - 技能实操
+    "pages/certification/certification", // 百炼鉴心台 - 技能认证
+    "pages/create-skill/create-skill",     // 天工开物坊 - 上传技能
+    "pages/community/community",   // 群贤毕至堂 - 社区
+    "pages/ranking/ranking",       // 荣光麟阁 - 排行榜
+    "pages/messages/messages",     // 青鸟星驿 - 消息
+    "pages/market/market",         // 两仪墟市 - 市场
+    "pages/resources/resources",   // 万象璇玑阁 - 资源
+    "pages/economy/economy",       // 泉府通衢 - 经济
+    "pages/challenges/challenges"  // 星枢问道台 - 挑战
+  ],
+  "window": {
+    "backgroundColor": "#1a1a2e",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#16213e",
+    "navigationBarTitleText": "红尘灵境",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#7fb069",
+    "selectedColor": "#ff6b6b",
+    "backgroundColor": "#16213e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/library/library",
+        "text": "技能库",
+        "iconPath": "assets/icons/library.png",
+        "selectedIconPath": "assets/icons/library-active.png"
+      },
+      {
+        "pagePath": "pages/training/training",
+        "text": "实训",
+        "iconPath": "assets/icons/training.png",
+        "selectedIconPath": "assets/icons/training-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

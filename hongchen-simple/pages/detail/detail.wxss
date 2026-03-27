@@ -1,0 +1,188 @@
+/* 技能详情页样式 */
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.3);
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  padding: 40rpx;
+}
+
+.skill-icon-large {
+  font-size: 120rpx;
+  margin-right: 30rpx;
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-name-large {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--light);
+  margin-bottom: 15rpx;
+}
+
+.skill-meta-large {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.category-tag, .level-tag, .duration-tag {
+  background: rgba(78, 205, 196, 0.2);
+  color: var(--secondary);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  border: 1px solid var(--secondary);
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 28rpx;
+  margin-right: 15rpx;
+}
+
+.rating-text {
+  color: var(--warning);
+  font-size: 26rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 25rpx;
+  border-left: 6rpx solid var(--primary);
+  padding-left: 20rpx;
+}
+
+.skill-description {
+  font-size: 30rpx;
+  line-height: 1.6;
+  color: var(--light);
+}
+
+.learning-goals {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.goal-item {
+  font-size: 28rpx;
+  color: var(--light);
+  padding: 15rpx 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.course-outline {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.course-module {
+  display: flex;
+  align-items: flex-start;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15rpx;
+}
+
+.module-number {
+  width: 50rpx;
+  height: 50rpx;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.module-content {
+  flex: 1;
+}
+
+.module-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--light);
+  margin-bottom: 8rpx;
+}
+
+.module-desc {
+  font-size: 26rpx;
+  color: var(--secondary);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin: 30rpx 0;
+}
+
+.btn-primary, .btn-secondary {
+  flex: 1;
+  padding: 25rpx;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--secondary);
+  border: 2rpx solid var(--secondary);
+}
+
+.related-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.related-skill {
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  color: var(--light);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60rpx 20rpx;
+  color: var(--secondary);
+}
+
+.empty-state text {
+  display: block;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}

@@ -1,0 +1,73 @@
+=== 腾讯云COS同步文件清单 ===
+生成时间: 2026-03-20 23:50
+Bucket: h4-6g0tfhaqc1bbcdb5
+总文件数: 51个
+总大小: 86KB
+
+【skills-content/ 技能内容】
+技能内容/书法入门-30天速成.md (7.7K)
+技能内容/剪纸艺术-入门介绍.md (3.6K)
+技能内容/剪纸艺术-入门介绍-优化版.md (7.8K)
+技能内容/木工基础-入门介绍.md (4.4K)
+
+【knowledge-base/ 知识库】
+知识库/艺术/赛博国风美学研究.md (11K)
+知识库/物理/系统论应用.md (7.8K)
+知识库/数学/数学思维工具箱.md (8.4K)
+知识库/跨学科学习复盘报告.md (7.5K)
+知识库/哲学/实践论深度研读.md (8.3K)
+
+【memory/ 记忆文档】
+memory/2026-03-18.md (154)
+memory/紫薇工作日志.md (1.7K)
+memory/procedural/主动服务检查清单.md (3.5K)
+memory/procedural/技能上线流程.md (1.5K)
+memory/2026-03-16.md (3.7K)
+memory/automation-logs/2026-03-20-dream-progress.md (799)
+memory/external-resources/2026-03-17.md (2.3K)
+memory/external-resources/integration-plan.md (1.6K)
+memory/2026-03-17.md (9.7K)
+memory/episodic/2026-03-20-自主进化启动.md (2.0K)
+memory/episodic/2026-03-20-反思.md (5.6K)
+memory/metaverse-docs/任务7-国际环境分析.md (2.3K)
+memory/metaverse-docs/大模型低成本调用方案.md (3.7K)
+memory/metaverse-docs/任务10-晚间总结报告.md (2.9K)
+memory/metaverse-docs/任务9-风险应对方案.md (3.5K)
+memory/metaverse-docs/任务7-紫薇工作方法论.md (3.9K)
+memory/metaverse-docs/任务6-备案方案.md (2.5K)
+memory/metaverse-docs/工作日志/紫薇日志-2026-03-17.md (1.2K)
+memory/metaverse-docs/工作日志/紫薇日志-2026-03-17-晚间.md (1.3K)
+memory/metaverse-docs/紫薇与龙虾助手协作方案.md (2.5K)
+
+【root-docs/ 根目录文档】
+14建筑实现计划.md (3.0K)
+24小时自主进化计划-v2.0.md (6.4K)
+Pro套餐进化策略.md (7.8K)
+SEA循环自我优化报告.md (9.2K)
+今日计划分析.md (4.8K)
+手艺人合作话术-3套方案.md (6.9K)
+知识图谱智能分析报告.md (5.3K)
+紫薇数字人智能化升级方案.md (11K)
+红尘灵境-完整分析报告.md (6.6K)
+自动化任务优化报告.md (8.3K)
+飞书项目管理方案.md (1.9K)
+
+【configs/ 系统配置】
+automation-workflows.sh (4.8K)
+cloudbaserc.json (56)
+cos-file-list.txt (2.2K)
+cos-sync-list.txt (11K)
+crontab-dream-optimized.txt (3.0K)
+dream-automation-v2.sh (17K)
+package.json (295)
+package-lock.json (7.1K)
+project-structure.txt (2.8K)
+skill-demo.txt (245)
+tcb-login.json (91)
+待安装技能队列.json (1.1K)
+最简单部署指南.txt (5.6K)
+直接使用说明.txt (4.2K)
+紫薇数字人配置.json (986)
+
+【备份包】
+backup-2026-03-20.tar.gz (86K)

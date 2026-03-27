@@ -1,0 +1,34 @@
+{
+  "site": {
+    "name": "红尘灵境",
+    "url": "https://红尘灵境.com",
+    "description": "让技能跨越虚拟与现实，让每个人都能学习并改变生活",
+    "keywords": ["技能传承", "传统文化", "在线教育", "元宇宙", "技艺学习"],
+    "author": "genesis-plan"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "title": "红尘灵境 - 技能传承元宇宙",
+      "description": "打造以技能传承为核心的元宇宙，让千年技艺跨越时空限制",
+      "keywords": ["技能传承", "元宇宙", "传统文化"]
+    },
+    {
+      "path": "/lingcha",
+      "title": "灵槎津渡 - 红尘灵境入口",
+      "description": "《博物志》通天之筏，进入技能传承世界的起点",
+      "keywords": ["入口", "新手村", "技能传承"]
+    },
+    {
+      "path": "/laozhang",
+      "title": "琅嬛福地 - 技能图书馆",
+      "description": "《琅嬛记》天帝藏书，汇聚古今技能智慧",
+      "keywords": ["技能图书馆", "学习资源", "技艺典籍"]
+    }
+  ],
+  "robots": {
+    "index": true,
+    "follow": true,
+    "sitemap": "/sitemap.xml"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "optimization": {
+    "compression": {
+      "enabled": true,
+      "level": 6,
+      "types": ["css", "js", "html"]
+    },
+    "caching": {
+      "static_assets": 31536000,
+      "images": 2592000,
+      "api_responses": 300
+    },
+    "lazy_loading": {
+      "enabled": true,
+      "threshold": 0.1
+    },
+    "minification": {
+      "html": true,
+      "css": true,
+      "js": true
+    }
+  },
+  "monitoring": {
+    "core_web_vitals": true,
+    "load_time_target": 3.0,
+    "lighthouse_score_target": 90
+  }
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>芥子藏虚 - 个人主页 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .profile-header {
+            display: flex;
+            gap: 30px;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560, #9333ea);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        
+        .profile-info h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .profile-info .bio {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+        }
+        
+        .profile-info .stats {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            color: #e94560;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin: 30px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab.active {
+            color: #e94560;
+            border-bottom-color: #e94560;
+        }
+        
+        .content-area {
+            min-height: 400px;
+        }
+        
+        .skill-item, .progress-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .skill-item h3, .progress-item h3 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            background: rgba(255,255,255,0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .login-prompt {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .login-prompt h2 {
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">🏠 芥子藏虚</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/profile">个人主页</a>
+            </div>
+        </nav>
+        
+        <div id="profileContent">
+            <div class="login-prompt">
+                <h2>请先登录</h2>
+                <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px;">
+                    登录后查看您的个人主页、学习进度和成就
+                </p>
+                <a href="/login" class="btn">登录</a>
+                <a href="/register" class="btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.3);">注册</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 检查登录状态
+        function checkLogin() {
+            const token = localStorage.getItem('hclj_token');
+            if (token) {
+                loadUserProfile();
+            }
+        }
+        
+        async function loadUserProfile() {
+            // 加载用户信息
+            const profileHTML = `
+                <div class="profile-header">
+                    <div class="avatar">👤</div>
+                    <div class="profile-info">
+                        <h1>红尘修士</h1>
+                        <p class="bio">正在红尘灵境中修行...</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">学习技能</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">完成进度</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">获得认证</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <button class="tab active">学习中</button>
+                    <button class="tab">已完成</button>
+                    <button class="tab">收藏</button>
+                    <button class="tab">成就</button>
+                </div>
+                
+                <div class="content-area">
+                    <div class="progress-item">
+                        <h3>开始你的技能之旅</h3>
+                        <p style="color: rgba(255,255,255,0.6);">
+                            去技能库选择你想学习的技能吧！
+                        </p>
+                        <div style="margin-top: 15px;">
+                            <a href="/skills" class="btn">浏览技能</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('profileContent').innerHTML = profileHTML;
+        }
+        
+        document.addEventListener('DOMContentLoaded', checkLogin);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "auto-sync-backup",
+  "version": "1.0.0",
+  "description": "自动同步工作目录备份到云存储",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@cloudbase/node-sdk": "latest"
+  },
+  "cloudfunction-config": {
+    "runtime": "Nodejs18.15",
+    "memorySize": 256,
+    "timeout": 60,
+    "triggers": [
+      {
+        "name": "dailySync",
+        "type": "timer",
+        "config": "0 0 2 * * * *"
+      }
+    ]
+  }
+}

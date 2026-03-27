@@ -1,0 +1,105 @@
+/* 红尘灵境小程序全局样式 */
+
+/* 基础样式重置 */
+page {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #e8e8e8;
+  font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* 赛博国风配色 */
+:root {
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --accent: #45b7d1;
+  --success: #96ceb4;
+  --warning: #feca57;
+  --purple: #a8e6cf;
+  --dark: #1a1a2e;
+  --darker: #16213e;
+  --light: #e8e8e8;
+}
+
+/* 通用组件样式 */
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  color: white;
+  border: none;
+  border-radius: 50rpx;
+  padding: 20rpx 40rpx;
+  font-size: 32rpx;
+  box-shadow: 0 4rpx 15rpx rgba(255, 107, 107, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--secondary);
+  border: 2rpx solid var(--secondary);
+  border-radius: 50rpx;
+  padding: 18rpx 38rpx;
+  font-size: 32rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.subtitle {
+  font-size: 32rpx;
+  color: var(--secondary);
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.building-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-top: 30rpx;
+}
+
+.building-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15rpx;
+  padding: 25rpx;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.building-item:hover {
+  transform: translateY(-5rpx);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10rpx 25rpx rgba(0, 0, 0, 0.3);
+}
+
+.building-icon {
+  font-size: 60rpx;
+  margin-bottom: 15rpx;
+}
+
+.building-name {
+  font-size: 28rpx;
+  color: var(--light);
+  font-weight: bold;
+}

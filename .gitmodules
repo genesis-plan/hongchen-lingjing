@@ -1,0 +1,6 @@
+[submodule "MemoryMesh"]
+	path = MemoryMesh
+	url = https://github.com/CheMiguel23/MemoryMesh.git
+[submodule "clawatar"]
+	path = clawatar
+	url = https://github.com/openclaw/clawatar.git

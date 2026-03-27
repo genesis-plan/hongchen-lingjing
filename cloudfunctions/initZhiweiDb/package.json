@@ -1,0 +1,14 @@
+{
+  "name": "init-zhiwei-db",
+  "version": "1.0.0",
+  "description": "初始化紫薇数据库集合",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "latest"
+  },
+  "cloudfunction-config": {
+    "runtime": "Nodejs18.15",
+    "memorySize": 256,
+    "timeout": 60
+  }
+}
