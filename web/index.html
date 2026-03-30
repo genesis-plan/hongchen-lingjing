@@ -432,5 +432,79 @@
             loadWishes();
         };
     </script>
+<!-- 紫薇 AI 助手悬浮窗 -->
+<div id="ai-chat-btn" onclick="toggleChat()" style="
+  position:fixed; bottom:30px; right:30px; z-index:9999;
+  width:60px; height:60px; border-radius:50%;
+  background:linear-gradient(135deg, #722ed1, #b37feb); color:white; font-size:28px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+  💜
+</div>
+
+<div id="ai-chat-box" style="
+  display:none; position:fixed; bottom:100px; right:30px;
+  width:360px; height:500px; z-index:9999;
+  background:white; border-radius:16px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.2);
+  flex-direction:column; overflow:hidden;">
+  <div style="background:linear-gradient(135deg, #722ed1, #b37feb); color:white; padding:16px; font-weight:bold;">
+    💜 紫薇 AI 助手
+    <span onclick="toggleChat()" style="float:right; cursor:pointer;">✕</span>
+  </div>
+  <div id="chat-messages" style="flex:1; overflow-y:auto; padding:16px; height:360px;"></div>
+  <div style="padding:12px; border-top:1px solid #eee; display:flex; gap:8px;">
+    <input id="chat-input" type="text" placeholder="有什么问题都可以问我..."
+      style="flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:8px; outline:none;"
+      onkeydown="if(event.key==='Enter') sendMsg()"/>
+    <button onclick="sendMsg()" style="
+      padding:8px 16px; background:linear-gradient(135deg, #722ed1, #b37feb); color:white;
+      border:none; border-radius:8px; cursor:pointer;">发送</button>
+  </div>
+</div>
+
+<script>
+function toggleChat() {
+  const box = document.getElementById('ai-chat-box');
+  box.style.display = box.style.display === 'none' ? 'flex' : 'none';
+}
+
+async function sendMsg() {
+  const input = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+  const text = input.value.trim();
+  if (!text) return;
+
+  // 显示用户消息
+  messages.innerHTML += `<div style="text-align:right; margin:8px 0;">
+    <span style="background:#1677ff; color:white; padding:8px 12px; border-radius:12px; display:inline-block;">${text}</span>
+  </div>`;
+  input.value = '';
+  messages.scrollTop = messages.scrollHeight;
+
+  // 显示加载中
+  messages.innerHTML += `<div id="loading" style="margin:8px 0;">
+    <span style="background:#f0f0f0; padding:8px 12px; border-radius:12px; display:inline-block;">💜 紫薇思考中...</span>
+  </div>`;
+
+  // 调用紫薇 API
+  try {
+    const res = await fetch('http://159.75.154.206:3000/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    const data = await res.json();
+    document.getElementById('loading').remove();
+    messages.innerHTML += `<div style="margin:8px 0;">
+      <span style="background:#f0f0f0; padding:8px 12px; border-radius:12px; display:inline-block;">${data.reply || data.message || '收到！'}</span>
+    </div>`;
+  } catch(e) {
+    document.getElementById('loading').remove();
+    messages.innerHTML += `<div style="margin:8px 0; color:red;">连接失败，请稍后再试</div>`;
+  }
+  messages.scrollTop = messages.scrollHeight;
+}
+</script>
 </body>
 </html>
