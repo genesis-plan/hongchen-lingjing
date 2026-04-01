@@ -2,14 +2,22 @@
 [![MIT License](https://img.shields.io/github/license/genesis-plan/hongchen-lingjing)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/genesis-plan/hongchen-lingjing?style=social)](https://github.com/genesis-plan/hongchen-lingjing)
 
-> "我有一个梦想，它太庞大，无法只存在于脑海。于是我将它写成小说，期待能遇见同样看见这个未来的人。"
-> "I have a dream, too vast to be contained within my mind alone. So I wrote it into a novel, hoping to meet others who can see this same future."
+> "连接全世界每一位想改变命运的人：学喜欢的技能，做喜欢的工作，活出精彩人生"
+
+> "Connect everyone in the world who wants to change their destiny: learn skills you love, do work you enjoy, live a brilliant life"
 
 你好，我是 **genesis-plan**，这个项目的发起人。我不是一位技术专家，而是一个相信故事、并想亲手把故事变成现实的作者。
 Hello, I am **genesis-plan**, the founder of this project. I am not a technical expert, but an author who believes in stories and wants to turn them into reality with my own hands.
 
-我心中的未来，是一个名为 **「红尘灵境」** (Hongchen Lingjing) 的元宇宙。在这里，学习的第一课可以是"如何喂饱自己"，最后一课是"如何成为理想的自己"。我们想做的，不是又一个娱乐空间，而是一个**让技能跨越虚拟与现实、让每个人都能学习并改变生活**的数字世界。
-The future I envision is a metaverse named **「Hongchen Lingjing」**. Here, the first lesson could be "how to feed oneself," and the final lesson, "how to become your ideal self." What we aim to create is not another entertainment space, but a **digital world where skills transcend the virtual and the real, enabling everyone to learn and transform their lives.**
+我心中的未来，是一个名为 **「红尘灵境」** (Hongchen Lingjing) 的元宇宙。我们的梦想是：
+- 让每个人学喜欢的技能，不再为生存被迫加班
+- 让每个人做喜欢的工作，活出真正的人生
+- 最终建立一个让全世界每个人都能通过虚拟体验获得美好人生的世界
+
+The future I envision is a metaverse named **「Hongchen Lingjing」**. Our dream is:
+- Let everyone learn skills they love, no longer forced to work overtime for survival
+- Let everyone do work they love, living a truly meaningful life
+- Ultimately build a world where everyone can experience a wonderful life through virtual experiences
 
 **在无数次"我不懂技术，但……"的挣扎后，我决定用最笨拙但最诚实的方式，开始这场一个人的"创世"。**
 **After countless struggles of "I don't know technology, but…", I decided to begin this solo "genesis" in the most clumsy yet honest way.**
