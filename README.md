@@ -2,22 +2,30 @@
 [![MIT License](https://img.shields.io/github/license/genesis-plan/hongchen-lingjing)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/genesis-plan/hongchen-lingjing?style=social)](https://github.com/genesis-plan/hongchen-lingjing)
 
-> "连接全世界每一位想改变命运的人：学喜欢的技能，做喜欢的工作，活出精彩人生"
+> "我的梦想是让每个人学到自己喜欢的技能，改变现实的工作，从而改变人生。建立元宇宙，让世界上的每一个人都能做自己喜欢的工作，让每一个人都能通过虚拟体验获得美好的人生体验，从而改变现实世界。让人在现实获得一次美好的人生，直到他死亡，后代也能获得这样的体验。最终实现天下大同，解放全世界，让每个人不用为工作而加班，让人成为人。"
 
-> "Connect everyone in the world who wants to change their destiny: learn skills you love, do work you enjoy, live a brilliant life"
+> "My dream is to let everyone learn the skills they love, change their real-life work, and thus change their lives. Build a metaverse where every person in the world can do work they love, where everyone can obtain wonderful life experiences through virtual experiences, thereby changing the real world. Let everyone have a wonderful life in reality until they die, and their descendants can also experience this. Ultimately, achieve world unity, liberate the whole world, so that no one has to work overtime for survival, and let people truly become people."
 
 你好，我是 **genesis-plan**，这个项目的发起人。我不是一位技术专家，而是一个相信故事、并想亲手把故事变成现实的作者。
 Hello, I am **genesis-plan**, the founder of this project. I am not a technical expert, but an author who believes in stories and wants to turn them into reality with my own hands.
 
-我心中的未来，是一个名为 **「红尘灵境」** (Hongchen Lingjing) 的元宇宙。我们的梦想是：
-- 让每个人学喜欢的技能，不再为生存被迫加班
-- 让每个人做喜欢的工作，活出真正的人生
-- 最终建立一个让全世界每个人都能通过虚拟体验获得美好人生的世界
+我心中的未来，是一个名为 **「红尘灵境」** (Hongchen Lingjing) 的元宇宙。这是我的梦想：
 
-The future I envision is a metaverse named **「Hongchen Lingjing」**. Our dream is:
-- Let everyone learn skills they love, no longer forced to work overtime for survival
-- Let everyone do work they love, living a truly meaningful life
-- Ultimately build a world where everyone can experience a wonderful life through virtual experiences
+🌟 **核心愿景**
+- 让每个人学到自己喜欢的技能
+- 改变现实的工作，从而改变人生
+- 建立元宇宙，让世界上的每一个人都能做自己喜欢的工作
+- 让每一个人都能通过虚拟体验获得美好的人生体验
+- 最终实现天下大同，解放全世界，让每个人不用为工作而加班，让人成为人
+
+The future I envision is a metaverse named **「Hongchen Lingjing」**. This is my dream:
+
+🌟 **Core Vision**
+- Let everyone learn the skills they love
+- Change real-life work, thereby changing lives
+- Build a metaverse where every person in the world can do work they love
+- Let everyone obtain wonderful life experiences through virtual experiences
+- Ultimately achieve world unity, liberate the whole world, so no one has to work overtime for survival, and let people truly become people.
 
 **在无数次"我不懂技术，但……"的挣扎后，我决定用最笨拙但最诚实的方式，开始这场一个人的"创世"。**
 **After countless struggles of "I don't know technology, but…", I decided to begin this solo "genesis" in the most clumsy yet honest way.**
