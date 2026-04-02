@@ -1,0 +1,169 @@
+/**
+ * 红尘灵境 - 技能页面样式
+ * MVP版本 - 技能殿堂、技能详情
+ */
+
+/* 技能卡片扩展样式 */
+.skill-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+/* 分类颜色标记 */
+.category-ai-tools .skill-card::before { background: #722ed1; }
+.category-traditional .skill-card::before { background: #cf1322; }
+.category-digital-art .skill-card::before { background: #08979c; }
+.category-life .skill-card::before { background: #389e0d; }
+
+/* 技能详情弹窗扩展 */
+.skill-detail-header .detail-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(114, 46, 209, 0.1);
+    border-radius: 16px;
+    font-size: 2.5em;
+}
+
+/* 步骤样式扩展 */
+.skill-steps {
+    counter-reset: step;
+}
+
+.detail-step {
+    position: relative;
+    padding-left: 50px;
+}
+
+.detail-step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Quiz样式 */
+.quiz-section {
+    padding: 20px;
+    margin-top: 20px;
+    background: #f9f9f9;
+    border-radius: var(--radius);
+}
+
+.quiz-question {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quiz-option {
+    padding: 12px 15px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.quiz-option:hover {
+    border-color: var(--primary);
+    background: #fcf7ff;
+}
+
+.quiz-option.correct {
+    border-color: var(--success);
+    background: #f6ffed;
+}
+
+.quiz-option.wrong {
+    border-color: var(--error);
+    background: #fff2f0;
+}
+
+/* 搜索高亮 */
+.highlight {
+    background: #ffe58f;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* 骨架屏加载 */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: var(--radius);
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-card {
+    height: 120px;
+    margin-bottom: 15px;
+}
+
+/* 筛选状态 */
+.filter-status {
+    text-align: center;
+    padding: 15px;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* 技能统计 */
+.skills-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(114, 46, 209, 0.05);
+    border-radius: var(--radius);
+}
+
+.stats-item {
+    text-align: center;
+}
+
+.stats-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.stats-label {
+    font-size: 12px;
+    color: var(--text-light);
+}
