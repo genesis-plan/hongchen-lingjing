@@ -496,6 +496,30 @@ html, body {
     margin: 15px 0;
 }
 
+/* 加载动画 */
+.loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 /* 响应式 */
 @media (max-width: 480px) {
     .logo-text {
