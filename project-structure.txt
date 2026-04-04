@@ -1,0 +1,64 @@
+红尘灵境小程序项目结构
+========================
+
+📁 hongchen-miniprogram/
+├── 📄 app.js                 # 小程序入口，云开发初始化
+├── 📄 app.json               # 全局配置，页面路由
+├── 📄 app.wxss               # 全局样式，赛博国风设计
+├── 
+├── 📁 pages/                  # 页面目录
+│   ├── 📁 index/              # 灵槎津渡 - 入口引导
+│   │   ├── index.wxml         # 页面结构
+│   │   └── index.js           # 页面逻辑
+│   │
+│   ├── 📁 profile/            # 芥子藏虚 - 个人主页
+│   │   ├── profile.wxml       # 页面结构
+│   │   └── profile.js         # 页面逻辑
+│   │
+│   ├── 📁 library/            # 琅嬛福地 - 技能图书馆
+│   ├── 📁 training/            # 考工实训庐 - 技能实操
+│   ├── 📁 certification/      # 百炼鉴心台 - 技能认证
+│   ├── 📁 create-skill/        # 天工开物坊 - 上传技能
+│   ├── 📁 community/           # 群贤毕至堂 - 社区
+│   ├── 📁 ranking/             # 荣光麟阁 - 排行榜
+│   ├── 📁 messages/            # 青鸟星驿 - 消息系统
+│   ├── 📁 market/              # 两仪墟市 - 社交市场
+│   ├── 📁 resources/           # 万象璇玑阁 - 资源对接
+│   ├── 📁 economy/             # 泉府通衢 - 经济系统
+│   └── 📁 challenges/          # 星枢问道台 - 挑战活动
+│
+├── 📁 components/             # 通用组件库
+│   ├── BuildingCard/          # 建筑卡片组件
+│   ├── SkillItem/             # 技能项目组件
+│   ├── ProgressBar/           # 进度条组件
+│   └── AchievementBadge/      # 成就徽章组件
+│
+├── 📁 utils/                  # 工具函数
+│   ├── cloud-api.js           # 云开发API封装
+│   ├── auth.js                # 用户认证
+│   └── constants.js           # 常量定义
+│
+├── 📁 cloudfunctions/         # 云函数调用封装
+├── 📁 assets/                 # 静态资源
+│   ├── icons/                 # 图标文件
+│   ├── images/                # 图片资源
+│   └── fonts/                 # 字体文件
+│
+└── 📄 project.config.json     # 项目配置文件
+
+核心功能模块
+===========
+✅ 灵槎津渡：入口引导 + 14建筑导航
+✅ 芥子藏虚：个人主页 + 修行统计
+🔄 琅嬛福地：技能图书馆（开发中）
+🔄 考工实训庐：技能实操（待开发）
+🔄 其他10个建筑（待开发）
+
+技术特色
+========
+• 赛博国风美学设计
+• 云开发环境集成
+• 响应式布局
+• 渐变色彩系统
+• 毛玻璃效果
+• 动画交互体验

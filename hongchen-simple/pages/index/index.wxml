@@ -1,0 +1,44 @@
+<!-- 琅嬛福地·技能库 - 首页 -->
+<view class="container">
+  <!-- 头部区域 -->
+  <view class="header">
+    <view class="page-title">📚 琅嬛福地</view>
+    <view class="page-subtitle">《琅嬛记》天帝藏书 · 技能传承之地</view>
+  </view>
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <text>🔍</text>
+    <input class="search-input" placeholder="搜索技能..." bindinput="onSearchInput" />
+  </view>
+
+  <!-- 分类筛选 -->
+  <view class="category-tabs">
+    <view class="category-tab active" bindtap="switchCategory" data-category="all">全部</view>
+    <view class="category-tab" bindtap="switchCategory" data-category="农业">🌱 农业</view>
+    <view class="category-tab" bindtap="switchCategory" data-category="工艺">🔨 工艺</view>
+    <view class="category-tab" bindtap="switchCategory" data-category="艺术">✂️ 艺术</view>
+    <view class="category-tab" bindtap="switchCategory" data-category="生活">🍳 生活</view>
+    <view class="category-tab" bindtap="switchCategory" data-category="文化">✍️ 文化</view>
+  </view>
+
+  <!-- 技能网格 -->
+  <view class="skills-grid">
+    <view class="skill-card" wx:for="{{filteredSkills}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <text class="skill-icon">{{item.icon}}</text>
+      <view class="skill-name">{{item.name}}</view>
+      <view class="skill-category">{{item.category}}</view>
+      <view class="skill-meta">
+        <text>{{item.level}}</text>
+        <text>{{item.duration}}</text>
+      </view>
+      <view class="skill-rating">⭐ {{item.rating}} ({{item.students}}人)</view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{filteredSkills.length == 0}}">
+    <text>🔍 没有找到相关技能</text>
+    <text>试试其他关键词吧～</text>
+  </view>
+</view>

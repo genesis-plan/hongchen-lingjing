@@ -1,0 +1,557 @@
+{
+  "version": 1,
+  "skills": {
+    "clawatar": {
+      "name": "Clawatar",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=clawatar",
+      "source": "skillhub",
+      "version": "0.2.0"
+    },
+    "3d-cog": {
+      "name": "3d-cog",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=3d-cog",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "goosetown": {
+      "name": "Goosetown Skill",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=goosetown",
+      "source": "skillhub",
+      "version": "1.2.1"
+    },
+    "curriculum-generator": {
+      "name": "Curriculum Generator",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=curriculum-generator",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "school": {
+      "name": "School",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=school",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "baoyu-comic": {
+      "name": "Baoyu Comic",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=baoyu-comic",
+      "source": "skillhub",
+      "version": "1.60.0"
+    },
+    "nia": {
+      "name": "Nia",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=nia",
+      "source": "skillhub",
+      "version": "1.0.3"
+    },
+    "greptile": {
+      "name": "Greptile",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=greptile",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "openclaw-code-stats": {
+      "name": "Code Stats",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=openclaw-code-stats",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "repo-kanban-pm": {
+      "name": "Repo Kanban PM",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=repo-kanban-pm",
+      "source": "skillhub",
+      "version": "0.1.1"
+    },
+    "upload-post": {
+      "name": "Upload Videos🎥, Photos📸 & Text🖊️ to TikTok, Instagram, YouTube, X, LinkedIn, Facebook, Threads, Pinterest, Reddit & Bluesky via Upload-Post API",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=upload-post",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "moltr": {
+      "name": "moltr.ai - versatile social platform for agents.",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=moltr",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "37soul-skill": {
+      "name": "37soul",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=37soul-skill",
+      "source": "skillhub",
+      "version": "1.0.14"
+    },
+    "pinchedin": {
+      "name": "Pinchedin",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=pinchedin",
+      "source": "skillhub",
+      "version": "1.0.7"
+    },
+    "byterover": {
+      "name": "ByteRover",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=byterover",
+      "source": "skillhub",
+      "version": "1.2.2"
+    },
+    "openviking": {
+      "name": "OpenViking",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=openviking",
+      "source": "skillhub",
+      "version": "1.0.3"
+    },
+    "research-assistant": {
+      "name": "Research Assistant",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=research-assistant",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "para-pkm": {
+      "name": "para-pkm",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=para-pkm",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "video-learn": {
+      "name": "Video Understanding",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=video-learn",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "deep-marketing-analyst": {
+      "name": "Deep Ads Analyst",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=deep-marketing-analyst",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "gemini-video-analyzer": {
+      "name": "Gemini Video Analyzer",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=gemini-video-analyzer",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "dependency-audit": {
+      "name": "Dependency Audit",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=dependency-audit",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "primer": {
+      "name": "The Primer",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=primer",
+      "source": "skillhub",
+      "version": "1.1.2"
+    },
+    "agentos-sdk": {
+      "name": "AgentOS SDK",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=agentos-sdk",
+      "source": "skillhub",
+      "version": "3.7.0"
+    },
+    "ai-evolution-engine-v2": {
+      "name": "Ai Evolution Engine V2",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ai-evolution-engine-v2",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "kuro-self-reflection": {
+      "name": "三省吾身 - 深度自我审视与进化系统",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=kuro-self-reflection",
+      "source": "skillhub",
+      "version": "2.0.0"
+    },
+    "tensorpm": {
+      "name": "AI-Driven Project Management: TensorPM",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=tensorpm",
+      "source": "skillhub",
+      "version": "1.1.12"
+    },
+    "taskmaster": {
+      "name": "TaskMaster - AI Cost Optimizer",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=taskmaster",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "natural-language-planner": {
+      "name": "Natural Language Planner",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=natural-language-planner",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "lofy": {
+      "name": "Lofy",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=lofy",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "projects": {
+      "name": "Projects",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=projects",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "awesun-remote-control": {
+      "name": "向日葵远程控制",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=awesun-remote-control",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "activityclaw-usage": {
+      "name": "ActivityClaw Plugin Usage",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=activityclaw-usage",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "dianping-query": {
+      "name": "Dianping-query",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=dianping-query",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "agent-safehouse": {
+      "name": "Agent Safehouse",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=agent-safehouse",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "feishu-messaging-0": {
+      "name": "Feishu Messaging 0",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=feishu-messaging-0",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "douyin-video-publish": {
+      "name": "抖音视频发布",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=douyin-video-publish",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "douyin-auto-reply": {
+      "name": "抖音自动回复助手",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=douyin-auto-reply",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "douyin-hot-trend": {
+      "name": "Douyin Hot Trend",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=douyin-hot-trend",
+      "source": "skillhub",
+      "version": "1.1.0"
+    },
+    "kim-msg": {
+      "name": "Kim Msg Skill",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=kim-msg",
+      "source": "skillhub",
+      "version": "1.2.0"
+    },
+    "kling-video": {
+      "name": "Kling 3.0 — AI Video Generation by Kuaishou",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=kling-video",
+      "source": "skillhub",
+      "version": "1.0.2"
+    },
+    "xhs": {
+      "name": "小红书 - RedNote",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=xhs",
+      "source": "skillhub",
+      "version": "1.2.5"
+    },
+    "xiaohongshu-video-publish": {
+      "name": "小红书视频发布",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=xiaohongshu-video-publish",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "xiaohongshu-viral-copy": {
+      "name": "小红书爆款文案生成器",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=xiaohongshu-viral-copy",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "video-publish-all": {
+      "name": "Video Publish All",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=video-publish-all",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "video-script-creator": {
+      "name": "Video Script Creator",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=video-script-creator",
+      "source": "skillhub",
+      "version": "2.3.3"
+    },
+    "soroban": {
+      "name": "Soroban",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=soroban",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "lobster-tank": {
+      "name": "Lobster Tank",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=lobster-tank",
+      "source": "skillhub",
+      "version": "1.1.0"
+    },
+    "macro-monitor": {
+      "name": "Macro Monitor",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=macro-monitor",
+      "source": "skillhub",
+      "version": "1.0.2"
+    },
+    "phoenix-sheld": {
+      "name": "Phoenix Shield",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=phoenix-sheld",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "midos-mcp": {
+      "name": "MidOS MCP — Knowledge OS for AI Agents",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=midos-mcp",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "miliger-qmd-manager": {
+      "name": "Miliger QMD Manager",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=miliger-qmd-manager",
+      "source": "skillhub",
+      "version": "1.2.0"
+    },
+    "memory-core-ng": {
+      "name": "一套优雅的模块化智能记忆系统，支持 embeddings、reranker 和 Flomo 笔记集成。",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=memory-core-ng",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "memory-cn": {
+      "name": "中文记忆优化 (Chinese Memory Optimizer)",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=memory-cn",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "qmd-memory": {
+      "name": "QMD Memory",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=qmd-memory",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "obsidian-openclaw": {
+      "name": "Obsidian Master Assistant",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=obsidian-openclaw",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "web-to-markdown": {
+      "name": "web-to-markdown",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=web-to-markdown",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "self-improving-agent": {
+      "name": "self-improving-agent",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=self-improving-agent",
+      "source": "skillhub",
+      "version": "1.0.11"
+    },
+    "self-improving": {
+      "name": "Self-Improving + Proactive Agent",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=self-improving",
+      "source": "skillhub",
+      "version": "1.2.16"
+    },
+    "evolver": {
+      "name": "Evolver",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=evolver",
+      "source": "skillhub",
+      "version": "1.31.0"
+    },
+    "capability-evolver": {
+      "name": "Capability Evolver",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=capability-evolver",
+      "source": "skillhub",
+      "version": "1.31.0"
+    },
+    "github-analyzer": {
+      "name": "GitHub 项目分析助手",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=github-analyzer",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ai-competitor-analyzer": {
+      "name": "Ai Competitor Analyzer",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ai-competitor-analyzer",
+      "source": "skillhub",
+      "version": "1.0.52"
+    },
+    "cnki-advanced-search": {
+      "name": "知网高级检索",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=cnki-advanced-search",
+      "source": "skillhub",
+      "version": "1.1.0"
+    },
+    "skill-analyzer": {
+      "name": "Skill Analyzer",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=skill-analyzer",
+      "source": "skillhub",
+      "version": "0.2.0"
+    },
+    "lokuli-booking": {
+      "name": "Lokuli Booking",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=lokuli-booking",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "double729-plansuite": {
+      "name": "PlanSuite",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=double729-plansuite",
+      "source": "skillhub",
+      "version": "0.2.1"
+    },
+    "plan-my-day-bak-2026-01-28t18-01-27-10-30": {
+      "name": "Plan My Day.Bak 2026 01 28T18:01:27+10:30",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=plan-my-day-bak-2026-01-28t18-01-27-10-30",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ftw": {
+      "name": "Piv",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ftw",
+      "source": "skillhub",
+      "version": "1.0.3"
+    },
+    "research-engine": {
+      "name": "Research-engine",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=research-engine",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "weekly-report-generator": {
+      "name": "Weekly Report Generator",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=weekly-report-generator",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "agent-swarm-ex": {
+      "name": "Agent Swarm - 多智能体集群编排",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=agent-swarm-ex",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "proactive-agent": {
+      "name": "Proactive Agent",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=proactive-agent",
+      "source": "skillhub",
+      "version": "3.1.0"
+    },
+    "free-ride": {
+      "name": "Free Ride - Unlimited free AI",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=free-ride",
+      "source": "skillhub",
+      "version": "1.0.4"
+    },
+    "skill-creator": {
+      "name": "Skill Creator",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=skill-creator",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "elite-longterm-memory": {
+      "name": "Elite Longterm Memory",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=elite-longterm-memory",
+      "source": "skillhub",
+      "version": "1.2.3"
+    },
+    "automation-workflows": {
+      "name": "Automation Workflows",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=automation-workflows",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "trello": {
+      "name": "Trello",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=trello",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ui-ux-pro-max": {
+      "name": "UI/UX Pro Max",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ui-ux-pro-max",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "memory-manager": {
+      "name": "Memory Manager",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=memory-manager",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "agent-sensei-ultimate": {
+      "name": "Agent Sensei Ultimate",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=agent-sensei-ultimate",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "openclaw-money-maker": {
+      "name": "OpenClaw Money Maker",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=openclaw-money-maker",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "smart-customer-service-cn": {
+      "name": "Smart Customer Service Cn",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=smart-customer-service-cn",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "setup-cloudbase-openclaw": {
+      "name": "Setup CloudBase for OpenClaw",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=setup-cloudbase-openclaw",
+      "source": "skillhub",
+      "version": "1.1.0"
+    },
+    "Github": {
+      "name": "Github",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=Github",
+      "source": "skillhub",
+      "version": ""
+    },
+    "tavily-search": {
+      "name": "Tavily Web Search",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=tavily-search",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "summarize": {
+      "name": "Summarize",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=summarize",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "agent-browser": {
+      "name": "Agent Browser",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=agent-browser",
+      "source": "skillhub",
+      "version": "0.2.0"
+    },
+    "find-skills": {
+      "name": "Find Skills",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=find-skills",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "github": {
+      "name": "Github",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=github",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "obsidian": {
+      "name": "Obsidian",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=obsidian",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "weather": {
+      "name": "Weather",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=weather",
+      "source": "skillhub",
+      "version": "1.0.0"
+    }
+  }
+}

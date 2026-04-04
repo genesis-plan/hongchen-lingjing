@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "skills": {
+    "openclaw-tavily-search": {
+      "version": "0.1.0",
+      "installedAt": 1773556864403
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1774080848148
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1774080848454
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1774080848747
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1774080849056
+    },
+    "obsidian": {
+      "version": "1.0.0",
+      "installedAt": 1774080849376
+    },
+    "weather": {
+      "version": "1.0.0",
+      "installedAt": 1774080849706
+    },
+    "tencentcloud-lighthouse-skill": {
+      "version": "1.0.0",
+      "installedAt": 1773556884718
+    },
+    "tencent-docs": {
+      "version": "1.0.11",
+      "installedAt": 1773556888766
+    },
+    "tencent-cos-skill": {
+      "version": "1.0.6",
+      "installedAt": 1773556894145
+    },
+    "tencentcloud-cos-skills": {
+      "version": "1.0.10",
+      "installedAt": 1773846747705
+    },
+    "tencentcloud-tts": {
+      "version": "1.0.0",
+      "installedAt": 1773846752358
+    },
+    "tencentcloud-asr": {
+      "version": "0.1.5",
+      "installedAt": 1773846757752
+    },
+    "tencent-mps": {
+      "version": "1.0.8",
+      "installedAt": 1773846763902
+    },
+    "xiaohongshu-skills": {
+      "version": "1.0.2",
+      "installedAt": 1773847116543
+    },
+    "douyin-creator": {
+      "version": "2.3.5",
+      "installedAt": 1773847121937
+    },
+    "github-ops": {
+      "version": "1.0.0",
+      "installedAt": 1773847127517
+    },
+    "automation-tool": {
+      "version": "1.0.0",
+      "installedAt": 1773847155779
+    },
+    "github-pages-auto-deploy": {
+      "version": "1.0.0",
+      "installedAt": 1773847160970
+    },
+    "clawatar": {
+      "version": "0.2.0",
+      "installedAt": 1773847641872
+    },
+    "3d-cog": {
+      "version": "1.0.0",
+      "installedAt": 1773847642410
+    },
+    "goosetown": {
+      "version": "1.2.1",
+      "installedAt": 1773847642862
+    },
+    "curriculum-generator": {
+      "version": "1.0.0",
+      "installedAt": 1773847643306
+    },
+    "school": {
+      "version": "1.0.0",
+      "installedAt": 1773847643882
+    },
+    "baoyu-comic": {
+      "version": "1.60.0",
+      "installedAt": 1773847644402
+    },
+    "nia": {
+      "version": "1.0.3",
+      "installedAt": 1773847898182
+    },
+    "greptile": {
+      "version": "1.0.1",
+      "installedAt": 1773847898844
+    },
+    "openclaw-code-stats": {
+      "version": "1.0.0",
+      "installedAt": 1773847899342
+    },
+    "repo-kanban-pm": {
+      "version": "0.1.1",
+      "installedAt": 1773847899937
+    },
+    "upload-post": {
+      "version": "1.0.0",
+      "installedAt": 1773847924935
+    },
+    "moltr": {
+      "version": "0.1.0",
+      "installedAt": 1773847925411
+    },
+    "37soul-skill": {
+      "version": "1.0.14",
+      "installedAt": 1773847925891
+    },
+    "pinchedin": {
+      "version": "1.0.7",
+      "installedAt": 1773847926411
+    },
+    "byterover": {
+      "version": "1.2.2",
+      "installedAt": 1773847951238
+    },
+    "openviking": {
+      "version": "1.0.3",
+      "installedAt": 1773847951685
+    },
+    "research-assistant": {
+      "version": "1.0.1",
+      "installedAt": 1773847952108
+    },
+    "para-pkm": {
+      "version": "1.0.0",
+      "installedAt": 1773847952580
+    },
+    "video-learn": {
+      "version": "1.0.0",
+      "installedAt": 1773847977434
+    },
+    "deep-marketing-analyst": {
+      "version": "1.0.0",
+      "installedAt": 1773847977981
+    },
+    "gemini-video-analyzer": {
+      "version": "1.0.0",
+      "installedAt": 1773847978448
+    },
+    "dependency-audit": {
+      "version": "1.0.0",
+      "installedAt": 1773847979004
+    },
+    "primer": {
+      "version": "1.1.2",
+      "installedAt": 1773848011240
+    },
+    "agentos-sdk": {
+      "version": "3.7.0",
+      "installedAt": 1773848011722
+    },
+    "ai-evolution-engine-v2": {
+      "version": "1.0.0",
+      "installedAt": 1773848012233
+    },
+    "kuro-self-reflection": {
+      "version": "2.0.0",
+      "installedAt": 1773848012634
+    },
+    "tensorpm": {
+      "version": "1.1.12",
+      "installedAt": 1773848037106
+    },
+    "taskmaster": {
+      "version": "1.0.0",
+      "installedAt": 1773848037844
+    },
+    "natural-language-planner": {
+      "version": "0.1.0",
+      "installedAt": 1773848038465
+    },
+    "lofy": {
+      "version": "1.0.0",
+      "installedAt": 1773848039121
+    },
+    "projects": {
+      "version": "1.0.0",
+      "installedAt": 1773848066204
+    },
+    "wechat-toolkit": {
+      "version": "1.0.1",
+      "installedAt": 1773848128717
+    },
+    "bilibili-all-in-one": {
+      "version": "1.0.12",
+      "installedAt": 1773848133698
+    },
+    "twitter-autopilot": {
+      "version": "1.3.1",
+      "installedAt": 1773848139109
+    },
+    "agent-reach": {
+      "version": "1.1.0",
+      "installedAt": 1773848144266
+    },
+    "awesun-remote-control": {
+      "version": "1.0.0",
+      "installedAt": 1773850927176
+    },
+    "activityclaw-usage": {
+      "version": "1.0.0",
+      "installedAt": 1773850927673
+    },
+    "dianping-query": {
+      "version": "1.0.0",
+      "installedAt": 1773850928137
+    },
+    "agent-safehouse": {
+      "version": "0.1.0",
+      "installedAt": 1773850928918
+    },
+    "feishu-messaging-0": {
+      "version": "1.0.0",
+      "installedAt": 1773850929401
+    },
+    "douyin-video-publish": {
+      "version": "1.0.0",
+      "installedAt": 1773851109743
+    },
+    "douyin-auto-reply": {
+      "version": "1.0.1",
+      "installedAt": 1773851110241
+    },
+    "douyin-hot-trend": {
+      "version": "1.1.0",
+      "installedAt": 1773851110676
+    },
+    "kim-msg": {
+      "version": "1.2.0",
+      "installedAt": 1773851111117
+    },
+    "kling-video": {
+      "version": "1.0.2",
+      "installedAt": 1773851111707
+    },
+    "xhs": {
+      "version": "1.2.5",
+      "installedAt": 1773851137090
+    },
+    "xiaohongshu-video-publish": {
+      "version": "1.0.0",
+      "installedAt": 1773851137556
+    },
+    "xiaohongshu-viral-copy": {
+      "version": "1.0.0",
+      "installedAt": 1773851137972
+    },
+    "video-publish-all": {
+      "version": "1.0.0",
+      "installedAt": 1773851138427
+    },
+    "video-script-creator": {
+      "version": "2.3.3",
+      "installedAt": 1773851138890
+    },
+    "soroban": {
+      "version": "1.0.1",
+      "installedAt": 1773851770109
+    },
+    "lobster-tank": {
+      "version": "1.1.0",
+      "installedAt": 1773851770539
+    },
+    "macro-monitor": {
+      "version": "1.0.2",
+      "installedAt": 1773851770992
+    },
+    "phoenix-sheld": {
+      "version": "1.0.0",
+      "installedAt": 1773851771479
+    },
+    "midos-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1773851920273
+    },
+    "miliger-qmd-manager": {
+      "version": "1.2.0",
+      "installedAt": 1773851920738
+    },
+    "memory-core-ng": {
+      "version": "0.1.0",
+      "installedAt": 1773851921285
+    },
+    "memory-cn": {
+      "version": "1.0.0",
+      "installedAt": 1773851921800
+    },
+    "qmd-memory": {
+      "version": "1.0.0",
+      "installedAt": 1773851922283
+    },
+    "obsidian-openclaw": {
+      "version": "1.0.0",
+      "installedAt": 1773851953509
+    },
+    "web-to-markdown": {
+      "version": "1.0.0",
+      "installedAt": 1773851954009
+    },
+    "self-improving-agent": {
+      "version": "1.0.11",
+      "installedAt": 1773892584521
+    },
+    "self-improving": {
+      "version": "1.2.16",
+      "installedAt": 1773852340182
+    },
+    "evolver": {
+      "version": "1.31.0",
+      "installedAt": 1773852340649
+    },
+    "capability-evolver": {
+      "version": "1.31.0",
+      "installedAt": 1773852341154
+    },
+    "github-analyzer": {
+      "version": "1.0.0",
+      "installedAt": 1773853182978
+    },
+    "ai-competitor-analyzer": {
+      "version": "1.0.52",
+      "installedAt": 1773853183433
+    },
+    "cnki-advanced-search": {
+      "version": "1.1.0",
+      "installedAt": 1773853183909
+    },
+    "skill-analyzer": {
+      "version": "0.2.0",
+      "installedAt": 1773853184410
+    },
+    "lokuli-booking": {
+      "version": "1.0.1",
+      "installedAt": 1773853210563
+    },
+    "double729-plansuite": {
+      "version": "0.2.1",
+      "installedAt": 1773853211132
+    },
+    "plan-my-day-bak-2026-01-28t18-01-27-10-30": {
+      "version": "1.0.0",
+      "installedAt": 1773853211690
+    },
+    "ftw": {
+      "version": "1.0.3",
+      "installedAt": 1773853212186
+    },
+    "research-engine": {
+      "version": "1.0.0",
+      "installedAt": 1773853635594
+    },
+    "weekly-report-generator": {
+      "version": "1.0.0",
+      "installedAt": 1773853801135
+    },
+    "agent-swarm-ex": {
+      "version": "1.0.0",
+      "installedAt": 1773853907048
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1773853982154
+    },
+    "free-ride": {
+      "version": "1.0.4",
+      "installedAt": 1773854195035
+    },
+    "skill-creator": {
+      "version": "0.1.0",
+      "installedAt": 1773854272717
+    },
+    "elite-longterm-memory": {
+      "version": "1.2.3",
+      "installedAt": 1773854348216
+    },
+    "automation-workflows": {
+      "version": "0.1.0",
+      "installedAt": 1773854348515
+    },
+    "trello": {
+      "version": "1.0.0",
+      "installedAt": 1773854348843
+    },
+    "ui-ux-pro-max": {
+      "version": "0.1.0",
+      "installedAt": 1773854427528
+    },
+    "memory-manager": {
+      "version": "1.0.0",
+      "installedAt": 1773854428034
+    },
+    "agent-sensei-ultimate": {
+      "version": "1.0.0",
+      "installedAt": 1773854504907
+    },
+    "openclaw-money-maker": {
+      "version": "1.0.0",
+      "installedAt": 1773854577295
+    },
+    "smart-customer-service-cn": {
+      "version": "1.0.1",
+      "installedAt": 1773854577765
+    },
+    "setup-cloudbase-openclaw": {
+      "version": "1.1.0",
+      "installedAt": 1773857101706
+    },
+    "Github": {
+      "version": "",
+      "installedAt": 1773892613042
+    },
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1773961621526
+    },
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1774080847806
+    }
+  }
+}

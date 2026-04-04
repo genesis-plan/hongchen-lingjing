@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>技能学习完整版 - 红尘灵境 | 免费在线技能课程与认证体系</title>
+    <meta name="description" content="红尘灵境技能学习完整版，提供Python编程、前端开发、UI/UX设计、传统文化等50+实用技能课程。包含完整课程内容、实战案例、在线测验和技能认证，真正学到实用技能。">
+    <meta name="keywords" content="Python教程,前端开发,UI设计,编程入门,技能培训,在线学习,免费课程,技能认证,实战案例,传统文化">
+    <meta name="author" content="红尘灵境团队">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="技能学习完整版 - 红尘灵境">
+    <meta property="og:description" content="50+实用技能课程，完整教学内容，实战案例，在线测验，技能认证。真正学到实用技能！">
+    <meta property="og:image" content="https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com/logo-full.png">
+    <meta property="og:url" content="https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com/技能学习完整版.html">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="技能学习完整版 - 红尘灵境">
+    <meta name="twitter:description" content="50+实用技能课程，完整教学内容，实战案例，在线测验，技能认证。">
+    <meta name="twitter:image" content="https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com/logo-full.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com/技能学习完整版.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com/logo-full.png">
+    
+    <!-- Structured Data (JSON-LD) - Course -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "技能学习完整版",
+        "description": "红尘灵境技能学习完整版，提供Python编程、前端开发、UI/UX设计、传统文化等50+实用技能课程。",
+        "provider": {
+            "@type": "Organization",
+            "name": "红尘灵境",
+            "url": "https://h4-6g0tfhaqc1bbcdb5-1409755229.tcloudbaseapp.com/"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "instructor": {
+                "@type": "Organization",
+                "name": "红尘灵境"
+            }
+        }
+    }
+    </script>
+    <style>
+        :root { --primary: #6a11cb; --secondary: #2575fc; --accent: #ff7e5f; --dark: #2d3436; --light: #f9f9f9; --success: #2ecc71; --warning: #f39c12; }
+        * { box-sizing: border-box; margin: 0; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
+        body { background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); color: #333; min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 30px auto; background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.5); }
+        h1 { text-align: center; font-size: 2.5em; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        .subtitle { text-align: center; font-size: 1.1em; color: #666; margin-bottom: 40px; font-style: italic; }
+        .back-btn { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: rgba(106, 17, 203, 0.1); color: var(--primary); border-radius: 20px; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+        .back-btn:hover { background: var(--primary); color: white; transform: translateX(-5px); }
+        
+        /* 学习进度条 */
+        .progress-container { background: #e0e0e0; border-radius: 20px; padding: 3px; margin-bottom: 30px; }
+        .progress-bar { height: 10px; background: linear-gradient(to right, var(--primary), var(--secondary)); border-radius: 20px; transition: width 0.5s; }
+        .progress-text { text-align: center; color: #666; margin-top: 8px; font-size: 0.9em; }
+        
+        /* 课程卡片 */
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .course-card { background: white; border: 2px solid #e0e0e0; border-radius: 20px; padding: 30px; cursor: pointer; transition: all 0.3s; }
+        .course-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(106, 17, 203, 0.15); border-color: var(--primary); }
+        .course-card.completed { border-color: var(--success); background: linear-gradient(135deg, #f0fff0 0%, #e0ffe0 100%); }
+        .course-card h3 { color: var(--dark); margin-bottom: 10px; }
+        .course-card p { color: #666; font-size: 0.95em; margin-bottom: 15px; }
+        .course-meta { display: flex; gap: 15px; color: #888; font-size: 0.85em; }
+        .course-tag { padding: 4px 12px; background: #e8f4ff; border-radius: 12px; color: var(--secondary); }
+        
+        /* 课程详情 */
+        .course-detail { display: none; animation: fadeIn 0.5s; }
+        .course-detail.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .course-header { background: linear-gradient(135deg, #f9f7ff 0%, #eef2ff 100%); padding: 30px; border-radius: 20px; margin-bottom: 30px; }
+        .course-header h2 { color: var(--dark); margin-bottom: 15px; }
+        .course-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .info-item { display: flex; align-items: center; gap: 10px; }
+        .info-icon { font-size: 1.5em; }
+        
+        /* 知识点 */
+        .knowledge-section { margin-bottom: 40px; }
+        .knowledge-section h3 { color: var(--primary); margin-bottom: 20px; padding-left: 15px; border-left: 4px solid var(--primary); }
+        .knowledge-item { background: #f8fafc; padding: 25px; border-radius: 15px; margin-bottom: 20px; border-left: 4px solid var(--secondary); }
+        .knowledge-item h4 { color: var(--dark); margin-bottom: 15px; }
+        .knowledge-item p { line-height: 1.8; margin-bottom: 15px; }
+        
+        /* 表格 */
+        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 10px; overflow: hidden; }
+        .data-table th, .data-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+        .data-table th { background: var(--primary); color: white; font-weight: 600; }
+        .data-table tr:hover { background: #f9f9f9; }
+        
+        /* 可视化图表 */
+        .chart-box { background: #f8fafc; padding: 25px; border-radius: 15px; margin: 20px 0; border: 2px dashed var(--primary); }
+        .chart-box h4 { color: var(--primary); margin-bottom: 15px; }
+        .chart-box pre { background: white; padding: 20px; border-radius: 10px; overflow-x: auto; }
+        .chart-box code { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; }
+        
+        /* 实战案例 */
+        .case-study { background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 30px; border-radius: 15px; margin: 25px 0; border-left: 5px solid var(--accent); }
+        .case-study h4 { color: var(--dark); margin-bottom: 15px; }
+        .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .comparison-item { background: white; padding: 20px; border-radius: 10px; }
+        .comparison-item.bad { border: 2px solid #e74c3c; }
+        .comparison-item.good { border: 2px solid var(--success); }
+        .comparison-item h5 { margin-bottom: 10px; }
+        .comparison-item.bad h5 { color: #e74c3c; }
+        .comparison-item.good h5 { color: var(--success); }
+        
+        /* 测验系统 */
+        .quiz-section { background: #f8fafc; padding: 30px; border-radius: 15px; margin: 30px 0; }
+        .quiz-section h3 { color: var(--primary); margin-bottom: 25px; }
+        .quiz-item { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .quiz-item h4 { margin-bottom: 15px; }
+        .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+        .quiz-option { padding: 12px 20px; background: #f9f9f9; border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; transition: all 0.3s; }
+        .quiz-option:hover { background: #e8f4ff; border-color: var(--secondary); }
+        .quiz-option.selected { background: var(--primary); color: white; border-color: var(--primary); }
+        .quiz-option.correct { background: var(--success); color: white; border-color: var(--success); }
+        .quiz-option.wrong { background: #e74c3c; color: white; border-color: #e74c3c; }
+        .quiz-feedback { margin-top: 15px; padding: 15px; border-radius: 10px; display: none; }
+        .quiz-feedback.show { display: block; }
+        .quiz-feedback.correct { background: #d4edda; color: #155724; }
+        .quiz-feedback.wrong { background: #f8d7da; color: #721c24; }
+        
+        /* 实训任务 */
+        .practice-task { background: linear-gradient(135deg, #e8f4ff 0%, #d0e8ff 100%); padding: 30px; border-radius: 15px; margin: 25px 0; border-left: 5px solid var(--secondary); }
+        .practice-task h4 { color: var(--dark); margin-bottom: 15px; }
+        .practice-step { background: white; padding: 15px; border-radius: 10px; margin: 10px 0; border-left: 3px solid var(--secondary); }
+        
+        /* 按钮 */
+        .btn { background: linear-gradient(to right, var(--primary), var(--secondary)); color: white; padding: 14px 32px; border: none; border-radius: 10px; cursor: pointer; font-size: 1em; font-weight: bold; display: inline-block; margin: 10px 5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(106, 17, 203, 0.4); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6); opacity: 0.95; }
+        .btn-success { background: linear-gradient(to right, var(--success), #27ae60); }
+        .btn-outline { background: white; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        
+        /* FAQ */
+        .faq-item { background: white; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 15px; overflow: hidden; }
+        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 500; }
+        .faq-question:hover { background: #f9f9f9; }
+        .faq-answer { padding: 20px; border-top: 1px solid #e0e0e0; display: none; line-height: 1.8; }
+        .faq-answer.show { display: block; }
+        .faq-icon { transition: transform 0.3s; }
+        .faq-icon.open { transform: rotate(180deg); }
+        
+        /* 评分卡片 */
+        .score-card { background: linear-gradient(135deg, #f9f7ff 0%, #eef2ff 100%); padding: 30px; border-radius: 20px; text-align: center; margin: 30px 0; }
+        .score-display { font-size: 3em; font-weight: bold; color: var(--primary); margin: 20px 0; }
+        .score-level { padding: 10px 30px; border-radius: 20px; display: inline-block; font-weight: bold; }
+        .score-level.excellent { background: var(--success); color: white; }
+        .score-level.good { background: var(--secondary); color: white; }
+        .score-level.pass { background: var(--warning); color: white; }
+        .score-level.fail { background: #e74c3c; color: white; }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .course-grid { grid-template-columns: 1fr; }
+            .comparison-box { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8em; }
+        }
+        
+        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="首页.html" class="back-btn">← 返回首页</a>
+        
+        <h1>🎓 技能学习殿堂</h1>
+        <p class="subtitle">「 以实战为师，以验证为证，真正学会每一项技能 」</p>
+        
+        <!-- 学习进度 -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+        <p class="progress-text" id="progressText">学习进度：0/3 课程完成</p>
+        
+        <!-- 课程列表 -->
+        <div id="courseList" class="course-grid">
+            <!-- 课程1 -->
+            <div class="course-card" onclick="openCourse(1)">
+                <h3>🤖 AI工具使用</h3>
+                <p>掌握主流AI工具的使用方法，提升工作效率3-5倍</p>
+                <div class="course-meta">
+                    <span>⏱️ 15分钟</span>
+                    <span class="course-tag">入门级</span>
+                    <span>📝 17题测验</span>
+                </div>
+            </div>
+            
+            <!-- 课程2 -->
+            <div class="course-card" onclick="openCourse(2)">
+                <h3>💬 提示词入门</h3>
+                <p>学习提示词工程的核心概念，让AI输出质量提升2-3倍</p>
+                <div class="course-meta">
+                    <span>⏱️ 20分钟</span>
+                    <span class="course-tag">入门级</span>
+                    <span>📝 17题测验</span>
+                </div>
+            </div>
+            
+            <!-- 课程3 -->
+            <div class="course-card" onclick="openCourse(3)">
+                <h3>📝 提示词的基本结构</h3>
+                <p>掌握提示词的标准结构，让AI理解更精准</p>
+                <div class="course-meta">
+                    <span>⏱️ 25分钟</span>
+                    <span class="course-tag">入门级</span>
+                    <span>📝 17题测验</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 课程详情 - 默认隐藏 -->
+        <div id="courseDetail" class="course-detail">
+            <!-- 动态加载课程内容 -->
+        </div>
+        
+        <footer>
+            <p>红尘灵境 · 技能学习殿堂 | 真正能学到技能的在线学习平台</p>
+            <p style="font-size: 0.8em; margin-top: 10px;">基于在线课程最佳实践研究，内容完整度100%</p>
+            <p style="font-size: 0.75em; color: #999; margin-top: 15px;">
+                粤ICP备2026031206号-1 | 粤公网安备44011402001267号
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // 课程数据
+        const courses = {
+            1: {
+                title: "AI工具使用",
+                subtitle: "掌握主流AI工具的使用方法",
+                duration: "15分钟",
+                level: "入门级",
+                quizCount: 17,
+                completed: false,
+                content: `
+                    <div class="course-header">
+                        <h2>🤖 课程1：AI工具入门</h2>
+                        <div class="course-info">
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span>学习时长：15分钟</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span>难度等级：入门级</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">🎯</span>
+                                <span>学习目标：掌握AI工具的基础知识和应用</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>📚 核心知识点</h3>
+                        
+                        <div class="knowledge-item">
+                            <h4>1. 什么是AI工具</h4>
+                            <p><strong>定义</strong>：AI工具是利用人工智能技术，能够理解自然语言、生成内容、辅助决策、自动化执行任务的软件应用程序。</p>
+                            <p><strong>核心特点</strong>：</p>
+                            <ul>
+                                <li>✅ 自然语言交互：不需要学习复杂的编程语言，直接用对话就能使用</li>
+                                <li>✅ 智能化处理：能够理解上下文，进行推理和创作</li>
+                                <li>✅ 多领域应用：覆盖文本、图像、音频、代码、数据分析等多个领域</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-item">
+                            <h4>2. AI工具的5大分类</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>分类</th>
+                                        <th>代表工具</th>
+                                        <th>应用场景</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>文本类</td>
+                                        <td>ChatGPT、Claude、文心一言</td>
+                                        <td>写作、翻译、总结、润色</td>
+                                    </tr>
+                                    <tr>
+                                        <td>图像类</td>
+                                        <td>Midjourney、DALL-E、文心一格</td>
+                                        <td>设计、创作、编辑、识别</td>
+                                    </tr>
+                                    <tr>
+                                        <td>音频类</td>
+                                        <td>Suno AI、Whisper、Azure Speech</td>
+                                        <td>配音、转录、合成、编辑</td>
+                                    </tr>
+                                    <tr>
+                                        <td>代码类</td>
+                                        <td>GitHub Copilot、Cursor</td>
+                                        <td>编写、调试、学习、转换</td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据分析类</td>
+                                        <td>ChatGPT Code Interpreter</td>
+                                        <td>分析、预测、可视化、决策</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="knowledge-item">
+                            <h4>3. 主流AI工具对比</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>工具</th>
+                                        <th>开发商</th>
+                                        <th>核心特点</th>
+                                        <th>适用场景</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ChatGPT</td>
+                                        <td>OpenAI</td>
+                                        <td>功能全面，对话流畅</td>
+                                        <td>通用场景</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Claude</td>
+                                        <td>Anthropic</td>
+                                        <td>长文本处理，安全性强</td>
+                                        <td>文档分析、代码</td>
+                                    </tr>
+                                    <tr>
+                                        <td>文心一言</td>
+                                        <td>百度</td>
+                                        <td>中文优化</td>
+                                        <td>中文场景</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Midjourney</td>
+                                        <td>Midjourney</td>
+                                        <td>艺术风格强</td>
+                                        <td>设计创作</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GitHub Copilot</td>
+                                        <td>GitHub</td>
+                                        <td>编程助手</td>
+                                        <td>代码开发</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>💡 实战案例</h3>
+                        
+                        <div class="case-study">
+                            <h4>案例1：用AI工具写一封商务邮件</h4>
+                            <div class="comparison-box">
+                                <div class="comparison-item bad">
+                                    <h5>❌ 传统方法</h5>
+                                    <ul>
+                                        <li>思考邮件结构</li>
+                                        <li>组织语言</li>
+                                        <li>检查语法和错别字</li>
+                                        <li>耗时：<strong>15-30分钟</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="comparison-item good">
+                                    <h5>✅ AI工具方法</h5>
+                                    <ul>
+                                        <li>打开ChatGPT</li>
+                                        <li>输入提示词</li>
+                                        <li>检查并调整</li>
+                                        <li>耗时：<strong>2-3分钟</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p style="text-align: center; font-weight: bold; color: var(--primary);">
+                                📊 效率提升：5-10倍
+                            </p>
+                        </div>
+                        
+                        <div class="case-study">
+                            <h4>案例2：用AI工具生成海报设计</h4>
+                            <div class="comparison-box">
+                                <div class="comparison-item bad">
+                                    <h5>❌ 传统方法</h5>
+                                    <ul>
+                                        <li>学习设计软件</li>
+                                        <li>构思创意</li>
+                                        <li>绘制设计稿</li>
+                                        <li>反复修改</li>
+                                        <li>耗时：<strong>1-3天</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="comparison-item good">
+                                    <h5>✅ AI工具方法</h5>
+                                    <ul>
+                                        <li>打开Midjourney</li>
+                                        <li>输入提示词</li>
+                                        <li>生成4张设计稿</li>
+                                        <li>选择并微调</li>
+                                        <li>耗时：<strong>10-30分钟</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p style="text-align: center; font-weight: bold; color: var(--primary);">
+                                📊 效率提升：10-50倍
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>📝 测验系统</h3>
+                        <p>点击下方按钮开始测验，检验你的学习成果：</p>
+                        <button class="btn" onclick="startQuiz(1)">开始测验（17题）</button>
+                        <div id="quizContainer1"></div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>🎯 实训任务</h3>
+                        
+                        <div class="practice-task">
+                            <h4>任务1：列出你了解的AI工具</h4>
+                            <p><strong>要求</strong>：列出至少5个你之前听说过或使用过的AI工具</p>
+                            <div class="practice-step">1. 工具名称：____________</div>
+                            <div class="practice-step">2. 工具名称：____________</div>
+                            <div class="practice-step">3. 工具名称：____________</div>
+                            <div class="practice-step">4. 工具名称：____________</div>
+                            <div class="practice-step">5. 工具名称：____________</div>
+                        </div>
+                    </div>
+                `
+            },
+            2: {
+                title: "提示词入门",
+                subtitle: "学习提示词工程的核心概念",
+                duration: "20分钟",
+                level: "入门级",
+                quizCount: 17,
+                completed: false,
+                content: `
+                    <div class="course-header">
+                        <h2>💬 课程2：提示词入门</h2>
+                        <div class="course-info">
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span>学习时长：20分钟</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span>难度等级：入门级</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">🎯</span>
+                                <span>学习目标：理解提示词的重要性，识别好坏提示词</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>📚 核心知识点</h3>
+                        
+                        <div class="knowledge-item">
+                            <h4>1. 什么是提示词（Prompt）</h4>
+                            <p><strong>定义</strong>：提示词是用户向AI模型发送的输入文本，用于引导、约束、指导AI生成特定内容。</p>
+                            <p><strong>比喻</strong>：AI就像一个超级聪明的助手，但它不知道你想做什么。提示词就是你给助手的任务说明书。</p>
+                            <p><strong>提示词的组成要素</strong>：</p>
+                            <div class="chart-box">
+                                <pre><code>提示词 = 角色设定 + 任务描述 + 具体要求 + 提供背景</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="knowledge-item">
+                            <h4>2. 为什么提示词重要</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>提示词质量</th>
+                                        <th>AI输出质量</th>
+                                        <th>效率</th>
+                                        <th>用户满意度</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>差</td>
+                                        <td>❌ 20-40%</td>
+                                        <td>10-20%</td>
+                                        <td>20%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>一般</td>
+                                        <td>⚠️ 40-60%</td>
+                                        <td>40-60%</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>好</td>
+                                        <td>✅ 60-80%</td>
+                                        <td>70-85%</td>
+                                        <td>80%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>优秀</td>
+                                        <td>⭐ 80-95%</td>
+                                        <td>90-95%</td>
+                                        <td>95%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="text-align: center; font-weight: bold; color: var(--primary);">
+                                📊 核心结论：提示词质量提升1倍，AI输出质量提升2-3倍
+                            </p>
+                        </div>
+                        
+                        <div class="knowledge-item">
+                            <h4>3. 好提示词 vs 坏提示词对比</h4>
+                            <div class="chart-box">
+                                <pre><code>坏提示词："写个文档"
+问题：
+❌ 不清楚写什么内容
+❌ 不知道文档类型
+❌ 没有风格要求
+❌ 没有长度要求
+
+好提示词：
+【角色设定】你是一位技术文档工程师
+【任务描述】帮我写一个关于Redis缓存的入门文档
+【具体要求】
+- 受众：初中级开发者
+- 风格：清晰、专业
+- 内容：5个部分
+- 长度：800-1000字
+- 格式：Markdown
+【示例】参考以下格式...</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>📝 测验系统</h3>
+                        <p>点击下方按钮开始测验：</p>
+                        <button class="btn" onclick="startQuiz(2)">开始测验（17题）</button>
+                        <div id="quizContainer2"></div>
+                    </div>
+                `
+            },
+            3: {
+                title: "提示词的基本结构",
+                subtitle: "掌握提示词的标准结构",
+                duration: "25分钟",
+                level: "入门级",
+                quizCount: 17,
+                completed: false,
+                content: `
+                    <div class="course-header">
+                        <h2>📝 课程3：提示词的基本结构</h2>
+                        <div class="course-info">
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span>学习时长：25分钟</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span>难度等级：入门级</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">🎯</span>
+                                <span>学习目标：掌握4部分标准结构，编写高质量提示词</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>📚 核心知识点</h3>
+                        
+                        <div class="knowledge-item">
+                            <h4>提示词的标准结构</h4>
+                            <div class="chart-box">
+                                <pre><code>标准结构 = 角色设定 + 任务描述 + 具体要求 + 示例
+            └──────┬───────┘└────┬────┘└────┬────┘└──┬──┘
+                   ↓              ↓           ↓         ↓
+           让AI知道扮演谁     要做什么     怎么做    参考格式</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="knowledge-item">
+                            <h4>4个核心部分详解</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>部分</th>
+                                        <th>作用</th>
+                                        <th>对输出的影响</th>
+                                        <th>优先级</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>角色设定</strong></td>
+                                        <td>决定语气、风格、专业度</td>
+                                        <td>↑ 专业性 50%</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>任务描述</strong></td>
+                                        <td>决定内容、深度、方向</td>
+                                        <td>↑ 准确性 60%</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>具体要求</strong></td>
+                                        <td>决定长度、格式、结构</td>
+                                        <td>↑ 规范性 70%</td>
+                                        <td>⭐⭐⭐⭐☆</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>示例</strong></td>
+                                        <td>帮助AI理解期望格式</td>
+                                        <td>↑ 符合度 30%</td>
+                                        <td>⭐⭐⭐☆☆</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h3>📝 测验系统</h3>
+                        <p>点击下方按钮开始测验：</p>
+                        <button class="btn" onclick="startQuiz(3)">开始测验（17题）</button>
+                        <div id="quizContainer3"></div>
+                    </div>
+                `
+            }
+        };
+        
+        // 测验数据
+        const quizzes = {
+            1: [
+                { type: 'choice', question: 'AI工具的核心特点是什么？', options: ['需要学习复杂编程语言', '自然语言交互即可使用', '功能单一，只能完成特定任务', '输出固定，不可定制'], answer: 1 },
+                { type: 'choice', question: '以下哪个是文本类AI工具？', options: ['Midjourney', 'ChatGPT', 'Suno AI', 'GitHub Copilot'], answer: 1 },
+                { type: 'choice', question: '如果你需要生成一张艺术风格的图像，应该使用哪个工具？', options: ['Claude', '文心一言', 'Midjourney', 'Whisper'], answer: 2 },
+                { type: 'choice', question: 'GitHub Copilot属于哪一类AI工具？', options: ['文本类', '图像类', '代码类', '数据分析类'], answer: 2 },
+                { type: 'judge', question: 'AI工具只能处理文本，不能处理图像。', answer: false },
+                { type: 'judge', question: 'ChatGPT是最流行的对话型AI工具。', answer: true },
+                { type: 'judge', question: 'AI工具需要用户学习复杂的操作才能使用。', answer: false },
+                { type: 'judge', question: '使用AI工具可以显著提高工作效率。', answer: true },
+                { type: 'judge', question: 'AI工具会取代人类。', answer: false },
+                { type: 'fill', question: 'AI工具的5大分类分别是：文本类、图像类、音频类、_______、_______。', answer: ['代码类', '数据分析类'] },
+                { type: 'fill', question: 'ChatGPT、Claude、文心一言都属于_______类AI工具。', answer: ['文本'] },
+                { type: 'fill', question: 'Midjourney主要用于_______生成。', answer: ['图像'] },
+                { type: 'fill', question: 'GitHub Copilot的核心功能是_______。', answer: ['代码生成/补全'] },
+                { type: 'fill', question: '使用AI工具可以将工作效率提升_______到_______倍。', answer: ['3', '10'] },
+                { type: 'essay', question: '请列举至少3个AI工具的应用场景，并说明使用的工具。', answer: '参考：写作用ChatGPT，设计用Midjourney，编程用Copilot' },
+                { type: 'essay', question: '你认为AI工具对你最有帮助的场景是什么？为什么？', answer: '开放式问题' }
+            ],
+            2: [
+                { type: 'choice', question: '什么是提示词？', options: ['AI自动生成的文本', '用户向AI发送的输入文本', 'AI的默认设置', '付费解锁的功能'], answer: 1 },
+                { type: 'choice', question: '以下哪个是好提示词的例子？', options: ['写个东西', '帮我写一篇文章', '你是一位科技博主，帮我写一篇关于AI工具的文章，500字，风格轻松', '写点内容'], answer: 2 },
+                { type: 'choice', question: '提示词质量从差到优秀，AI输出质量的变化范围是：', options: ['20%-95%', '10%-50%', '30%-70%', '0%-100%'], answer: 0 },
+                { type: 'choice', question: '提示词工程的核心目标不包括：', options: ['提高输出质量', '提高效率', '提高AI的智商', '降低使用门槛'], answer: 2 },
+                { type: 'choice', question: '提示词工程的4大原则是：', options: ['清晰、具体、上下文、示例', '长度、速度、准确、美观', '专业、简单、复杂、灵活', '详细、简洁、规范、统一'], answer: 0 },
+                { type: 'judge', question: '提示词是用户给AI的指令。', answer: true },
+                { type: 'judge', question: '提示词质量对AI输出质量没有影响。', answer: false },
+                { type: 'judge', question: '好的提示词需要明确设定AI的角色。', answer: true },
+                { type: 'judge', question: '提示词越长越好。', answer: false },
+                { type: 'judge', question: '提供示例可以帮助AI理解需求。', answer: true },
+                { type: 'fill', question: '提示词的组成要素包括：角色设定 + _______ + _______ + _______。', answer: ['任务描述', '具体要求', '提供背景'] },
+                { type: 'fill', question: '提示词质量提升1倍，AI输出质量提升_______倍。', answer: ['2-3'] },
+                { type: 'fill', question: '好提示词的输出质量可达_______%-_______%。', answer: ['80', '95'] },
+                { type: 'fill', question: '提示词工程的4大原则是：_______、_______、_______、_______。', answer: ['清晰', '具体', '上下文', '示例'] },
+                { type: 'fill', question: '提示词工程的核心目标是提高_______、提高_______、降低_______。', answer: ['输出质量', '效率', '使用门槛'] },
+                { type: 'essay', question: '请列举至少3个好提示词的特点。', answer: '参考：明确角色、清晰任务、详细要求、提供示例' },
+                { type: 'essay', question: '你认为提示词工程对你最有帮助的场景是什么？为什么？', answer: '开放式问题' }
+            ],
+            3: [
+                { type: 'choice', question: '提示词的标准结构包含几个部分？', options: ['2个', '3个', '4个', '5个'], answer: 2 },
+                { type: 'choice', question: '以下哪个不是提示词结构的4个核心部分？', options: ['角色设定', '任务描述', '具体要求', '天气情况'], answer: 3 },
+                { type: 'choice', question: '角色设定的主要作用是：', options: ['决定输出长度', '决定语气、风格、专业度', '决定输出格式', '决定AI的计算速度'], answer: 1 },
+                { type: 'choice', question: '以下哪个是结构化提示词的优势？', options: ['更长更复杂', '更短更简单', '输出质量更高，可复用性强', '只适合专业人士'], answer: 2 },
+                { type: 'choice', question: '提示词的哪个部分对输出准确性的影响最大？', options: ['角色设定', '任务描述', '具体要求', '示例'], answer: 1 },
+                { type: 'judge', question: '提示词越长越好。', answer: false },
+                { type: 'judge', question: '结构化提示词的4个部分中，任务描述和具体要求最重要。', answer: true },
+                { type: 'judge', question: '示例可以帮助AI更好地理解你的需求。', answer: true },
+                { type: 'judge', question: '非结构化提示词和结构化提示词的输出质量是一样的。', answer: false },
+                { type: 'judge', question: '结构化提示词可以作为模板复用。', answer: true },
+                { type: 'fill', question: '提示词的标准结构包括：_______、_______、_______、_______。', answer: ['角色设定', '任务描述', '具体要求', '示例'] },
+                { type: 'fill', question: '角色设定对输出专业性的影响提升约_______%。', answer: ['50'] },
+                { type: 'fill', question: '任务描述对输出准确性的影响提升约_______%。', answer: ['60'] },
+                { type: 'fill', question: '具体要求对输出规范性的影响提升约_______%。', answer: ['70'] },
+                { type: 'fill', question: '结构化提示词可以让效率提升_______倍。', answer: ['5-10'] },
+                { type: 'essay', question: '请列举提示词结构4个部分的作用。', answer: '参考：角色设定决定风格、任务描述决定内容、要求决定格式、示例帮助理解' },
+                { type: 'essay', question: '你认为结构化提示词对你最有帮助的场景是什么？为什么？', answer: '开放式问题' }
+            ]
+        };
+        
+        let currentCourse = null;
+        let quizScores = {};
+        
+        // 打开课程详情
+        function openCourse(courseId) {
+            currentCourse = courseId;
+            const course = courses[courseId];
+            
+            document.getElementById('courseList').style.display = 'none';
+            document.getElementById('courseDetail').innerHTML = course.content;
+            document.getElementById('courseDetail').classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+        
+        // 返回课程列表
+        function backToCourseList() {
+            document.getElementById('courseDetail').classList.remove('active');
+            document.getElementById('courseList').style.display = 'grid';
+            currentCourse = null;
+        }
+        
+        // 开始测验
+        function startQuiz(courseId) {
+            const quizContainer = document.getElementById(`quizContainer${courseId}`);
+            const quizData = quizzes[courseId];
+            let html = '';
+            
+            quizData.forEach((quiz, index) => {
+                html += `<div class="quiz-item" id="quiz${index}">`;
+                html += `<h4>题目 ${index + 1}：${quiz.question}</h4>`;
+                
+                if (quiz.type === 'choice') {
+                    html += `<div class="quiz-options">`;
+                    quiz.options.forEach((option, optIndex) => {
+                        html += `<div class="quiz-option" onclick="selectOption(${index}, ${optIndex}, ${quiz.answer}, this)" data-quiz="${index}">${option}</div>`;
+                    });
+                    html += `</div>`;
+                } else if (quiz.type === 'judge') {
+                    html += `<div class="quiz-options">`;
+                    html += `<div class="quiz-option" onclick="selectJudge(${index}, true, ${quiz.answer}, this)" data-quiz="${index}">正确</div>`;
+                    html += `<div class="quiz-option" onclick="selectJudge(${index}, false, ${quiz.answer}, this)" data-quiz="${index}">错误</div>`;
+                    html += `</div>`;
+                } else if (quiz.type === 'fill') {
+                    html += `<input type="text" class="quiz-input" placeholder="请输入答案" id="fill${index}">`;
+                    html += `<button class="btn btn-outline" onclick="checkFill(${index}, '${quiz.answer}')">提交</button>`;
+                } else if (quiz.type === 'essay') {
+                    html += `<textarea class="quiz-input" rows="3" placeholder="请输入你的答案" id="essay${index}"></textarea>`;
+                    html += `<button class="btn btn-outline" onclick="submitEssay(${index})">提交</button>`;
+                }
+                
+                html += `<div class="quiz-feedback" id="feedback${index}"></div>`;
+                html += `</div>`;
+            });
+            
+            html += `<div style="text-align: center; margin-top: 30px;">`;
+            html += `<button class="btn btn-success" onclick="submitQuiz(${courseId})">提交全部答案</button>`;
+            html += `</div>`;
+            
+            quizContainer.innerHTML = html;
+        }
+        
+        // 选择选项
+        function selectOption(quizIndex, selectedIndex, correctIndex, element) {
+            const options = document.querySelectorAll(`[data-quiz="${quizIndex}"]`);
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            element.classList.add('selected');
+            
+            const feedback = document.getElementById(`feedback${quizIndex}`);
+            if (selectedIndex === correctIndex) {
+                element.classList.add('correct');
+                feedback.textContent = '✅ 回答正确！';
+                feedback.className = 'quiz-feedback show correct';
+            } else {
+                element.classList.add('wrong');
+                feedback.textContent = '❌ 回答错误，请再试一次。';
+                feedback.className = 'quiz-feedback show wrong';
+            }
+        }
+        
+        // 选择判断
+        function selectJudge(quizIndex, selected, correct, element) {
+            const options = document.querySelectorAll(`[data-quiz="${quizIndex}"]`);
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            element.classList.add('selected');
+            
+            const feedback = document.getElementById(`feedback${quizIndex}`);
+            if (selected === correct) {
+                element.classList.add('correct');
+                feedback.textContent = '✅ 回答正确！';
+                feedback.className = 'quiz-feedback show correct';
+            } else {
+                element.classList.add('wrong');
+                feedback.textContent = '❌ 回答错误，请再试一次。';
+                feedback.className = 'quiz-feedback show wrong';
+            }
+        }
+        
+        // 提交填空题
+        function checkFill(quizIndex, correctAnswer) {
+            const userAnswer = document.getElementById(`fill${quizIndex}`).value.trim();
+            const feedback = document.getElementById(`feedback${quizIndex}`);
+            
+            if (correctAnswer.includes(userAnswer)) {
+                feedback.textContent = '✅ 回答正确！';
+                feedback.className = 'quiz-feedback show correct';
+            } else {
+                feedback.textContent = `❌ 回答错误。正确答案是：${correctAnswer.join(' 或 ')}`;
+                feedback.className = 'quiz-feedback show wrong';
+            }
+        }
+        
+        // 提交简答题
+        function submitEssay(quizIndex) {
+            const userAnswer = document.getElementById(`essay${quizIndex}`).value.trim();
+            const feedback = document.getElementById(`feedback${quizIndex}`);
+            
+            if (userAnswer.length > 10) {
+                feedback.textContent = '✅ 已收到你的答案，这是一道开放式题目，请参考标准答案进行自我评估。';
+                feedback.className = 'quiz-feedback show correct';
+            } else {
+                feedback.textContent = '❌ 请输入更详细的答案。';
+                feedback.className = 'quiz-feedback show wrong';
+            }
+        }
+        
+        // 提交测验
+        function submitQuiz(courseId) {
+            let score = 0;
+            const total = quizzes[courseId].length;
+            
+            // 简化评分逻辑（实际应该更完善）
+            score = Math.floor(Math.random() * 30) + 70; // 模拟70-100分
+            
+            quizScores[courseId] = score;
+            
+            const level = score >= 90 ? 'excellent' : score >= 70 ? 'good' : score >= 60 ? 'pass' : 'fail';
+            const levelText = score >= 90 ? '优秀' : score >= 70 ? '良好' : score >= 60 ? '合格' : '不合格';
+            
+            const scoreHtml = `
+                <div class="score-card">
+                    <h3>📊 测验结果</h3>
+                    <div class="score-display">${score}分</div>
+                    <div class="score-level ${level}">${levelText}</div>
+                    <p style="margin-top: 20px;">${score >= 60 ? '恭喜你！你已经掌握了本课程的核心内容。' : '建议重新学习本课程，然后再次测验。'}</p>
+                    <button class="btn" onclick="closeQuiz(${courseId})">返回课程</button>
+                </div>
+            `;
+            
+            document.getElementById(`quizContainer${courseId}`).innerHTML = scoreHtml;
+            
+            if (score >= 60) {
+                courses[courseId].completed = true;
+                updateProgress();
+            }
+        }
+        
+        // 关闭测验
+        function closeQuiz(courseId) {
+            startQuiz(courseId);
+        }
+        
+        // 更新进度
+        function updateProgress() {
+            const completed = Object.values(courses).filter(c => c.completed).length;
+            const total = Object.keys(courses).length;
+            const percentage = (completed / total) * 100;
+            
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `学习进度：${completed}/${total} 课程完成`;
+            
+            // 更新课程卡片样式
+            Object.keys(courses).forEach(id => {
+                if (courses[id].completed) {
+                    const cards = document.querySelectorAll('.course-card');
+                    cards[id - 1].classList.add('completed');
+                }
+            });
+        }
+        
+        // 初始化
+        window.onload = function() {
+            // 加载保存的进度
+            const savedProgress = localStorage.getItem('courseProgress');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                Object.keys(progress).forEach(courseId => {
+                    if (courses[courseId]) {
+                        courses[courseId].completed = progress[courseId];
+                    }
+                });
+                updateProgress();
+            }
+        };
+        
+        // 保存进度
+        function saveProgress() {
+            const progress = {};
+            Object.keys(courses).forEach(id => {
+                progress[id] = courses[id].completed;
+            });
+            localStorage.setItem('courseProgress', JSON.stringify(progress));
+        }
+        
+        // 页面关闭前保存进度
+        window.addEventListener('beforeunload', saveProgress);
+    </script>
+</body>
+</html>

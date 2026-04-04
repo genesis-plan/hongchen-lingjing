@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>琅嬛福地 - 技能图书馆 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .search-box {
+            margin: 30px 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .search-box input::placeholder { color: rgba(255,255,255,0.5); }
+        
+        .search-box button {
+            padding: 15px 30px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .category {
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category:hover, .category.active {
+            background: #e94560;
+            color: #fff;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+        }
+        
+        .skill-card h3 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        
+        .skill-card .meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+        
+        .skill-card .tag {
+            padding: 4px 10px;
+            background: rgba(233, 69, 96, 0.2);
+            border-radius: 10px;
+            color: #e94560;
+        }
+        
+        .skill-card .difficulty {
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .skill-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .skill-card .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">📚 琅嬛福地</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/register">注册</a>
+            </div>
+        </nav>
+        
+        <div class="header">
+            <h1>📚 技能图书馆</h1>
+            <p>《琅嬛记》天帝藏书 - 发现你想学习的技能</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" placeholder="搜索技能..." id="searchInput">
+            <button onclick="searchSkills()">搜索</button>
+        </div>
+        
+        <div class="categories" id="categories">
+            <div class="category active" data-category="all">全部</div>
+            <div class="category" data-category="tech">职场技能</div>
+            <div class="category" data-category="lifestyle">野外求生</div>
+            <div class="category" data-category="art">艺术创作</div>
+        </div>
+        
+        <div class="skills-grid" id="skillsGrid">
+            <div class="loading">加载中...</div>
+        </div>
+    </div>
+    
+    <script>
+        // 技能数据 - 直接嵌入
+        const allSkills = [
+            // 职场技能
+            {name: "提示词工程", category: "tech", difficulty: "入门", description: "学习编写精准的AI指令，高效使用AI工具完成各类任务"},
+            {name: "AIGC内容创作", category: "tech", difficulty: "入门", description: "使用AI生成图文、短视频、小说、设计稿等数字内容"},
+            {name: "基础数据分析", category: "tech", difficulty: "入门", description: "整理数据、制作图表，用数据辅助决策"},
+            {name: "多语言本地化", category: "lifestyle", difficulty: "中级", description: "翻译+适配海外文化，让内容符合当地用户习惯"},
+            {name: "短视频制作运营", category: "art", difficulty: "入门", description: "拍摄、剪辑、发布短视频，获取流量"},
+            {name: "快速学习能力", category: "lifestyle", difficulty: "入门", description: "快速掌握新技能，跟上技术和市场变化"},
+            {name: "批判性思维", category: "lifestyle", difficulty: "中级", description: "理性分析问题，找到最优解决方案"},
+            // 野外求生技能
+            {name: "野外定向定位", category: "lifestyle", difficulty: "入门", description: "指南针、星象、手机GPS辨别方向"},
+            {name: "搭建临时庇护所", category: "lifestyle", difficulty: "中级", description: "利用自然材料搭建遮风避雨处"},
+            {name: "野外取火技术", category: "lifestyle", difficulty: "入门", description: "多种安全取火方法"},
+            {name: "水源寻找与净化", category: "lifestyle", difficulty: "中级", description: "找到野外水源并过滤消毒"},
+            {name: "可食用野生植物辨别", category: "lifestyle", difficulty: "高级", description: "识别可食用野果野菜"},
+            {name: "简易陷阱制作", category: "lifestyle", difficulty: "中级", description: "捕获小型动物补充食物"},
+            {name: "绳结技术", category: "lifestyle", difficulty: "入门", description: "实用绳结用法"},
+            {name: "简易木筏制作", category: "lifestyle", difficulty: "高级", description: "渡河工具"},
+            {name: "恶劣天气应对", category: "lifestyle", difficulty: "入门", description: "暴雨、雷电、高温生存"},
+            {name: "星空辨识", category: "lifestyle", difficulty: "中级", description: "通过星座判断方向和时间"},
+            {name: "野外保暖防寒", category: "lifestyle", difficulty: "入门", description: "保持体温方法"},
+            {name: "紧急求救信号", category: "lifestyle", difficulty: "入门", description: "国际求救信号"}
+        ];
+        
+        function loadSkills() {
+            renderSkills(allSkills);
+        }
+        
+        function renderSkills(skills) {
+            const grid = document.getElementById('skillsGrid');
+            if (skills.length === 0) {
+                grid.innerHTML = '<div class="loading">暂无技能</div>';
+                return;
+            }
+            
+            grid.innerHTML = skills.map(skill => `
+                <div class="skill-card">
+                    <h3>${skill.name || skill.title}</h3>
+                    <div class="meta">
+                        <span class="tag">${skill.category === 'tech' ? '职场技能' : skill.category === 'lifestyle' ? '野外求生' : '艺术创作'}</span>
+                        <span class="difficulty">${skill.difficulty || '入门'}</span>
+                    </div>
+                    <p>${skill.description || '暂无描述'}</p>
+                </div>
+            `).join('');
+        }
+        
+        function searchSkills() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allSkills.filter(s => 
+                (s.name || s.title || '').toLowerCase().includes(query) ||
+                (s.description || '').toLowerCase().includes(query)
+            );
+            renderSkills(filtered);
+        }
+        
+        // 分类筛选
+        document.querySelectorAll('.category').forEach(cat => {
+            cat.addEventListener('click', function() {
+                document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                if (category === 'all') {
+                    renderSkills(allSkills);
+                } else {
+                    const filtered = allSkills.filter(s => s.category === category);
+                    renderSkills(filtered);
+                }
+            });
+        });
+        
+        // 页面加载
+        document.addEventListener('DOMContentLoaded', loadSkills);
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",           // 技能图书馆首页
+    "pages/detail/detail"          // 技能详情页
+  ],
+  "window": {
+    "backgroundColor": "#1a1a2e",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#16213e",
+    "navigationBarTitleText": "琅嬛福地·技能库",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

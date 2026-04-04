@@ -1,0 +1,71 @@
+<!-- 灵槎津渡 - 入口引导页面 -->
+<view class="container">
+  <!-- 头部欢迎区域 -->
+  <view class="welcome-section">
+    <view class="title">🌊 灵槎津渡</view>
+    <view class="subtitle">《博物志》通天之筏 · 红尘灵境入口</view>
+    <view class="welcome-text">欢迎来到技能传承的元宇宙世界</view>
+  </view>
+
+  <!-- 核心功能入口 -->
+  <view class="card">
+    <view class="card-title">🚪 快速入口</view>
+    <view class="building-grid">
+      <view class="building-item" bindtap="enterBuilding" data-building="laozhang">
+        <view class="building-icon">📚</view>
+        <view class="building-name">琅嬛福地</view>
+        <view class="building-desc">技能图书馆</view>
+      </view>
+      
+      <view class="building-item" bindtap="enterBuilding" data-building="kaogong">
+        <view class="building-icon">🔨</view>
+        <view class="building-name">考工实训庐</view>
+        <view class="building-desc">技能实操练习</view>
+      </view>
+      
+      <view class="building-item" bindtap="enterBuilding" data-building="profile">
+        <view class="building-icon">🏠</view>
+        <view class="building-name">芥子藏虚</view>
+        <view class="building-desc">个人主页</view>
+      </view>
+      
+      <view class="building-item" bindtap="enterBuilding" data-building="library">
+        <view class="building-icon">🎯</view>
+        <view class="building-name">技能学习</view>
+        <view class="building-desc">开始学习之旅</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 世界观介绍 -->
+  <view class="card">
+    <view class="card-title">🌟 红尘灵境</view>
+    <view class="world-desc">
+      「让技能跨越虚拟与现实，让每个人都能学习并改变生活」
+    </view>
+    <view class="features-list">
+      <view class="feature-item">✨ 14座功能建筑，涵盖技能全生命周期</view>
+      <view class="feature-item">🎮 3D实训舱，沉浸式技能体验</view>
+      <view class="feature-item">🤖 AI导师，个性化学习指导</view>
+      <view class="feature-item">🌐 开源元宇宙，全球技能传承</view>
+    </view>
+  </view>
+
+  <!-- 行动按钮 -->
+  <view class="action-buttons">
+    <button class="btn-primary" bindtap="startJourney">开始修行之旅</button>
+    <button class="btn-secondary" bindtap="learnMore">了解更多</button>
+  </view>
+
+  <!-- 建筑导览 -->
+  <view class="card">
+    <view class="card-title">🗺️ 十四建筑导览</view>
+    <scroll-view class="buildings-scroll" scroll-x="true">
+      <view class="mini-building-list">
+        <view class="mini-building" wx:for="{{buildings}}" wx:key="id">
+          <text>{{item.icon}} {{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

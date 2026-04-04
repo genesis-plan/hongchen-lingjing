@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邀请好友 - 红尘灵境</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .invite-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .invite-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .invite-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .invite-subtitle {
+            font-size: 16px;
+            color: #a0a0a0;
+        }
+
+        .reward-summary {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .reward-card {
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            text-align: center;
+        }
+
+        .reward-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .reward-label {
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+
+        .invite-code-section {
+            padding: 30px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .invite-code {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+
+        .invite-link {
+            font-size: 14px;
+            color: #a0a0a0;
+            word-break: break-all;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .invite-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .invite-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .invite-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .info-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .info-text {
+            flex: 1;
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+
+        .info-value {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .invite-record {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .record-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .record-table th,
+        .record-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .record-table th {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .record-table td {
+            color: #a0a0a0;
+        }
+
+        .status-success {
+            color: #4caf50;
+        }
+
+        .status-pending {
+            color: #ff9800;
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            padding: 40px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            text-align: center;
+            max-width: 400px;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .modal-message {
+            font-size: 16px;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+        }
+
+        .modal-button {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .reward-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invite-container">
+        <div class="invite-header">
+            <h1 class="invite-title">邀请好友</h1>
+            <p class="invite-subtitle">邀请好友一起学习，获得积分奖励</p>
+        </div>
+
+        <div class="reward-summary">
+            <div class="reward-card">
+                <div class="reward-number" id="invitedCount">0</div>
+                <div class="reward-label">已邀请好友</div>
+            </div>
+            <div class="reward-card">
+                <div class="reward-number" id="rewardPoints">0</div>
+                <div class="reward-label">获得积分</div>
+            </div>
+        </div>
+
+        <div class="invite-code-section">
+            <div class="section-title">🎁 您的邀请码</div>
+            <div class="invite-code" id="inviteCode">------</div>
+            <div class="invite-link" id="inviteLink">https://genesis-plan.github.io/hongchen-lingjing/?invite=</div>
+            <div class="button-group">
+                <button class="invite-button" onclick="copyInviteCode()">复制邀请码</button>
+                <button class="invite-button" onclick="copyInviteLink()">复制邀请链接</button>
+                <button class="invite-button" onclick="shareInvite()">分享邀请</button>
+            </div>
+        </div>
+
+        <div class="invite-info">
+            <div class="info-title">📊 邀请奖励规则</div>
+            <ul class="info-list">
+                <li class="info-item">
+                    <span class="info-icon">✨</span>
+                    <span class="info-text">邀请好友注册</span>
+                    <span class="info-value">+100积分</span>
+                </li>
+                <li class="info-item">
+                    <span class="info-icon">🎁</span>
+                    <span class="info-text">好友使用邀请码</span>
+                    <span class="info-value">+50积分</span>
+                </li>
+                <li class="info-item">
+                    <span class="info-icon">🔥</span>
+                    <span class="info-text">邀请满10人</span>
+                    <span class="info-value">+500额外积分</span>
+                </li>
+                <li class="info-item">
+                    <span class="info-icon">🌟</span>
+                    <span class="info-text">邀请满50人</span>
+                    <span class="info-value">+3000额外积分</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="invite-record">
+            <div class="section-title">📝 邀请记录</div>
+            <table class="record-table">
+                <thead>
+                    <tr>
+                        <th>邀请码</th>
+                        <th>邀请时间</th>
+                        <th>状态</th>
+                        <th>奖励</th>
+                    </tr>
+                </thead>
+                <tbody id="inviteRecordList">
+                    <tr>
+                        <td colspan="4" style="text-align: center;">暂无邀请记录</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button class="back-button" onclick="goBack()">返回首页</button>
+    </div>
+
+    <div class="modal" id="copyModal">
+        <div class="modal-content">
+            <div class="modal-title">✅ 复制成功</div>
+            <div class="modal-message" id="copyMessage">已复制到剪贴板</div>
+            <button class="modal-button" onclick="closeModal()">好的</button>
+        </div>
+    </div>
+
+    <script>
+        // 生成随机邀请码
+        function generateInviteCode() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let code = '';
+            for (let i = 0; i < 6; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        // 获取或创建邀请码
+        function getOrCreateInviteCode() {
+            let code = localStorage.getItem('hclj_invite_code');
+            if (!code) {
+                code = generateInviteCode();
+                localStorage.setItem('hclj_invite_code', code);
+            }
+            return code;
+        }
+
+        // 获取邀请数据
+        function getInviteData() {
+            const data = localStorage.getItem('hclj_invite_data');
+            return data ? JSON.parse(data) : {
+                invitedCount: 0,
+                rewardPoints: 0,
+                records: []
+            };
+        }
+
+        // 保存邀请数据
+        function saveInviteData(data) {
+            localStorage.setItem('hclj_invite_data', JSON.stringify(data));
+        }
+
+        // 获取或初始化积分
+        function getUserPoints() {
+            const points = localStorage.getItem('hclj_user_points');
+            return points ? parseInt(points) : 0;
+        }
+
+        // 保存积分
+        function saveUserPoints(points) {
+            localStorage.setItem('hclj_user_points', points);
+        }
+
+        // 更新邀请记录显示
+        function updateInviteDisplay() {
+            const code = getOrCreateInviteCode();
+            const data = getInviteData();
+
+            document.getElementById('inviteCode').textContent = code;
+            document.getElementById('invitedCount').textContent = data.invitedCount;
+            document.getElementById('rewardPoints').textContent = data.rewardPoints;
+
+            // 更新邀请链接
+            const baseUrl = window.location.href.split('?')[0];
+            document.getElementById('inviteLink').textContent = baseUrl + '?invite=' + code;
+
+            // 更新邀请记录
+            updateInviteRecordList(data.records);
+        }
+
+        // 更新邀请记录列表
+        function updateInviteRecordList(records) {
+            const list = document.getElementById('inviteRecordList');
+
+            if (!records || records.length === 0) {
+                list.innerHTML = '<tr><td colspan="4" style="text-align: center;">暂无邀请记录</td></tr>';
+                return;
+            }
+
+            list.innerHTML = records.map(record => `
+                <tr>
+                    <td>${record.code}</td>
+                    <td>${record.time}</td>
+                    <td class="${record.status === 'success' ? 'status-success' : 'status-pending'}">
+                        ${record.status === 'success' ? '已注册' : '待确认'}
+                    </td>
+                    <td>+${record.reward}</td>
+                </tr>
+            `).join('');
+        }
+
+        // 复制邀请码
+        function copyInviteCode() {
+            const code = getOrCreateInviteCode();
+            navigator.clipboard.writeText(code).then(() => {
+                showModal('邀请码已复制到剪贴板');
+            }).catch(() => {
+                // 兼容性处理
+                const textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showModal('邀请码已复制到剪贴板');
+            });
+        }
+
+        // 复制邀请链接
+        function copyInviteLink() {
+            const code = getOrCreateInviteCode();
+            const link = window.location.href.split('?')[0] + '?invite=' + code;
+            navigator.clipboard.writeText(link).then(() => {
+                showModal('邀请链接已复制到剪贴板');
+            }).catch(() => {
+                // 兼容性处理
+                const textarea = document.createElement('textarea');
+                textarea.value = link;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showModal('邀请链接已复制到剪贴板');
+            });
+        }
+
+        // 分享邀请
+        function shareInvite() {
+            const code = getOrCreateInviteCode();
+            const link = window.location.href.split('?')[0] + '?invite=' + code;
+            const title = '红尘灵境 - 0成本学技能！';
+            const description = '我发现了这个超棒的学习平台，10000+课程完全免费！快来一起学习吧！';
+
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: description,
+                    url: link
+                }).catch(() => {
+                    showModal('分享失败，请手动复制链接分享');
+                });
+            } else {
+                // 如果不支持Web Share API，复制链接
+                navigator.clipboard.writeText(link).then(() => {
+                    showModal('链接已复制，请手动分享给好友');
+                }).catch(() => {
+                    showModal('分享失败，请手动复制链接分享');
+                });
+            }
+        }
+
+        // 显示弹窗
+        function showModal(message) {
+            document.getElementById('copyMessage').textContent = message;
+            document.getElementById('copyModal').classList.add('active');
+        }
+
+        // 关闭弹窗
+        function closeModal() {
+            document.getElementById('copyModal').classList.remove('active');
+        }
+
+        // 检查URL中的邀请码
+        function checkInviteCode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const inviteCode = urlParams.get('invite');
+
+            if (inviteCode) {
+                // 保存邀请码
+                localStorage.setItem('hclj_invite_from', inviteCode);
+
+                // 给新用户添加50积分
+                const currentPoints = getUserPoints();
+                saveUserPoints(currentPoints + 50);
+
+                // 记录邀请奖励（模拟）
+                const inviteData = getInviteData();
+                const record = {
+                    code: inviteCode,
+                    time: new Date().toLocaleString('zh-CN'),
+                    status: 'success',
+                    reward: 50
+                };
+                inviteData.records.unshift(record);
+                saveInviteData(inviteData);
+
+                // 清除URL中的邀请码
+                window.history.replaceState({}, document.title, window.location.pathname);
+
+                // 显示欢迎弹窗
+                setTimeout(() => {
+                    alert('欢迎来到红尘灵境！\n您已获得50积分奖励！');
+                }, 500);
+            }
+        }
+
+        // 返回首页
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        // 页面加载时初始化
+        window.onload = function() {
+            checkInviteCode();
+            updateInviteDisplay();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+# 梦想推进自动化系统 - 优化版crontab配置
+# 基于 automation-workflows + taskmaster 技能优化
+# 核心原则：每个任务必须直接推进梦想里程碑
+
+# ============================================================
+# 🤖 核心工作流（直接推进梦想）
+# ============================================================
+
+# 梦想进度追踪 - 每天08:00、20:00
+# 目标：确保每日都有向梦想推进的动作
+0 8,20 * * * /root/.openclaw/workspace/dream-automation-v2.sh dream-progress >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# 技能内容生产 - 每天09:00、14:00  
+# 目标：每日产出1个技能内容
+0 9,14 * * * /root/.openclaw/workspace/dream-automation-v2.sh skill-production >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# 知识图谱维护 - 每6小时（00:00, 06:00, 12:00, 18:00）
+# 目标：自动整理、连接、优化知识节点
+0 */6 * * * /root/.openclaw/workspace/dream-automation-v2.sh knowledge-maintenance >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# 技能学习进化 - 每天02:00（深度学习时间）
+# 目标：每日学习1个新技能
+0 2 * * * /root/.openclaw/workspace/dream-automation-v2.sh skill-learning >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# ============================================================
+# 🔍 支持工作流（辅助推进梦想）
+# ============================================================
+
+# 竞争对手监控 - 每天10:00、16:00
+# 目标：监控竞品动态，寻找差异化机会
+0 10,16 * * * /root/.openclaw/workspace/dream-automation-v2.sh competitor-monitor >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# 内容营销自动化 - 每周三、六 10:00
+# 目标：自动生成社交媒体内容
+0 10 * * 3,6 /root/.openclaw/workspace/dream-automation-v2.sh content-marketing >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# ============================================================
+# 🛡️ 保障工作流（确保系统稳定）
+# ============================================================
+
+# 灾难恢复备份 - 每天02:00、14:00
+# 目标：确保梦想数据永不丢失
+0 2,14 * * * /root/.openclaw/workspace/dream-automation-v2.sh backup >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# 系统健康自检 - 每小时
+# 目标：确保所有系统正常运行
+0 * * * * /root/.openclaw/workspace/dream-automation-v2.sh health-check >> /root/.openclaw/workspace/memory/automation-logs/cron.log 2>&1
+
+# ============================================================
+# 📊 工作流统计
+# ============================================================
+# 核心工作流：4个（每天执行10次）
+# 支持工作流：2个（每天执行2.5次平均）
+# 保障工作流：2个（每天执行26次）
+# 总计：每天38次自动化执行
+# ============================================================

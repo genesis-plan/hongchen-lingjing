@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荣光麟阁 - 排行榜 | 红尘灵境</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tab {
+            padding: 12px 30px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+        
+        .ranking-list {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .ranking-item:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .rank {
+            width: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .rank.top3 {
+            color: #ffd700;
+        }
+        
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560, #ff6b9d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin: 0 20px;
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .user-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .user-info p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
+        .badge {
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        .badge.master { background: #e94560; }
+        .badge.expert { background: #9333ea; }
+        .badge.active { background: #22c55e; }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .empty-state .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .empty-state p {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .典籍 {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">🏅 荣光麟阁</div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/skills">技能库</a>
+                <a href="/profile">个人主页</a>
+            </div>
+        </nav>
+        
+        <div class="header">
+            <h1>🏅 排行榜</h1>
+            <p>《汉书》麒麟阁 - 表彰有功之士</p>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('master')">宗师榜</div>
+            <div class="tab" onclick="switchTab('learner')">学徒榜</div>
+            <div class="tab" onclick="switchTab('skill')">热门技能</div>
+        </div>
+        
+        <div class="ranking-list" id="rankingList">
+            <div class="empty-state">
+                <div class="icon">🏆</div>
+                <p>榜单正在生成中...</p>
+                <p style="margin-top: 10px; font-size: 14px;">成为第一个登上荣光麟阁的人！</p>
+            </div>
+        </div>
+        
+        <div class="典籍">
+            "上之人有功德者，皆图画其形貌于麒麟阁，署其官爵姓名。"
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(type) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // 模拟数据
+            const data = {
+                master: [
+                    { rank: 1, name: '待解锁', title: '首席宗师', score: '--' },
+                    { rank: 2, name: '待解锁', title: '国手', score: '--' },
+                    { rank: 3, name: '待解锁', title: '大师', score: '--' }
+                ],
+                learner: [
+                    { rank: 1, name: '待解锁', title: '勤学状元', score: '--' },
+                    { rank: 2, name: '待解锁', title: '榜眼', score: '--' },
+                    { rank: 3, name: '待解锁', title: '探花', score: '--' }
+                ],
+                skill: [
+                    { rank: 1, name: '待解锁', title: '最受欢迎', score: '--' },
+                    { rank: 2, name: '待解锁', title: '热门技能', score: '--' },
+                    { rank: 3, name: '待解锁', title: '潜力技能', score: '--' }
+                ]
+            };
+            
+            const list = document.getElementById('rankingList');
+            list.innerHTML = data[type].map((item, index) => `
+                <div class="ranking-item">
+                    <div class="rank ${index < 3 ? 'top3' : ''}">${item.rank}</div>
+                    <div class="avatar">👤</div>
+                    <div class="user-info">
+                        <h3>${item.name} <span class="badge ${type === 'master' ? 'master' : type === 'learner' ? 'expert' : 'active'}">${item.title}</span></h3>
+                        <p>${type === 'skill' ? '学习人数' : '贡献值'}: ${item.score}</p>
+                    </div>
+                    <div class="score">${index < 3 ? '🥇🥈🥉'[index] : ''}</div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

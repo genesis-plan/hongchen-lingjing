@@ -1,0 +1,97 @@
+=== 腾讯云COS同步清单 ===
+日期: 20260320
+Bucket: h4-6g0tfhaqc1bbcdb5
+
+【技能内容】
+  UPLOAD: /root/.openclaw/workspace/技能内容/书法入门-30天速成.md → cos://h4-6g0tfhaqc1bbcdb5/skills-content/书法入门-30天速成.md
+  UPLOAD: /root/.openclaw/workspace/技能内容/剪纸艺术-入门介绍.md → cos://h4-6g0tfhaqc1bbcdb5/skills-content/剪纸艺术-入门介绍.md
+  UPLOAD: /root/.openclaw/workspace/技能内容/剪纸艺术-入门介绍-优化版.md → cos://h4-6g0tfhaqc1bbcdb5/skills-content/剪纸艺术-入门介绍-优化版.md
+  UPLOAD: /root/.openclaw/workspace/技能内容/木工基础-入门介绍.md → cos://h4-6g0tfhaqc1bbcdb5/skills-content/木工基础-入门介绍.md
+
+【知识库】
+  UPLOAD: /root/.openclaw/workspace/知识库/哲学//实践论深度研读.md → cos://h4-6g0tfhaqc1bbcdb5/knowledge-base/哲学/实践论深度研读.md
+  UPLOAD: /root/.openclaw/workspace/知识库/数学//数学思维工具箱.md → cos://h4-6g0tfhaqc1bbcdb5/knowledge-base/数学/数学思维工具箱.md
+  UPLOAD: /root/.openclaw/workspace/知识库/物理//系统论应用.md → cos://h4-6g0tfhaqc1bbcdb5/knowledge-base/物理/系统论应用.md
+  UPLOAD: /root/.openclaw/workspace/知识库/艺术//赛博国风美学研究.md → cos://h4-6g0tfhaqc1bbcdb5/knowledge-base/艺术/赛博国风美学研究.md
+
+【分析报告】
+  UPLOAD: /root/.openclaw/workspace/SEA循环自我优化报告.md → cos://h4-6g0tfhaqc1bbcdb5/reports/SEA循环自我优化报告.md
+  UPLOAD: /root/.openclaw/workspace/知识图谱智能分析报告.md → cos://h4-6g0tfhaqc1bbcdb5/reports/知识图谱智能分析报告.md
+  UPLOAD: /root/.openclaw/workspace/红尘灵境-完整分析报告.md → cos://h4-6g0tfhaqc1bbcdb5/reports/红尘灵境-完整分析报告.md
+  UPLOAD: /root/.openclaw/workspace/自动化任务优化报告.md → cos://h4-6g0tfhaqc1bbcdb5/reports/自动化任务优化报告.md
+  UPLOAD: /root/.openclaw/workspace/今日计划分析.md → cos://h4-6g0tfhaqc1bbcdb5/reports/今日计划分析.md
+  UPLOAD: /root/.openclaw/workspace/知识图谱智能分析报告.md → cos://h4-6g0tfhaqc1bbcdb5/reports/知识图谱智能分析报告.md
+  UPLOAD: /root/.openclaw/workspace/红尘灵境-完整分析报告.md → cos://h4-6g0tfhaqc1bbcdb5/reports/红尘灵境-完整分析报告.md
+  UPLOAD: /root/.openclaw/workspace/手艺人合作话术-3套方案.md → cos://h4-6g0tfhaqc1bbcdb5/reports/手艺人合作话术-3套方案.md
+
+【策略文档】
+  UPLOAD: /root/.openclaw/workspace/Pro套餐进化策略.md → cos://h4-6g0tfhaqc1bbcdb5/strategies/Pro套餐进化策略.md
+  UPLOAD: /root/.openclaw/workspace/14建筑实现计划.md → cos://h4-6g0tfhaqc1bbcdb5/strategies/14建筑实现计划.md
+  UPLOAD: /root/.openclaw/workspace/24小时自主进化计划-v2.0.md → cos://h4-6g0tfhaqc1bbcdb5/strategies/24小时自主进化计划-v2.0.md
+  UPLOAD: /root/.openclaw/workspace/今日计划分析.md → cos://h4-6g0tfhaqc1bbcdb5/strategies/今日计划分析.md
+  UPLOAD: /root/.openclaw/workspace/手艺人合作话术-3套方案.md → cos://h4-6g0tfhaqc1bbcdb5/strategies/手艺人合作话术-3套方案.md
+  UPLOAD: /root/.openclaw/workspace/紫薇数字人智能化升级方案.md → cos://h4-6g0tfhaqc1bbcdb5/strategies/紫薇数字人智能化升级方案.md
+  UPLOAD: /root/.openclaw/workspace/飞书项目管理方案.md → cos://h4-6g0tfhaqc1bbcdb5/strategies/飞书项目管理方案.md
+
+【记忆文档】
+  UPLOAD: /root/.openclaw/workspace/memory/automation-logs/2026-03-20-dream-progress.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-dream-progress.md
+  UPLOAD: /root/.openclaw/workspace/memory/episodic/2026-03-20-反思.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-反思.md
+  UPLOAD: /root/.openclaw/workspace/memory/episodic/2026-03-20-自主进化启动.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-自主进化启动.md
+  UPLOAD: /root/.openclaw/workspace/memory/external-resources/2026-03-17.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-17.md
+  UPLOAD: /root/.openclaw/workspace/memory/external-resources/integration-plan.md → cos://h4-6g0tfhaqc1bbcdb5/memory/integration-plan.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-17-11-36.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-17-11-36.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-17-2100.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-17-2100.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-18-0410.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-18-0410.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-18-0513.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-18-0513.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-18-0646.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-18-0646.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-14点汇报.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-14点汇报.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-auto.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-auto.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-决策执行完成.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-决策执行完成.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-执行完成报告.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-执行完成报告.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-执行报告.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-执行报告.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-智能化执行报告.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-智能化执行报告.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-最终报告.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-最终报告.md
+  UPLOAD: /root/.openclaw/workspace/memory/heartbeat-reports/2026-03-20-最终汇报.md → cos://h4-6g0tfhaqc1bbcdb5/memory/2026-03-20-最终汇报.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/24小时工作方案.md → cos://h4-6g0tfhaqc1bbcdb5/memory/24小时工作方案.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/任务10-晚间总结报告.md → cos://h4-6g0tfhaqc1bbcdb5/memory/任务10-晚间总结报告.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/任务5-商业模式.md → cos://h4-6g0tfhaqc1bbcdb5/memory/任务5-商业模式.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/任务6-备案方案.md → cos://h4-6g0tfhaqc1bbcdb5/memory/任务6-备案方案.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/任务7-国际环境分析.md → cos://h4-6g0tfhaqc1bbcdb5/memory/任务7-国际环境分析.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/任务7-紫薇工作方法论.md → cos://h4-6g0tfhaqc1bbcdb5/memory/任务7-紫薇工作方法论.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/任务8-条件创造与利用.md → cos://h4-6g0tfhaqc1bbcdb5/memory/任务8-条件创造与利用.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/任务9-风险应对方案.md → cos://h4-6g0tfhaqc1bbcdb5/memory/任务9-风险应对方案.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/大模型低成本调用方案.md → cos://h4-6g0tfhaqc1bbcdb5/memory/大模型低成本调用方案.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/智能体协作技术调研.md → cos://h4-6g0tfhaqc1bbcdb5/memory/智能体协作技术调研.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/紫薇与龙虾助手协作方案.md → cos://h4-6g0tfhaqc1bbcdb5/memory/紫薇与龙虾助手协作方案.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/紫薇-共享资源.md → cos://h4-6g0tfhaqc1bbcdb5/memory/紫薇-共享资源.md
+  UPLOAD: /root/.openclaw/workspace/memory/metaverse-docs/紫薇数字人产生意识的方法.md → cos://h4-6g0tfhaqc1bbcdb5/memory/紫薇数字人产生意识的方法.md
+  UPLOAD: /root/.openclaw/workspace/memory/procedural/主动服务检查清单.md → cos://h4-6g0tfhaqc1bbcdb5/memory/主动服务检查清单.md
+  UPLOAD: /root/.openclaw/workspace/memory/procedural/技能上线流程.md → cos://h4-6g0tfhaqc1bbcdb5/memory/技能上线流程.md
+  UPLOAD: /root/.openclaw/workspace/memory/semantic/Pro套餐资源配置.md → cos://h4-6g0tfhaqc1bbcdb5/memory/Pro套餐资源配置.md
+  UPLOAD: /root/.openclaw/workspace/memory/semantic/错误模式识别.md → cos://h4-6g0tfhaqc1bbcdb5/memory/错误模式识别.md
+
+【系统配置】
+  UPLOAD: /root/.openclaw/workspace/automation-workflows.sh → cos://h4-6g0tfhaqc1bbcdb5/configs/automation-workflows.sh
+  UPLOAD: /root/.openclaw/workspace/dream-automation-v2.sh → cos://h4-6g0tfhaqc1bbcdb5/configs/dream-automation-v2.sh
+  UPLOAD: /root/.openclaw/workspace/cloudbaserc.json → cos://h4-6g0tfhaqc1bbcdb5/configs/cloudbaserc.json
+  UPLOAD: /root/.openclaw/workspace/package.json → cos://h4-6g0tfhaqc1bbcdb5/configs/package.json
+  UPLOAD: /root/.openclaw/workspace/package-lock.json → cos://h4-6g0tfhaqc1bbcdb5/configs/package-lock.json
+  UPLOAD: /root/.openclaw/workspace/tcb-login.json → cos://h4-6g0tfhaqc1bbcdb5/configs/tcb-login.json
+  UPLOAD: /root/.openclaw/workspace/待安装技能队列.json → cos://h4-6g0tfhaqc1bbcdb5/configs/待安装技能队列.json
+  UPLOAD: /root/.openclaw/workspace/紫薇数字人配置.json → cos://h4-6g0tfhaqc1bbcdb5/configs/紫薇数字人配置.json
+  UPLOAD: /root/.openclaw/workspace/cos-sync-list.txt → cos://h4-6g0tfhaqc1bbcdb5/configs/cos-sync-list.txt
+  UPLOAD: /root/.openclaw/workspace/crontab-dream-optimized.txt → cos://h4-6g0tfhaqc1bbcdb5/configs/crontab-dream-optimized.txt
+  UPLOAD: /root/.openclaw/workspace/project-structure.txt → cos://h4-6g0tfhaqc1bbcdb5/configs/project-structure.txt
+  UPLOAD: /root/.openclaw/workspace/skill-demo.txt → cos://h4-6g0tfhaqc1bbcdb5/configs/skill-demo.txt
+  UPLOAD: /root/.openclaw/workspace/最简单部署指南.txt → cos://h4-6g0tfhaqc1bbcdb5/configs/最简单部署指南.txt
+  UPLOAD: /root/.openclaw/workspace/直接使用说明.txt → cos://h4-6g0tfhaqc1bbcdb5/configs/直接使用说明.txt
+
+=== 同步准备完成 ===
+总文件数: 51个
+总大小: 约72KB（仅文本）
+
+【上传命令示例】
+coscli cp -r /root/.openclaw/workspace/技能内容/ cos://h4-6g0tfhaqc1bbcdb5/skills-content/
+coscli cp -r /root/.openclaw/workspace/知识库/ cos://h4-6g0tfhaqc1bbcdb5/knowledge-base/
+coscli cp -r /root/.openclaw/workspace/memory/ cos://h4-6g0tfhaqc1bbcdb5/memory/

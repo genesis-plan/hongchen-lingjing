@@ -1,0 +1,95 @@
+<!-- 芥子藏虚 - 个人主页 -->
+<view class="container">
+  <!-- 个人信息头部 -->
+  <view class="profile-header card">
+    <view class="avatar-section">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/assets/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <view class="username">{{userInfo.nickName || '修行者'}}</view>
+        <view class="user-level">🌱 新芽弟子</view>
+      </view>
+    </view>
+    
+    <view class="stats-row">
+      <view class="stat-item">
+        <view class="stat-number">{{learningDays}}</view>
+        <view class="stat-label">修行天数</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-number">{{completedSkills}}</view>
+        <view class="stat-label">掌握技能</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-number">{{achievements}}</view>
+        <view class="stat-label">获得成就</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 修行进度 -->
+  <view class="card">
+    <view class="card-title">📈 修行进度</view>
+    <view class="progress-item">
+      <view class="progress-label">技能学习</view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{skillProgress}}%"></view>
+      </view>
+      <view class="progress-text">{{skillProgress}}%</view>
+    </view>
+    
+    <view class="progress-item">
+      <view class="progress-label">实践操作</view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{practiceProgress}}%"></view>
+      </view>
+      <view class="progress-text">{{practiceProgress}}%</view>
+    </view>
+    
+    <view class="progress-item">
+      <view class="progress-label">社区贡献</view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{contributionProgress}}%"></view>
+      </view>
+      <view class="progress-text">{{contributionProgress}}%</view>
+    </view>
+  </view>
+
+  <!-- 我的技能 -->
+  <view class="card">
+    <view class="card-title">⚔️ 我的技能</view>
+    <view class="skills-grid">
+      <view class="skill-item" wx:for="{{mySkills}}" wx:key="id">
+        <view class="skill-icon">{{item.icon}}</view>
+        <view class="skill-name">{{item.name}}</view>
+        <view class="skill-level">Lv.{{item.level}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近成就 -->
+  <view class="card">
+    <view class="card-title">🏆 最近成就</view>
+    <view class="achievements-list">
+      <view class="achievement-item" wx:for="{{recentAchievements}}" wx:key="id">
+        <view class="achievement-icon">{{item.icon}}</view>
+        <view class="achievement-info">
+          <view class="achievement-name">{{item.name}}</view>
+          <view class="achievement-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷操作 -->
+  <view class="quick-actions">
+    <button class="action-btn" bindtap="goToLearning">
+      <text>📚 继续学习</text>
+    </button>
+    <button class="action-btn" bindtap="goToTraining">
+      <text>🔨 技能实训</text>
+    </button>
+    <button class="action-btn" bindtap="goToProfileEdit">
+      <text>✏️ 编辑资料</text>
+    </button>
+  </view>
+</view>
