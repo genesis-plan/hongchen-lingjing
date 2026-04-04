@@ -81,107 +81,57 @@ const App = (function() {
 
     // ========== 技能数据 ==========
     
+    // MVP精选3个技能 - 基于国内用户偏好
     const SKILLS_DATA = [
         {
-            id: "chatgpt-101",
-            title: "ChatGPT入门指南",
-            category: "ai-tools",
-            difficulty: "beginner",
-            duration: "15分钟",
-            points: 50,
-            tags: ["AI", "效率工具", "写作"],
-            icon: "💬",
-            summary: "从零开始学会使用ChatGPT，提升写作和沟通效率",
-            description: "ChatGPT是OpenAI开发的AI对话助手，能够回答问题、协助写作、提供创意灵感。",
-            steps: [
-                { step: 1, title: "认识ChatGPT", content: "ChatGPT是一个AI助手，你可以像和朋友聊天一样向它提问。" },
-                { step: 2, title: "基础提问技巧", content: "好的提问能获得更好的回答：清晰具体、提供背景、指定格式。" },
-                { step: 3, title: "实际应用场景", content: "日常工作中可以：邮件撰写、文案优化、学习辅导、头脑风暴。" }
-            ]
-        },
-        {
-            id: "midjourney-101",
-            title: "Midjourney绘画入门",
+            id: "doubao-101",
+            title: "国产AI助手入门（豆包/通义/文心）",
             category: "ai-tools",
             difficulty: "beginner",
             duration: "20分钟",
-            points: 60,
-            tags: ["AI绘画", "创意", "设计"],
-            icon: "🎨",
-            summary: "用AI生成精美图片，让你的创意瞬间可视化",
-            description: "Midjourney是一款强大的AI绘画工具，只需输入文字描述，就能生成高质量的艺术图片。",
+            points: 50,
+            tags: ["AI", "豆包", "副业"],
+            icon: "🧠",
+            summary: "国内最火的AI工具用法，5分钟上手，接单变现",
+            description: "国内用户最常用的是豆包、通义千问、文心一言等国产AI。本课程教你快速掌握这些国产AI工具，用AI提升工作效率，还能接单变现。",
             steps: [
-                { step: 1, title: "了解Midjourney", content: "Midjourney通过文字描述生成图片，输入提示词即可获得图片。" },
-                { step: 2, title: "提示词基础", content: "好的提示词结构：主体+风格+环境+光线。越具体描述，生成图片越符合预期。" },
-                { step: 3, title: "进阶技巧", content: "添加参数如--ar 16:9，参考风格如'宫崎骏动画风格'，尝试不同版本。" }
+                { step: 1, title: "选择你的AI助手", content: "国内三大AI助手对比：\n• 豆包（字节）- 最火！嵌入抖音，日常聊天、写作、翻译全搞定\n• 通义千问（阿里）- 代码能力强，适合程序员和电商\n• 文心一言（百度）- 中文理解强，搜索增强，信息准确\n\n建议：新手先下载豆包，体验最好" },
+                { step: 2, title: "基础对话与功能探索", content: "打开豆包，试试这些指令：\n• '帮我写一段自我介绍'\n• '用Python写一个计算器'\n• '解释什么是AI'\n• '帮我制定本周工作计划'\n\n技巧：越具体的问题，得到答案越准确" },
+                { step: 3, title: "AI变现实战案例", content: "学会这些，马上能变现：\n• 短视频文案：'帮我写3条防晒衣带货文案'\n• 朋友圈微商：'生成10条吸睛产品海报文案'\n• 写简历：'优化我的简历，突出运营经验'\n• 小红书笔记：'写一篇成都旅游攻略，800字'\n\n变现路径：闲鱼接单/小红书博主/私域变现" }
             ]
         },
         {
-            id: "prompt-101",
-            title: "提示词工程基础",
+            id: "jianying-101",
+            title: "短视频剪辑（剪映）7天入门",
             category: "ai-tools",
-            difficulty: "intermediate",
+            difficulty: "beginner",
             duration: "25分钟",
-            points: 80,
-            tags: ["AI", "提示词", "进阶"],
-            icon: "⚡",
-            summary: "掌握提示词编写技巧，让AI更懂你",
-            description: "提示词工程是与AI高效沟通的核心技能，学会编写优质提示词，能让AI输出质量提升10倍。",
+            points: 60,
+            tags: ["短视频", "剪映", "抖音", "副业"],
+            icon: "🎬",
+            summary: "抖音小红书必备技能，7天学会接单赚钱",
+            description: "剪映是抖音官方推出的免费剪辑工具，7天就能学会基础剪辑。本课程教你从0到剪出第一条爆款短视频，学会后可以接单赚钱。",
             steps: [
-                { step: 1, title: "提示词核心原则", content: "编写高效提示词的原则：清晰具体、结构化、示例引导。" },
-                { step: 2, title: "常用技巧", content: "提升提示词效果的技巧：角色设定、格式指定、步骤分解、约束条件。" },
-                { step: 3, title: "实战模板", content: "常用场景模板：内容创作、分析总结、学习辅导等。" }
+                { step: 1, title: "剪映界面与基础操作", content: "下载剪映（免费），认识界面：\n• 导入：点击'+'导入视频/图片\n• 剪辑：拖动时间轴剪辑片段\n• 添加：底部添加音乐/文字/特效\n• 导出：右上角导出720P/1080P\n\n新手先练这4个功能就够了" },
+                { step: 2, title: "3个爆款剪辑技巧", content: "记住这3个技巧，视频点赞翻倍：\n\n1. 节奏剪辑：音乐卡点，每2-3秒切换画面\n2. 黄金3秒：开头必须抓眼球（冲突/疑问/惊艳）\n3. 添加字幕：识别字幕+花字，提高完播率\n\n实操：找一段音乐，跟随节奏剪15秒" },
+                { step: 3, title: "变现接单实战", content: "学会剪映后，这些变现方式：\n• 短视频代剪：闲鱼/淘宝接单，50-200元/条\n• 中视频计划：播放量分成，1万播放约20元\n• 账号代运营：包月3000-5000元/月\n• 小红书博主：接广告200-1000元/条\n\n起手：先从闲鱼接单开始，一单50元" }
             ]
         },
         {
-            id: "mobile-photo-101",
+            id: "photo-101",
             title: "手机摄影技巧",
             category: "life",
             difficulty: "beginner",
             duration: "20分钟",
             points: 40,
-            tags: ["摄影", "生活", "美学"],
+            tags: ["摄影", "手机", "朋友圈", "小红书"],
             icon: "📷",
-            summary: "用手机拍出大片感，记录生活中的美好瞬间",
-            description: "不需要专业相机，掌握这些技巧，用手机也能拍出惊艳的照片。",
+            summary: "用手机拍出高级感朋友圈，小红书涨粉利器",
+            description: "不需要专业相机，一部手机就能拍出惊艳照片。本课程教你用手机拍出刷爆朋友圈的大片，学会后还能约拍变现。",
             steps: [
-                { step: 1, title: "构图基础", content: "让照片更出彩的构图法则：三分法、引导线、对称美、留白。" },
-                { step: 2, title: "光线运用", content: "摄影是用光的艺术：黄金时间、顺光、侧光、逆光的运用。" },
-                { step: 3, title: "手机修图", content: "简单修图提升质感：调整曝光、增加对比度、适当饱和度、裁剪二次构图。" }
-            ]
-        },
-        {
-            id: "hanfu-101",
-            title: "汉服穿搭入门",
-            category: "traditional",
-            difficulty: "beginner",
-            duration: "15分钟",
-            points: 45,
-            tags: ["汉服", "传统文化", "穿搭"],
-            icon: "👘",
-            summary: "领略汉服之美，穿出古韵优雅气质",
-            description: "汉服不仅是衣服，更是文化的载体。本技能带你了解汉服基本形制，学会日常穿搭。",
-            steps: [
-                { step: 1, title: "认识汉服形制", content: "常见汉服款式：齐胸襦裙、齐腰襦裙、明制袄裙、宋制。新手推荐从齐腰襦裙或宋制开始。" },
-                { step: 2, title: "穿搭技巧", content: "汉服穿搭要点：层次分明、配色协调、发型搭配、鞋履选择。" },
-                { step: 3, title: "场合选择", content: "不同场合的穿搭建议：日常出行、拍照活动、传统节日、工作场合。" }
-            ]
-        },
-        {
-            id: "copywriting-101",
-            title: "古风文案创作",
-            category: "traditional",
-            difficulty: "intermediate",
-            duration: "30分钟",
-            points: 70,
-            tags: ["写作", "文案", "创意"],
-            icon: "✍️",
-            summary: "用文字描绘意境，学会创作优美古风文案",
-            description: "古风文案有独特的韵味和美感。本技能将教你掌握古风文案的创作方法和技巧。",
-            steps: [
-                { step: 1, title: "古风文案特点", content: "古风文案的独特魅力：意境营造、用词典雅、节奏韵律、文化底蕴。" },
-                { step: 2, title: "创作技巧", content: "古风文案写作技巧：借鉴古诗词、运用意象、时空交错、留白艺术。" },
-                { step: 3, title: "实战演练", content: "场景化练习：产品文案、社交媒体文案、节日祝福、情感表达。" }
+                { step: 1, title: "构图决定一切", content: "3个万能构图公式：\n\n1. 三分法：打开网格线，主体放在交叉点\n2. 留白：画面留40%空白，更有艺术感\n3. 引导线：道路/栏杆引导视线到主体\n\n打开手机设置→相机→网格线" },
+                { step: 2, title: "光线是照片的灵魂", content: "4种光线场景应对：\n• 晴天：顺光拍，早晨/傍晚光线最柔\n• 阴天：直接拍，氛围感反而更好\n• 室内：靠窗坐，自然光最出片\n• 夜景：打开夜景模式，手持2秒\n\n用手指点击屏幕对焦，向上拉增加曝光" },
+                { step: 3, title: "后期修图与变现", content: "推荐修图App（免费）：\n• 醒图 - 国人开发，功能全\n• Snapseed - 谷歌出品，专业\n• 美图秀秀 - 简单快捷\n\n修图万能公式：\n亮度+10 → 对比度+15 → 饱和度-5 → 色温-5\n\n变现方式：\n• 约拍：199-499元/组\n• 图库投稿：视觉中国/图虫\n• 摄影教学：小红书发教程" }
             ]
         }
     ];
@@ -475,7 +425,15 @@ const App = (function() {
     function startLearning(skillId) {
         const skill = allSkills.find(s => s.id === skillId);
         if (skill) {
-            alert('🚀 开始学习「' + skill.title + '」！\n\n此功能正在完善中，敬请期待！');
+            // 保存当前学习状态
+            localStorage.setItem('currentLearningSkill', JSON.stringify({
+                skillId: skill.id,
+                skillTitle: skill.title,
+                startTime: new Date().toISOString(),
+                currentStep: 1
+            }));
+            // 跳转到学习页面
+            window.location.href = 'learn.html?skill=' + skillId;
         }
     }
 

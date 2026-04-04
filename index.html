@@ -33,10 +33,9 @@
             <!-- 分类筛选 -->
             <section class="category-section">
                 <div class="category-tabs" id="categoryTabs">
-                    <button class="cat-tab active" data-category="all" onclick="filterCategory('all')">全部</button>
-                    <button class="cat-tab" data-category="ai-tools" onclick="filterCategory('ai-tools')">🤖 AI工具</button>
-                    <button class="cat-tab" data-category="traditional" onclick="filterCategory('traditional')">🏮 传统技艺</button>
-                    <button class="cat-tab" data-category="life" onclick="filterCategory('life')">🌸 生活美学</button>
+                    <button class="cat-tab active" data-category="all" onclick="App.filterCategory('all')">全部</button>
+                    <button class="cat-tab" data-category="ai-tools" onclick="App.filterCategory('ai-tools')">🤖 AI工具</button>
+                    <button class="cat-tab" data-category="life" onclick="App.filterCategory('life')">📷 生活摄影</button>
                 </div>
             </section>
 
@@ -89,9 +88,13 @@
         <footer class="app-footer">
             <p>红尘灵境 · 琅嬛福地 | 技能学习，从这里开始</p>
             <p class="footer-links">
-                <a href="#">关于我们</a> | 
-                <a href="#">联系方式</a> | 
+                <a href="privacy.html">隐私政策</a> | 
+                <a href="terms.html">用户协议</a> | 
                 <a href="https://xn--0ns36f36xyln.com/" target="_blank">访问主站</a>
+            </p>
+            <p style="font-size: 0.75em; color: #999; margin-top: 8px;">
+                粤ICP备2026031206号-1 | 粤公网安备44011402001267号
+            </p>
             </p>
         </footer>
     </div>
@@ -108,11 +111,7 @@
 
     <!-- 脚本 -->
     <script src="js/app.js"></script>
-    <script>
-        // 全局事件绑定
-        function filterCategory(cat) { App.filterCategory(cat); }
-        function searchSkills() { App.searchSkills(); }
-        function closeSkillModal(e) { App.closeSkillModal(e); }
-    </script>
+    <script src="js/feedback.js"></script>
+    <script src="js/xiaohongshu.js"></script>
 </body>
 </html>

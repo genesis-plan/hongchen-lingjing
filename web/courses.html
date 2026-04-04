@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>琅嬛福地课程 - 红尘灵境</title>
+    <meta name="description" content="红尘灵境琅嬛福地课程中心，提供大模型微调、提示词工程、多模态AI等AI技能实战课程">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .course-card {
+            background: linear-gradient(145deg, #f5f5f5 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .course-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .course-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .course-meta span {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 琅嬛福地课程中心</h1>
+            <p>红尘灵境技能学习，实战驱动，学以致用</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">已发布课程</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40</div>
+                    <div class="stat-label">课程节</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200分钟</div>
+                    <div class="stat-label">总时长</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">代码示例</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-icon">🤖</div>
+                <h3 class="course-title">大模型微调实战</h3>
+                <p class="course-description">从零开始掌握大模型微调技术，包括PEFT、LoRA、QLoRA等前沿方法，实战医疗诊断场景。</p>
+                <div class="tags">
+                    <span class="tag">AI-01</span>
+                    <span class="tag">大模型</span>
+                    <span class="tag">微调</span>
+                </div>
+                <div class="course-meta">
+                    <span>⏱️ 50分钟</span>
+                    <span>📊 难度：中等</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-icon">✨</div>
+                <h3 class="course-title">提示词工程精讲</h3>
+                <p class="course-description">掌握Prompt Engineering核心技巧，学会如何与AI高效沟通，从零开始打造专业提示词库。</p>
+                <div class="tags">
+                    <span class="tag">AI-02</span>
+                    <span class="tag">提示词</span>
+                    <span class="tag">Prompt</span>
+                </div>
+                <div class="course-meta">
+                    <span>⏱️ 50分钟</span>
+                    <span>📊 难度：入门</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-icon">🎨</div>
+                <h3 class="course-title">多模态AI应用</h3>
+                <p class="course-description">探索文本、图像、语音等多模态AI技术，学习GPT-4V、Stable Diffusion等实战应用。</p>
+                <div class="tags">
+                    <span class="tag">AI-03</span>
+                    <span class="tag">多模态</span>
+                    <span class="tag">图像</span>
+                </div>
+                <div class="course-meta">
+                    <span>⏱️ 50分钟</span>
+                    <span>📊 难度：中等</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-icon">🛠️</div>
+                <h3 class="course-title">AI工具使用指南</h3>
+                <p class="course-description">全面介绍ChatGPT、Midjourney、Stable Diffusion等20+主流AI工具的使用技巧。</p>
+                <div class="tags">
+                    <span class="tag">AI-04</span>
+                    <span class="tag">工具</span>
+                    <span class="tag">实战</span>
+                </div>
+                <div class="course-meta">
+                    <span>⏱️ 50分钟</span>
+                    <span>📊 难度：入门</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                <a href="index.html">返回首页</a> |
+                <a href="https://github.com/genesis-plan/hongchen-lingjing">GitHub</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9em;">© 2026 红尘灵境 | 粤ICP备2026031206号-1</p>
+        </div>
+    </div>
+</body>
+</html>
