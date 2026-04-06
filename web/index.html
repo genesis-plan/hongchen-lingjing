@@ -432,79 +432,524 @@
             loadWishes();
         };
     </script>
-<!-- 紫薇 AI 助手悬浮窗 -->
-<div id="ai-chat-btn" onclick="toggleChat()" style="
-  position:fixed; bottom:30px; right:30px; z-index:9999;
-  width:60px; height:60px; border-radius:50%;
-  background:linear-gradient(135deg, #722ed1, #b37feb); color:white; font-size:28px;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-  💜
+<!-- 紫薇智能对话系统 - 本地算法实现 v2.0 -->
+<!-- 不依赖外部大模型，纯本地意图识别+知识检索 -->
+<div id="ziwei-chat-widget" class="ziwei-widget">
+    <div class="ziwei-toggle" onclick="ziweiChat.toggleChat()">
+        <span class="ziwei-avatar">🎋</span>
+        <span class="ziwei-badge" id="ziwei-badge">1</span>
+    </div>
+    <div class="ziwei-panel" id="ziwei-panel">
+        <div class="ziwei-header">
+            <span class="ziwei-title">🎋 紫薇 · 学习伙伴</span>
+            <button class="ziwei-close" onclick="ziweiChat.toggleChat()">×</button>
+        </div>
+        <div class="ziwei-messages" id="ziwei-messages">
+            <div class="ziwei-message ziwei-bot">
+                <div class="ziwei-avatar-small">🎋</div>
+                <div class="ziwei-content">你好！我是紫薇，红尘灵境的AI学习伙伴。有什么可以帮你的吗？<br><br>💡 试试问我：<br>• "我想学Python"<br>• "推荐适合新手的技能"<br>• "这是什么地方"</div>
+            </div>
+        </div>
+        <div class="ziwei-input-area">
+            <input type="text" id="ziwei-input" placeholder="输入消息..." 
+                   onkeypress="if(event.key==='Enter') ziweiChat.sendMessage()">
+            <button onclick="ziweiChat.sendMessage()">发送</button>
+        </div>
+        <div class="ziwei-quick-replies">
+            <button onclick="ziweiChat.quickReply('我想学Python')">学Python</button>
+            <button onclick="ziweiChat.quickReply('推荐技能')">推荐技能</button>
+            <button onclick="ziweiChat.quickReply('这是什么地方')">元境介绍</button>
+            <button onclick="ziweiChat.quickReply('怎么发布心愿')">心愿指南</button>
+        </div>
+    </div>
 </div>
 
-<div id="ai-chat-box" style="
-  display:none; position:fixed; bottom:100px; right:30px;
-  width:360px; height:500px; z-index:9999;
-  background:white; border-radius:16px;
-  box-shadow:0 8px 32px rgba(0,0,0,0.2);
-  flex-direction:column; overflow:hidden;">
-  <div style="background:linear-gradient(135deg, #722ed1, #b37feb); color:white; padding:16px; font-weight:bold;">
-    💜 紫薇 AI 助手
-    <span onclick="toggleChat()" style="float:right; cursor:pointer;">✕</span>
-  </div>
-  <div id="chat-messages" style="flex:1; overflow-y:auto; padding:16px; height:360px;"></div>
-  <div style="padding:12px; border-top:1px solid #eee; display:flex; gap:8px;">
-    <input id="chat-input" type="text" placeholder="有什么问题都可以问我..."
-      style="flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:8px; outline:none;"
-      onkeydown="if(event.key==='Enter') sendMsg()"/>
-    <button onclick="sendMsg()" style="
-      padding:8px 16px; background:linear-gradient(135deg, #722ed1, #b37feb); color:white;
-      border:none; border-radius:8px; cursor:pointer;">发送</button>
-  </div>
-</div>
+<style id="ziwei-styles">
+    .ziwei-widget { position: fixed; bottom: 20px; right: 20px; z-index: 10000; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
+    .ziwei-toggle { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4); transition: transform 0.3s, box-shadow 0.3s; position: relative; }
+    .ziwei-toggle:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6); }
+    .ziwei-avatar { font-size: 28px; }
+    .ziwei-badge { position: absolute; top: -5px; right: -5px; background: #ff4757; color: white; border-radius: 50%; width: 22px; height: 22px; font-size: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .ziwei-panel { position: absolute; bottom: 75px; right: 0; width: 380px; height: 520px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; border: 1px solid #e0e0e0; }
+    .ziwei-panel.active { display: flex; }
+    .ziwei-header { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .ziwei-title { font-weight: bold; font-size: 16px; }
+    .ziwei-close { background: none; border: none; color: white; font-size: 24px; cursor: pointer; padding: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.3s; }
+    .ziwei-close:hover { background: rgba(255,255,255,0.2); }
+    .ziwei-messages { flex: 1; overflow-y: auto; padding: 20px; background: #f8f9fa; }
+    .ziwei-message { display: flex; margin-bottom: 15px; animation: fadeIn 0.3s; }
+    .ziwei-message.ziwei-bot { align-items: flex-start; }
+    .ziwei-message.ziwei-user { align-items: flex-end; flex-direction: row-reverse; }
+    .ziwei-avatar-small { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .ziwei-user .ziwei-avatar-small { background: #ff7e5f; }
+    .ziwei-content { max-width: 75%; padding: 12px 16px; border-radius: 18px; margin: 0 10px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+    .ziwei-bot .ziwei-content { background: white; border: 1px solid #e0e0e0; color: #333; border-bottom-left-radius: 4px; }
+    .ziwei-user .ziwei-content { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; border-bottom-right-radius: 4px; }
+    .ziwei-input-area { display: flex; padding: 15px; background: white; border-top: 1px solid #e0e0e0; gap: 10px; }
+    .ziwei-input-area input { flex: 1; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 25px; font-size: 14px; outline: none; transition: border-color 0.3s; }
+    .ziwei-input-area input:focus { border-color: #6a11cb; }
+    .ziwei-input-area button { padding: 12px 20px; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; transition: transform 0.3s, box-shadow 0.3s; }
+    .ziwei-input-area button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(106, 17, 203, 0.4); }
+    .ziwei-quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 15px; background: white; border-top: 1px solid #f0f0f0; }
+    .ziwei-quick-replies button { padding: 6px 12px; background: #f0f0f0; border: none; border-radius: 15px; font-size: 12px; cursor: pointer; transition: all 0.3s; color: #666; }
+    .ziwei-quick-replies button:hover { background: #6a11cb; color: white; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 480px) { .ziwei-panel { width: calc(100vw - 40px); height: 60vh; right: -10px; } }
+</style>
 
 <script>
-function toggleChat() {
-  const box = document.getElementById('ai-chat-box');
-  box.style.display = box.style.display === 'none' ? 'flex' : 'none';
+/**
+ * 紫薇智能对话系统 - 本地算法实现 v2.0
+ * 不依赖外部大模型，纯本地意图识别+知识检索
+ */
+class ZiWeiChat {
+    constructor() {
+        this.intentRules = this.initIntentRules();
+        this.knowledgeBase = this.initKnowledgeBase();
+        this.userContext = {};
+        this.responseCache = new Map();
+        this.initialize();
+    }
+
+    initialize() {
+        console.log('🎋 紫薇智能体已初始化...');
+    }
+
+    // ============ 意图识别模块 ============
+    initIntentRules() {
+        return [
+            { pattern: /学(习|.*)python|python.*(入门|教程|怎么)/i, type: 'learn_skill', skill: 'python', confidence: 0.9 },
+            { pattern: /学(习|.*)javascript|js.*(入门|教程)/i, type: 'learn_skill', skill: 'javascript', confidence: 0.9 },
+            { pattern: /学(习|.*)汉服|汉服.*(穿|系|入门)/i, type: 'learn_skill', skill: 'hanfu', confidence: 0.9 },
+            { pattern: /怎么学|如何学|想学.*技能/i, type: 'learn_method', confidence: 0.8 },
+            { pattern: /(什么|怎么|如何|为什么|谁|哪里|多少).*[?？]/, type: 'qa', confidence: 0.85 },
+            { pattern: /问(题|一下|问)|请教/i, type: 'qa', confidence: 0.8 },
+            { pattern: /推荐.*课程|有什么.*课程|适合.*课程/i, type: 'recommend_course', confidence: 0.85 },
+            { pattern: /推荐.*技能|学什么好|入门.*推荐/i, type: 'recommend_skill', confidence: 0.85 },
+            { pattern: /你(是|叫|能).*[?？]|你是谁/i, type: 'about', confidence: 0.9 },
+            { pattern: /帮助|help|怎么用|功能/i, type: 'help', confidence: 0.8 },
+            { pattern: /(谢谢|感谢|谢了)/i, type: 'thanks', confidence: 0.9 },
+            { pattern: /(你好|您好|嗨|hi|hello)/i, type: 'greeting', confidence: 0.9 },
+            { pattern: /再见|拜拜|bye|退出/i, type: 'goodbye', confidence: 0.9 },
+            { pattern: /元境|红尘灵境|网站.*(用|功能)/i, type: 'platform_intro', confidence: 0.8 },
+            { pattern: /心愿|许愿|发布心愿/i, type: 'wish_help', confidence: 0.8 },
+            { pattern: /任务|领任务|技能任务/i, type: 'task_help', confidence: 0.8 },
+        ];
+    }
+
+    recognizeIntent(input) {
+        const normalizedInput = input.toLowerCase().trim();
+        let bestMatch = { type: 'general', confidence: 0, data: {} };
+        
+        for (const rule of this.intentRules) {
+            if (rule.pattern.test(normalizedInput)) {
+                if (rule.confidence > bestMatch.confidence) {
+                    bestMatch = { type: rule.type, confidence: rule.confidence, data: { skill: rule.skill } };
+                }
+            }
+        }
+        
+        if (bestMatch.confidence < 0.5) {
+            bestMatch = this.keywordFallback(normalizedInput);
+        }
+        
+        return bestMatch;
+    }
+
+    keywordFallback(input) {
+        const keywords = {
+            'learn_skill': ['学', '教程', '入门', '怎么', '技能'],
+            'qa': ['什么', '怎么', '如何', '为什么'],
+            'recommend': ['推荐', '建议', '适合', '选择'],
+        };
+        
+        for (const [type, words] of Object.entries(keywords)) {
+            for (const word of words) {
+                if (input.includes(word)) return { type, confidence: 0.4, data: {} };
+            }
+        }
+        return { type: 'general', confidence: 0.3, data: {} };
+    }
+
+    // ============ 知识库模块 ============
+    initKnowledgeBase() {
+        return {
+            'python': {
+                title: 'Python入门学习',
+                content: `📚 **Python入门学习路径**
+
+Python是一门简单易学的编程语言，适合初学者入门。
+
+**学习阶段：**
+1️⃣ **基础语法**（1周）：变量、数据类型、控制流程
+2️⃣ **函数与模块**（1周）：函数定义、模块导入
+3️⃣ **面向对象**（2周）：类、对象、继承
+4️⃣ **实战项目**（2周）：爬虫、数据分析、Web开发
+
+**推荐资源：**
+• 《Python编程：从入门到实践》
+• 廖雪峰Python教程（免费）
+• 菜鸟教程Python篇
+
+💡 **紫薇建议**：每天练习1小时，坚持3个月就能独立完成项目！`,
+            },
+            'javascript': {
+                title: 'JavaScript前端开发',
+                content: `📚 **JavaScript前端开发学习路径**
+
+JavaScript是网页开发的核心语言，让网页"动"起来。
+
+**学习阶段：**
+1️⃣ **JS基础**（1周）：变量、函数、DOM操作
+2️⃣ **ES6+新特性**（1周）：箭头函数、Promise、async/await
+3️⃣ **前端框架**（2周）：Vue或React
+4️⃣ **项目实战**（2周）：做一个完整的Web应用
+
+**推荐资源：**
+• MDN Web文档（权威）
+• JavaScript高级程序设计（红宝书）
+• freeCodeCamp（免费实战）
+
+💡 **紫薇建议**：边学边做项目，效果最佳！`,
+            },
+            'hanfu': {
+                title: '汉服文化与穿着',
+                content: `👘 **汉服文化与穿着指南**
+
+汉服是汉族传统服饰，承载着深厚的文化内涵。
+
+**常见形制：**
+• **齐胸襦裙**：唐朝风格，飘逸灵动
+• **齐腰襦裙**：日常方便，行动自如
+• **圆领袍**：中性风格，男女皆宜
+• **马面裙**：明清风格，端庄大气
+
+**学习要点：**
+1. 认识不同形制的特点
+2. 学会正确穿着和系带
+3. 了解搭配礼仪
+4. 掌握基础妆造
+
+**推荐资源：**
+• 汉服同袍社群
+• B站汉服穿搭视频
+• 小红书汉服博主
+
+💡 **紫薇建议**：先从一套简单的齐腰襦裙开始体验！`,
+            },
+            'platform': {
+                title: '红尘灵境元境指南',
+                content: `🏛️ **红尘灵境元境指南**
+
+欢迎来到红尘灵境！这里是技能共创的元宇宙空间。
+
+**主要建筑：**
+• 🏠 **创世入口** - 开始你的元境之旅
+• 📜 **心愿云墙** - 发布你想学的技能
+• 📋 **任务星阁** - 认领任务，帮助他人
+• 🛠️ **造化工坊** - 创建技能教程
+• 🎭 **两仪墟市** - 社交休闲广场
+• 🔮 **万象璇玑** - 资源对接中心
+• 💰 **泉府通衢** - 积分交易系统
+• ⭐ **星枢问道** - 挑战赛与成就
+
+**新手流程：**
+1. 选择身份路径（太极/古风形象）
+2. 发布或认领一个技能心愿
+3. 学习或创建技能内容
+4. 获得积分与成就
+
+💡 **我是紫薇**，你的AI学习伙伴，有任何问题随时问我！`,
+            }
+        };
+    }
+
+    // ============ 回复生成模块 ============
+    generateResponse(intent, userInput) {
+        const { type, data } = intent;
+        
+        switch (type) {
+            case 'greeting': return this.getGreetingResponse();
+            case 'thanks': return this.getThanksResponse();
+            case 'goodbye': return '再见！记得坚持学习，有任何问题随时来找我。加油！💪';
+            case 'about': return this.getAboutResponse();
+            case 'help': return this.getHelpResponse();
+            case 'learn_skill': return this.getLearnSkillResponse(data.skill);
+            case 'learn_method': return this.getLearnMethodResponse();
+            case 'qa': return this.getQAResponse(userInput);
+            case 'recommend_course':
+            case 'recommend_skill': return this.getRecommendResponse();
+            case 'platform_intro': return this.knowledgeBase['platform'].content;
+            case 'wish_help': return this.getWishHelpResponse();
+            case 'task_help': return this.getTaskHelpResponse();
+            default: return this.getGeneralResponse(userInput);
+        }
+    }
+
+    getGreetingResponse() {
+        const greetings = [
+            '你好！我是紫薇，红尘灵境的AI学习伙伴。有什么可以帮你的吗？💫',
+            '欢迎回来！我是紫薇，今天想学什么技能呢？🌟',
+            '你好呀！我是紫薇，专门为你解答技能学习的问题。✨',
+            '欢迎！我是紫薇，你的元境学习向导。有什么心愿想要实现吗？🎋'
+        ];
+        return greetings[Math.floor(Math.random() * greetings.length)];
+    }
+
+    getThanksResponse() {
+        const thanks = [
+            '不客气！很高兴能帮到你。有问题随时找我~ 😊',
+            '不用谢！这是我的荣幸。继续加油学习哦！💪',
+            '你太客气了！能帮到你我也很开心。✨',
+            '不客气！祝你在元境学习愉快！🌟'
+        ];
+        return thanks[Math.floor(Math.random() * thanks.length)];
+    }
+
+    getAboutResponse() {
+        return `我是**紫薇**，红尘灵境的数字人AI学习伙伴。
+
+🎋 **我的使命：**
+• 帮助你找到想学的技能
+• 推荐合适的学习资源
+• 解答学习过程中的疑问
+• 陪伴你的成长之路
+
+💡 **目前我能做的：**
+• 推荐Python、JavaScript、汉服等入门教程
+• 介绍元境的各个功能模块
+• 回答常见问题
+
+🚀 **未来我会越来越聪明，敬请期待！**`;
+    }
+
+    getHelpResponse() {
+        return `🎯 **我可以帮你：**
+
+1️⃣ **技能学习**：
+   • "我想学Python" - 获取入门教程
+   • "推荐编程课程" - 获取课程推荐
+   • "汉服怎么穿" - 学习汉服知识
+
+2️⃣ **元境导航**：
+   • "这是什么地方" - 了解红尘灵境
+   • "怎么发布心愿" - 心愿墙使用指南
+   • "怎么领任务" - 任务系统说明
+
+3️⃣ **日常交流**：
+   • 闲聊、鼓励、学习建议
+   
+💡 **试试对我说**：
+"我想学Python" 或 "推荐适合新手的技能"`;
+    }
+
+    getLearnSkillResponse(skill) {
+        if (this.knowledgeBase[skill]) {
+            return this.knowledgeBase[skill].content;
+        }
+        return `抱歉，我暂时还没有关于"${skill}"的详细教程。
+
+不过我可以推荐一些学习思路：
+1. 先找一门入门视频课程（B站有很多免费资源）
+2. 跟着教程动手做项目
+3. 遇到问题可以来元境发布心愿，会有大神来帮你！
+
+你想先从哪个方向开始了解呢？`;
+    }
+
+    getLearnMethodResponse() {
+        return `📚 **高效学习技能的通用方法**
+
+**第一步：明确目标**
+• 想学到什么程度？（入门/熟练/精通）
+• 打算投入多少时间？
+
+**第二步：找到资源**
+• 在线教程（B站、慕课网）
+• 书籍教材
+• 实战项目
+
+**第三步：刻意练习**
+• 每天固定时间学习
+• 学一点就实践一点
+• 记录学习笔记
+
+**第四步：交流反馈**
+• 加入学习社群
+• 在元境发布心得
+• 帮助他人也是学习
+
+💡 **紫薇建议：坚持比完美更重要！**
+每天进步1%，一年后你会惊讶自己的成长。`;
+    }
+
+    getQAResponse(question) {
+        return `这个问题很有意思！不过我暂时还没有完整的答案。
+
+建议你可以：
+1️⃣ 去📜心愿云墙发布这个问题
+2️⃣ 等待其他元境行者来解答
+3️⃣ 或者换个方式问我，我会尽力帮你！
+
+比如你可以说："我想学Python" 或 "推荐适合新手的技能"`;
+    }
+
+    getRecommendResponse() {
+        return `🎯 **根据新手友好度，我推荐这些技能**
+
+**编程类**（高需求）：
+• **Python** - 简单易学，应用广泛
+• **JavaScript** - 网页开发必备
+• **HTML/CSS** - 制作网页的基础
+
+**国风类**（特色）：
+• **汉服穿搭** - 了解传统文化
+• **古风摄影** - 记录美好瞬间
+• **书法入门** - 修身养性
+
+**实用类**（生活）：
+• **手机修图** - 朋友圈利器
+• **视频剪辑** - Vlog时代必备
+• **演讲表达** - 提升自信
+
+💡 你想先从哪个方向开始？告诉我，我给你详细的入门指南！`;
+    }
+
+    getWishHelpResponse() {
+        return `📜 **心愿云墙使用指南**
+
+**什么是心愿？**
+心愿是你在元境发布的学习愿望，比如"想学汉服系带方法"。
+
+**怎么发布？**
+1. 点击顶部导航"📜 心愿云墙"
+2. 在输入框写下你的学习愿望
+3. 点击"发布心愿至云端"
+
+**发布后会怎样？**
+• 你的愿望会展示在心愿墙上
+• 其他元境行者可以看到并帮你
+• 有经验的用户会认领任务，创建教程
+
+**小贴士**：
+• 描述越具体越好（比如"3分钟学会"）
+• 可以添加标签方便分类
+• 有人帮你实现后可以表示感谢
+
+快去试试发布你的第一个心愿吧！`;
+    }
+
+    getTaskHelpResponse() {
+        return `📋 **任务星阁使用指南**
+
+**什么是任务？**
+任务是由心愿转化而来的技能教程创作需求。
+
+**怎么领任务？**
+1. 点击顶部导航"📋 任务星阁"
+2. 浏览当前可认领的任务
+3. 点击"认领此任务"按钮
+4. 去造化工坊创建技能教程
+
+**领任务的好处**：
+• 帮助他人实现愿望
+• 获得积分奖励
+• 提升个人影响力
+• 积累教学经验
+
+**积分奖励**：
+• 基础奖励：100积分
+• 优质内容：额外200积分
+• 被收藏：50积分/次
+
+快去认领一个你擅长的任务吧！`;
+    }
+
+    getGeneralResponse(input) {
+        return `收到你的消息："${input}"
+
+我大概理解了你的意思，不过为了能更好地帮助你，能否说得更具体一些？
+
+💡 你可以尝试：
+• "我想学Python" - 获取编程入门教程
+• "推荐适合新手的技能" - 获取技能推荐
+• "这是什么地方" - 了解红尘灵境
+• "怎么发布心愿" - 使用指南
+
+或者直接告诉我你想学什么，我会尽力帮你！`;
+    }
+
+    // ============ UI交互模块 ============
+    toggleChat() {
+        const panel = document.getElementById('ziwei-panel');
+        panel.classList.toggle('active');
+        const badge = document.getElementById('ziwei-badge');
+        if (badge) badge.style.display = 'none';
+        if (panel.classList.contains('active')) {
+            setTimeout(() => {
+                const input = document.getElementById('ziwei-input');
+                if (input) input.focus();
+            }, 100);
+        }
+    }
+
+    sendMessage() {
+        const input = document.getElementById('ziwei-input');
+        const message = input.value.trim();
+        if (!message) return;
+
+        this.addMessage(message, 'user');
+        input.value = '';
+        this.showTyping();
+
+        setTimeout(() => {
+            this.hideTyping();
+            const intent = this.recognizeIntent(message);
+            const response = this.generateResponse(intent, message);
+            this.addMessage(response, 'bot');
+        }, 500 + Math.random() * 300);
+    }
+
+    quickReply(text) {
+        const input = document.getElementById('ziwei-input');
+        input.value = text;
+        this.sendMessage();
+    }
+
+    addMessage(text, sender) {
+        const messagesContainer = document.getElementById('ziwei-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `ziwei-message ziwei-${sender}`;
+        const avatar = sender === 'bot' ? '🎋' : '👤';
+        messageDiv.innerHTML = `<div class="ziwei-avatar-small">${avatar}</div><div class="ziwei-content">${this.escapeHtml(text)}</div>`;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    showTyping() {
+        const messagesContainer = document.getElementById('ziwei-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.id = 'ziwei-typing';
+        typingDiv.className = 'ziwei-message ziwei-bot';
+        typingDiv.innerHTML = `<div class="ziwei-avatar-small">🎋</div><div class="ziwei-content" style="display:flex;gap:4px;align-items:center;padding:15px 20px;"><span style="animation:bounce 1s infinite;">●</span><span style="animation:bounce 1s infinite 0.2s;">●</span><span style="animation:bounce 1s infinite 0.4s;">●</span></div><style>@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}</style>`;
+        messagesContainer.appendChild(typingDiv);
+        messagesContainer.scrollTop = messages.scrollHeight;
+    }
+
+    hideTyping() {
+        const typing = document.getElementById('ziwei-typing');
+        if (typing) typing.remove();
+    }
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
 }
 
-async function sendMsg() {
-  const input = document.getElementById('chat-input');
-  const messages = document.getElementById('chat-messages');
-  const text = input.value.trim();
-  if (!text) return;
-
-  // 显示用户消息
-  messages.innerHTML += `<div style="text-align:right; margin:8px 0;">
-    <span style="background:#1677ff; color:white; padding:8px 12px; border-radius:12px; display:inline-block;">${text}</span>
-  </div>`;
-  input.value = '';
-  messages.scrollTop = messages.scrollHeight;
-
-  // 显示加载中
-  messages.innerHTML += `<div id="loading" style="margin:8px 0;">
-    <span style="background:#f0f0f0; padding:8px 12px; border-radius:12px; display:inline-block;">💜 紫薇思考中...</span>
-  </div>`;
-
-  // 调用紫薇 API
-  try {
-    const res = await fetch('http://159.75.154.206:3000/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: text })
-    });
-    const data = await res.json();
-    document.getElementById('loading').remove();
-    messages.innerHTML += `<div style="margin:8px 0;">
-      <span style="background:#f0f0f0; padding:8px 12px; border-radius:12px; display:inline-block;">${data.reply || data.message || '收到！'}</span>
-    </div>`;
-  } catch(e) {
-    document.getElementById('loading').remove();
-    messages.innerHTML += `<div style="margin:8px 0; color:red;">连接失败，请稍后再试</div>`;
-  }
-  messages.scrollTop = messages.scrollHeight;
-}
+// 初始化紫薇
+let ziweiChat = new ZiWeiChat();
 </script>
 </body>
 </html>
